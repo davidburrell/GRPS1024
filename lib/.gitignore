@@ -1,0 +1,3 @@
+#these two lines tell us to ignore specific folders in this directory
+/Desc_*
+/Enum_*
