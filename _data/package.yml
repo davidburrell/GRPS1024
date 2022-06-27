@@ -16,7 +16,7 @@ maintainers:
 GAP: ">= 4.11"
 
 www: https://https://github.com/davidburrell/GRPS1024
-readme: GRPS1024README.md
+readme: GRPS1024README
 packageinfo: https://https://github.com/davidburrell/GRPS1024PackageInfo.g
 
 downloads:

@@ -32,7 +32,7 @@ Persons := [
 #IssueTrackerURL := "TODO",
 PackageWWWHome := "https://https://github.com/davidburrell/GRPS1024",
 PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
-README_URL     := Concatenation( ~.PackageWWWHome, "README.md" ),
+README_URL     := Concatenation( ~.PackageWWWHome, "README" ),
 ArchiveURL     := Concatenation( ~.PackageWWWHome,
                                  "/", ~.PackageName, "-", ~.Version ),
 
