@@ -1,1 +1,33 @@
-Placeholder
+  
+  
+                                   [1X GRPS1024 [101X
+  
+  
+   [1X Utilities for iterating through the groups of order 1024 with p-class at
+                                    least 3 [101X
+  
+  
+                                      0.1
+  
+  
+                                  20 June 2022
+  
+  
+                                 Burrell David
+  
+  
+  
+  Burrell David
+      Email:    [7Xmailto:davidburrell@ufl.edu[107X
+  
+  -------------------------------------------------------
+  
+  
+  [1XContents (GRPS1024)[101X
+  
+  1 [33X[0;0YIntroduction[133X
+  2 [33X[0;0YFunctionality[133X
+    2.1 [33X[0;0YExample Methods[133X
+  
+  
+  [32X
