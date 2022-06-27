@@ -1,5 +1,5 @@
 name: GRPS1024
-version: "0.1"
+version: "0.0.1"
 license: "GPL-2.0-or-later"
 date: 2022-06-20
 description: |
@@ -15,16 +15,16 @@ maintainers:
 
 GAP: ">= 4.11"
 
-www: https://gap-system.github.io/GRPS1024/
+www: https://davidburrell.github.io/GRPS1024/
 readme: README.md
-packageinfo: https://gap-system.github.io/GRPS1024/PackageInfo.g
-github: https://github.com/gap-system/GRPS1024
+packageinfo: https://davidburrell.github.io/GRPS1024/PackageInfo.g
+github: https://github.com/davidburrell/GRPS1024
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/gap-system/GRPS1024/releases/download/v0.1/GRPS1024-0.1.tar.gz
+      url: https://github.com/davidburrell/GRPS1024/archive/refs/tags/v0.0.1.tar.gz
     - name: .zip
-      url: https://github.com/gap-system/GRPS1024/releases/download/v0.1/GRPS1024-0.1.zip
+      url: https://github.com/davidburrell/GRPS1024/archive/refs/tags/v0.0.1.zip
 
 abstract: |
 
@@ -35,23 +35,23 @@ citeas: |
     <p class='BibEntry'>
     [<span class='BibKey'>Bur22</span>]   <b class='BibAuthor'>Burrell, D.</b>,
      <i class='BibTitle'>GRPS1024, Utilities for iterating through the groups of order 1024 with p-class at least 3,
-             Version 0.1</i>
+             Version 0.0.1</i>
      (<span class='BibYear'>2022</span>)<br />
     (<span class='BibNote'>GAP package</span>),
-    <span class='BibHowpublished'><a href="https://gap-system.github.io/GRPS1024/">https://gap-system.github.io/GRPS1024/</a></span>.
+    <span class='BibHowpublished'><a href="https://davidburrell.github.io/GRPS1024/">https://davidburrell.github.io/GRPS1024/</a></span>.
     </p>
     
 
 bibtex: |
-    @misc{ GRPS10240.1,
+    @misc{ GRPS10240.0.1,
       author =           {Burrell, D.},
       title =            {{GRPS1024}, Utilities for iterating through the groups of order 1024
-                          with p-class at least 3, {V}ersion 0.1},
+                          with p-class at least 3, {V}ersion 0.0.1},
       month =            {Jun},
       year =             {2022},
       note =             {GAP package},
-      howpublished =     {\href                       {https://gap-system.github.io/GRPS1024/}
-                          {\texttt{https://gap-system.github.io/}\discretionary
+      howpublished =     {\href                     {https://davidburrell.github.io/GRPS1024/}
+                          {\texttt{https://davidburrell.github.io/}\discretionary
                           {}{}{}\texttt{GRPS1024/}}},
       printedkey =       {Bur22}
     }
