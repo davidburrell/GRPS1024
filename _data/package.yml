@@ -15,13 +15,16 @@ maintainers:
 
 GAP: ">= 4.11"
 
-www: https://https://github.com/davidburrell/GRPS1024/
-readme: README
-packageinfo: https://https://github.com/davidburrell/GRPS1024/PackageInfo.g
+www: https://gap-system.github.io/GRPS1024/
+readme: README.md
+packageinfo: https://gap-system.github.io/GRPS1024/PackageInfo.g
+github: https://github.com/gap-system/GRPS1024
 
 downloads:
     - name: .tar.gz
-      url: https://https://github.com/davidburrell/GRPS1024//GRPS1024-0.1.tar.gz
+      url: https://github.com/gap-system/GRPS1024/releases/download/v0.1/GRPS1024-0.1.tar.gz
+    - name: .zip
+      url: https://github.com/gap-system/GRPS1024/releases/download/v0.1/GRPS1024-0.1.zip
 
 abstract: |
 
@@ -35,7 +38,7 @@ citeas: |
              Version 0.1</i>
      (<span class='BibYear'>2022</span>)<br />
     (<span class='BibNote'>GAP package</span>),
-    <span class='BibHowpublished'><a href="https://https://github.com/davidburrell/GRPS1024/">https://https://github.com/davidburrell/GRPS1024/</a></span>.
+    <span class='BibHowpublished'><a href="https://gap-system.github.io/GRPS1024/">https://gap-system.github.io/GRPS1024/</a></span>.
     </p>
     
 
@@ -47,11 +50,9 @@ bibtex: |
       month =            {Jun},
       year =             {2022},
       note =             {GAP package},
-      howpublished =     {\href            {https://https://github.com/davidburrell/GRPS1024/}
-                          {\texttt{https://https:/}\discretionary
-                          {}{}{}\texttt{/}\discretionary
-                          {}{}{}\texttt{github.com/}\discretionary
-                          {}{}{}\texttt{davidburrell/}\discretionary {}{}{}\texttt{GRPS1024/}}},
+      howpublished =     {\href                       {https://gap-system.github.io/GRPS1024/}
+                          {\texttt{https://gap-system.github.io/}\discretionary
+                          {}{}{}\texttt{GRPS1024/}}},
       printedkey =       {Bur22}
     }
 
