@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 cp -f ../PackageInfo.g ../README* .
 cp -f ../doc/*.{css,html,js,txt} doc/
+~/gap/bin/gap.sh -b update.g
