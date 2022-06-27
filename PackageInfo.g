@@ -30,7 +30,7 @@ Persons := [
 
 #SourceRepository := rec( Type := "TODO", URL := "URL" ),
 #IssueTrackerURL := "TODO",
-PackageWWWHome := "https://https://github.com/davidburrell/GRPS1024",
+PackageWWWHome := "https://https://github.com/davidburrell/GRPS1024/",
 PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
 README_URL     := Concatenation( ~.PackageWWWHome, "README" ),
 ArchiveURL     := Concatenation( ~.PackageWWWHome,
