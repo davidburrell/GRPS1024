@@ -1,0 +1,11 @@
+  
+  [1X1 [33X[0;0YGroups of Order 1024[133X[101X
+  
+  
+  [1X1.1 [33X[0;0YOverview[133X[101X
+  
+  [33X[0;0YThis  package gives access to all of the groups of order 1024 with p-class 3
+  and  greater. The groups are sorted first by their parent group ids and then
+  by  the  pc codes of the standard presentations for the groups. These groups
+  were used in the 2021 enumeration of the groups of order 1024 [Bur21][133X
+  

@@ -1,0 +1,27 @@
+\begin{theindex}
+
+  \item \texttt  {AvailableMap}, \hyperpage{5}
+
+  \indexspace
+
+  \item \texttt  {CheckoutDescendants}, \hyperpage{4}
+
+  \indexspace
+
+  \item \texttt  {FindGroupN}, \hyperpage{4}
+  \item \texttt  {FindNthAvailableGroup}, \hyperpage{5}
+
+  \indexspace
+
+  \item \texttt  {IsAvailable}, \hyperpage{4}
+
+  \indexspace
+
+  \item \texttt  {LoadDescendants}, \hyperpage{4}
+
+  \indexspace
+
+  \item \texttt  {NumDescendants}
+    \subitem chardegblocks, \hyperpage{4}
+
+\end{theindex}

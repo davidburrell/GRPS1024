@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is an automatically generated file. -->
+<Chapter Label="Chapter_Functionality">
+<Heading>Functionality</Heading>
+
+<P/>
+<Section Label="Chapter_Functionality_Section_Methods">
+<Heading>Methods</Heading>
+
+<P/>
+ This section will describe the functions available in GRPS1024
+<P/>
+<ManSection Label="CharacterDegreesOfBlocks">
+  <Func Arg="modtbl" Name="NumDescendants" Label="chardegblocks"/>
+ <Returns>a list
+</Returns>
+ <Description>
+ Computes the list of lists of degrees of ordinary characters
+ associated to the <Math>p</Math>-blocks of the group <Math>G</Math>
+ with <Math>p</Math>-modular character table <A>modtbl</A>
+ and underlying ordinary character table <Code>ordtbl</Code>.
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="arg" Name="LoadDescendants" />
+ <Description>
+ a description
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="arg" Name="CheckoutDescendants" />
+ <Description>
+ a description
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="arg" Name="IsAvailable" />
+ <Description>
+ a description
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="arg" Name="FindGroupN" />
+ <Description>
+ a description
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="arg" Name="FindNthAvailableGroup" />
+ <Description>
+ a description
+ </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Arg="arg" Name="AvailableMap" />
+ <Description>
+ a description
+ </Description>
+</ManSection>
+
+
+</Section>
+
+
+</Chapter>
+

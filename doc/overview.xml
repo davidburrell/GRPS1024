@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Chapter Label="Groups of Order 1024">
+<Heading>Groups of Order 1024</Heading>
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+<Section Label="Overview">
+<Heading>Overview</Heading>
+
+	This package gives access to all of the groups of order 1024 with <M>p</M>-class 3 and greater. The groups are sorted first by their parent group ids and then by the pc codes of the standard presentations for the groups. These groups were used in the 2021 enumeration of the groups of order 1024 <Cite Key="Burrell2021a"/>
+</Section>
+
+</Chapter>
