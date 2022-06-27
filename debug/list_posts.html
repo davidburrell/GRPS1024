@@ -1,0 +1,6 @@
+---
+title: "List site.posts"
+---
+
+{% assign posts_sorted = site.posts | sort: "date" %}
+{% include debug_list_posts.html posts=posts_sorted %}

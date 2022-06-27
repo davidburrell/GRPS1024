@@ -1,0 +1,52 @@
+---
+title: "Dump site.github"
+---
+
+{% comment %} `for in site.github` returns keys already sorted  {% endcomment %}
+
+<table class="trtoggle">
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead><tbody>
+    {% for key in site.github %}
+      <tr>
+        <td>{{key}}</td>
+        <td>
+          {% assign dval = site.github[key] %}
+          {% case key %}
+          {% when "contributors" %}
+            {% for c in site.github.contributors %}
+              <a href="dump_site_github_contr.html#{{c.login}}">{{c.login}}</a>
+              {% unless forloop.last %} , {% endunless %}
+            {% endfor %}
+            <br>
+            <a href="dump_site_github_contr.html">
+              <em>see dump_site_github_contr</em></a>
+          {% when "public_repositories" %}
+            {% for r in site.github.public_repositories %}
+              <a href="dump_site_github_repos.html#{{r.name}}">{{r.name}}</a>
+              {% unless forloop.last %} , {% endunless %}
+            {% endfor %}
+            <br>
+            <a href="dump_site_github_repos.html">
+              <em>see dump_site_github_repos</em></a>
+          {% when "versions" %}
+            {% for v in site.github.versions %}
+              {{v[0]}} : {{v[1]}}
+              {% unless forloop.last %} <br> {% endunless %}
+            {% endfor %}
+          {% else %}
+            {% include dump_variable.html val=dval max="500" %}
+          {% endcase %}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% unless site.github %}
+  <b>site.github undefined</b>
+{% endunless %}

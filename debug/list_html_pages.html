@@ -1,0 +1,6 @@
+---
+title: "List site.html_pages"
+---
+
+{% assign pages_sorted = site.html_pages | sort: "url" %}
+{% include debug_list_pages.html pages=pages_sorted %}
