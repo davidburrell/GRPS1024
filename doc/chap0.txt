@@ -25,9 +25,17 @@
   
   [1XContents (GRPS1024)[101X
   
-  1 [33X[0;0YIntroduction[133X
+  1 [33X[0;0YGroups of Order 1024[133X
+    1.1 [33X[0;0YOverview[133X
   2 [33X[0;0YFunctionality[133X
-    2.1 [33X[0;0YExample Methods[133X
+    2.1 [33X[0;0YMethods[133X
+      2.1-1 NumDescendants
+      2.1-2 LoadDescendants
+      2.1-3 CheckoutDescendants
+      2.1-4 IsAvailable
+      2.1-5 FindGroupN
+      2.1-6 FindNthAvailableGroup
+      2.1-7 AvailableMap
   
   
   [32X

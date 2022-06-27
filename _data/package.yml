@@ -6,22 +6,22 @@ description: |
     Utilities for iterating through the groups of order 1024 with p-class at least 3
 
 authors:
-    - name: Burrell David
-      url: mailto:davidburrell@ufl.edu
+    - name: David Burrell
+      url: https://davidburrell.github.io/
 
 maintainers:
-    - name: Burrell David
-      url: mailto:davidburrell@ufl.edu
+    - name: David Burrell
+      url: https://davidburrell.github.io/
 
 GAP: ">= 4.11"
 
-www: https://TODO/
-readme: README.md
-packageinfo: https://TODO/PackageInfo.g
+www: https://https://github.com/davidburrell/GRPS1024
+readme: GRPS1024README.md
+packageinfo: https://https://github.com/davidburrell/GRPS1024PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://TODO//GRPS1024-0.1.tar.gz
+      url: https://https://github.com/davidburrell/GRPS1024/GRPS1024-0.1.tar.gz
 
 abstract: |
 
@@ -30,24 +30,28 @@ doc-html: doc/chap0.html
 doc-pdf: doc/manual.pdf
 citeas: |
     <p class='BibEntry'>
-    [<span class='BibKey'>Dav22</span>]   <b class='BibAuthor'>David, B.</b>,
+    [<span class='BibKey'>Bur22</span>]   <b class='BibAuthor'>Burrell, D.</b>,
      <i class='BibTitle'>GRPS1024, Utilities for iterating through the groups of order 1024 with p-class at least 3,
              Version 0.1</i>
      (<span class='BibYear'>2022</span>)<br />
     (<span class='BibNote'>GAP package</span>),
-    <span class='BibHowpublished'><a href="https://TODO/">https://TODO/</a></span>.
+    <span class='BibHowpublished'><a href="https://https://github.com/davidburrell/GRPS1024">https://https://github.com/davidburrell/GRPS1024</a></span>.
     </p>
     
 
 bibtex: |
     @misc{ GRPS10240.1,
-      author =           {David, B.},
+      author =           {Burrell, D.},
       title =            {{GRPS1024}, Utilities for iterating through the groups of order 1024
                           with p-class at least 3, {V}ersion 0.1},
       month =            {Jun},
       year =             {2022},
       note =             {GAP package},
-      howpublished =     {\href {https://TODO/} {\texttt{https://TODO/}}},
-      printedkey =       {Dav22}
+      howpublished =     {\href             {https://https://github.com/davidburrell/GRPS1024}
+                          {\texttt{https://https:/}\discretionary
+                          {}{}{}\texttt{/}\discretionary
+                          {}{}{}\texttt{github.com/}\discretionary
+                          {}{}{}\texttt{davidburrell/}\discretionary {}{}{}\texttt{GRPS1024}}},
+      printedkey =       {Bur22}
     }
 

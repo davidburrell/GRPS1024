@@ -2,6 +2,13 @@
   
   [1XIndex[101X
   
+  [2XAvailableMap[102X 2.1-7 
+  [2XCheckoutDescendants[102X 2.1-3 
+  [2XFindGroupN[102X 2.1-5 
+  [2XFindNthAvailableGroup[102X 2.1-6 
+  [2XIsAvailable[102X 2.1-4 
+  [2XLoadDescendants[102X 2.1-2 
+  [2XNumDescendants[102X, chardegblocks 2.1-1 
   
   
   -------------------------------------------------------
