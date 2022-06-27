@@ -42,7 +42,8 @@ citeas: |
 bibtex: |
     @misc{ GRPS10240.1,
       author =           {David, B.},
-      title =            {{GRPS1024}, Utilities for iterating through the groups of order 1024 with p-class at least 3, {V}ersion 0.1},
+      title =            {{GRPS1024}, Utilities for iterating through the groups of order 1024
+                          with p-class at least 3, {V}ersion 0.1},
       month =            {Jun},
       year =             {2022},
       note =             {GAP package},
