@@ -16,9 +16,9 @@ License := "GPL-2.0-or-later",
 
 Persons := [
   rec(
-    FirstNames := "Burrell",
-    LastName := "David",
-    #WWWHome := TODO,
+    FirstNames := "David",
+    LastName := "Burrell",
+    WWWHome := "https://davidburrell.github.io/",
     Email := "davidburrell@ufl.edu",
     IsAuthor := true,
     IsMaintainer := true,
@@ -30,9 +30,9 @@ Persons := [
 
 #SourceRepository := rec( Type := "TODO", URL := "URL" ),
 #IssueTrackerURL := "TODO",
-PackageWWWHome := "https://TODO/",
+PackageWWWHome := "https://https://github.com/davidburrell/GRPS1024",
 PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
-README_URL     := Concatenation( ~.PackageWWWHome, "README.md" ),
+README_URL     := Concatenation( ~.PackageWWWHome, "README" ),
 ArchiveURL     := Concatenation( ~.PackageWWWHome,
                                  "/", ~.PackageName, "-", ~.Version ),
 
