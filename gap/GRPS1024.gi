@@ -202,7 +202,7 @@ if n <= 49487367289 then
 				fi;
 				desc:=CheckoutDescendants(order,group[1]);
 				#desc:=List(desc,CodePcGroup);
-				Sort(desc);
+				#Sort(desc);
 				return [order,group[1],step,n-offset,desc[n-offset]];
 			else
 				continue;

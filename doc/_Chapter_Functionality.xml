@@ -12,22 +12,19 @@
  This section will describe the functions available in GRPS1024
 <P/>
 <ManSection Label="CharacterDegreesOfBlocks">
-  <Func Arg="modtbl" Name="NumDescendants" Label="chardegblocks"/>
- <Returns>a list
+  <Func Arg="Order ID" Name="NumDescendants" />
+ <Returns>an integer
 </Returns>
  <Description>
- Computes the list of lists of degrees of ordinary characters
- associated to the <Math>p</Math>-blocks of the group <Math>G</Math>
- with <Math>p</Math>-modular character table <A>modtbl</A>
- and underlying ordinary character table <Code>ordtbl</Code>.
+returns the number of immediate descendants of order 1024 of SmallGroup(Order,ID)
  </Description>
 </ManSection>
 
 
 <ManSection>
-  <Func Arg="arg" Name="LoadDescendants" />
+  <Func Arg="Order,ID" Name="LoadDescendants" />
  <Description>
- a description
+Loads the immediate descendants of <C>SmallGroup(Order,ID)</C> into global variable <C>GRPS1024_DESC.(Order)[ID]</C> if the descendants are available else it loads into global variable <C>GRPS1024_ENUM.(Order)[ID]</C> the number of immediate descendants of order 1024 of <C>SmallGroup(Order,ID)</C>
  </Description>
 </ManSection>
 
@@ -35,23 +32,27 @@
 <ManSection>
   <Func Arg="arg" Name="CheckoutDescendants" />
  <Description>
- a description
+ Returns the immediate descendants of <C>SmallGroup(Order,ID)</C> as a list. If the list is empty this implies that the immediate descendants of <C>SmallGroup(Order,ID)</C> are not available, this might be because it doesn't have any or that <C>SmallGroup(Order,ID)</C> has <Math>p</Math>-class 1 and the presentations are not available. To see if the group has immediate descendants use <C>NumDescendants</C>.
  </Description>
 </ManSection>
 
 
 <ManSection>
-  <Func Arg="arg" Name="IsAvailable" />
+  <Func Arg="N" Name="IsAvailable" />
+ <Returns><Code>true</Code> or <Code>false</Code>
+</Returns>
  <Description>
- a description
+ Checks if the nth group of order 1024 is available, there are 49487367289 groups of order 1024 and those which have <Math>p</Math>-class three and greater are available.
  </Description>
 </ManSection>
 
 
 <ManSection>
-  <Func Arg="arg" Name="FindGroupN" />
+  <Func Arg="N" Name="FindGroupN" />
+ <Returns>list if available or else nil
+</Returns>
  <Description>
- a description
+ Finds the <Math>N</Math>th group of order 1024 in storage and returns a list <Code>[Order,ID,step,n-offset,grp]</Code> which consists of the order of the parent group, the ID of the parent group, the step size, the position relative to its siblings, and the last entry is the pccode of the actual group. if the group is not available then an informative message about the groups heritage is printed.
  </Description>
 </ManSection>
 
@@ -59,7 +60,7 @@
 <ManSection>
   <Func Arg="arg" Name="FindNthAvailableGroup" />
  <Description>
- a description
+ Of the available groups returns the <Math>N</Math>th one. This should be the main function used to iterate throught the <Math>683,875,133</Math> available groups.
  </Description>
 </ManSection>
 
@@ -67,9 +68,17 @@
 <ManSection>
   <Func Arg="arg" Name="AvailableMap" />
  <Description>
- a description
+ This takes handles the translation between the ordering of the groups of order 1024 and the available groups of order 1024. For <Math>1 \leq i \leq 683,875,133</Math> this will return the position of the <Math>i</Math>th available group among all the groups of order 1024.
  </Description>
 </ManSection>
+
+
+<Example><![CDATA[
+gap> S5 := SymmetricGroup(5);
+Sym( [ 1 .. 5 ] )
+gap> Order(S5);
+120
+]]></Example>
 
 
 </Section>

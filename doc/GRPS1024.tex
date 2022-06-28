@@ -102,7 +102,7 @@
 3 \mbox{}}}\\
 \vfill
 
-{\Huge  0.1 \mbox{}}\\[1cm]
+{\Huge  0.0.1 \mbox{}}\\[1cm]
 { 20 June 2022 \mbox{}}\\[1cm]
 \mbox{}\\[2cm]
 {\Large \textbf{ David Burrell\\
@@ -165,31 +165,32 @@ used in the 2021 enumeration of the groups of order 1024 \cite{Burrell2021a}
 
  
 
-\subsection{\textcolor{Chapter }{NumDescendants (chardegblocks)}}
+\subsection{\textcolor{Chapter }{NumDescendants}}
 \logpage{[ 2, 1, 1 ]}\nobreak
 \label{CharacterDegreesOfBlocks}
-\hyperdef{L}{X829B669A79D279BC}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{NumDescendants({\mdseries\slshape modtbl})\index{NumDescendants@\texttt{NumDescendants}!chardegblocks}
-\label{NumDescendants:chardegblocks}
+\hyperdef{L}{X8434B096793033BC}{}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{NumDescendants({\mdseries\slshape Order, ID})\index{NumDescendants@\texttt{NumDescendants}}
+\label{NumDescendants}
 }\hfill{\scriptsize (function)}}\\
 \textbf{\indent Returns:\ }
-a list 
+an integer 
 
 
 
- Computes the list of lists of degrees of ordinary characters associated to the $p$-blocks of the group $G$ with $p$-modular character table \mbox{\texttt{\mdseries\slshape modtbl}} and underlying ordinary character table \texttt{ordtbl}. }
+ returns the number of immediate descendants of order 1024 of
+SmallGroup(Order,ID) }
 
  
 
 \subsection{\textcolor{Chapter }{LoadDescendants}}
 \logpage{[ 2, 1, 2 ]}\nobreak
 \hyperdef{L}{X7908BA5B84777B49}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LoadDescendants({\mdseries\slshape arg})\index{LoadDescendants@\texttt{LoadDescendants}}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{LoadDescendants({\mdseries\slshape Order, ID})\index{LoadDescendants@\texttt{LoadDescendants}}
 \label{LoadDescendants}
 }\hfill{\scriptsize (function)}}\\
 
 
- a description }
+ Loads the immediate descendants of \texttt{SmallGroup(Order,ID)} into global variable \texttt{GRPS1024{\textunderscore}DESC.(Order)[ID]} if the descendants are available else it loads into global variable \texttt{GRPS1024{\textunderscore}ENUM.(Order)[ID]} the number of immediate descendants of order 1024 of \texttt{SmallGroup(Order,ID)} }
 
  
 
@@ -201,31 +202,42 @@ a list
 }\hfill{\scriptsize (function)}}\\
 
 
- a description }
+ Returns the immediate descendants of \texttt{SmallGroup(Order,ID)} as a list. If the list is empty this implies that the immediate descendants of \texttt{SmallGroup(Order,ID)} are not available, this might be because it doesn't have any or that \texttt{SmallGroup(Order,ID)} has $p$-class 1 and the presentations are not available. To see if the group has
+immediate descendants use \texttt{NumDescendants}. }
 
  
 
 \subsection{\textcolor{Chapter }{IsAvailable}}
 \logpage{[ 2, 1, 4 ]}\nobreak
 \hyperdef{L}{X7C8C9C437C9A6BED}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsAvailable({\mdseries\slshape arg})\index{IsAvailable@\texttt{IsAvailable}}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{IsAvailable({\mdseries\slshape N})\index{IsAvailable@\texttt{IsAvailable}}
 \label{IsAvailable}
 }\hfill{\scriptsize (function)}}\\
+\textbf{\indent Returns:\ }
+\texttt{true} or \texttt{false} 
 
 
- a description }
+
+ Checks if the nth group of order 1024 is available, there are 49487367289
+groups of order 1024 and those which have $p$-class three and greater are available. }
 
  
 
 \subsection{\textcolor{Chapter }{FindGroupN}}
 \logpage{[ 2, 1, 5 ]}\nobreak
 \hyperdef{L}{X7A118404838C8EC7}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FindGroupN({\mdseries\slshape arg})\index{FindGroupN@\texttt{FindGroupN}}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FindGroupN({\mdseries\slshape N})\index{FindGroupN@\texttt{FindGroupN}}
 \label{FindGroupN}
 }\hfill{\scriptsize (function)}}\\
+\textbf{\indent Returns:\ }
+list if available or else nil 
 
 
- a description }
+
+ Finds the $N$th group of order 1024 in storage and returns a list \texttt{[Order,ID,step,n-offset,grp]} which consists of the order of the parent group, the ID of the parent group,
+the step size, the position relative to its siblings, and the last entry is
+the pccode of the actual group. if the group is not available then an
+informative message about the groups heritage is printed. }
 
  
 
@@ -237,7 +249,7 @@ a list
 }\hfill{\scriptsize (function)}}\\
 
 
- a description }
+ Of the available groups returns the $N$th one. This should be the main function used to iterate throught the $683,875,133$ available groups. }
 
  
 
@@ -249,8 +261,16 @@ a list
 }\hfill{\scriptsize (function)}}\\
 
 
- a description }
+ This takes handles the translation between the ordering of the groups of order
+1024 and the available groups of order 1024. For $1 \leq i \leq 683,875,133$ this will return the position of the $i$th available group among all the groups of order 1024. }
 
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@S5 := SymmetricGroup(5);|
+  Sym( [ 1 .. 5 ] )
+  !gapprompt@gap>| !gapinput@Order(S5);|
+  120
+\end{Verbatim}
  }
 
  }

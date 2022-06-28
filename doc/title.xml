@@ -9,7 +9,7 @@
     Utilities for iterating through the groups of order 1024 with p-class at least 3
   </Subtitle>
   <Version>
-    0.1
+    0.0.1
   </Version>
   <Author>
     David Burrell<Alt Only="LaTeX"><Br/></Alt>

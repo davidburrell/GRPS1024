@@ -10,7 +10,7 @@ SetPackageInfo( rec(
 
 PackageName := "GRPS1024",
 Subtitle := "Utilities for iterating through the groups of order 1024 with p-class at least 3",
-Version := "0.1",
+Version := "0.0.1",
 Date := "20/06/2022", # dd/mm/yyyy format
 License := "GPL-2.0-or-later",
 
@@ -30,13 +30,24 @@ Persons := [
 
 #SourceRepository := rec( Type := "TODO", URL := "URL" ),
 #IssueTrackerURL := "TODO",
-PackageWWWHome := "https://https://github.com/davidburrell/GRPS1024/",
-PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
-README_URL     := Concatenation( ~.PackageWWWHome, "README" ),
-ArchiveURL     := Concatenation( ~.PackageWWWHome,
-                                 "/", ~.PackageName, "-", ~.Version ),
+# PackageWWWHome := "https://https://github.com/davidburrell/GRPS1024/",
+# PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
+# README_URL     := Concatenation( ~.PackageWWWHome, "README" ),
+# ArchiveURL     := Concatenation( ~.PackageWWWHome,
+#                                  "/", ~.PackageName, "-", ~.Version ),
+GithubUser := "davidburrell",
+GithubRepository := ~.PackageName,
+GithubWWW := Concatenation("https://github.com/", ~.GithubUser, "/", ~.GithubRepository),
 
-ArchiveFormats := ".tar.gz",
+PackageWWWHome := Concatenation("https://", ~.GithubUser, ".github.io/", ~.GithubRepository, "/"),
+README_URL     := Concatenation( ~.PackageWWWHome, "README.md" ),
+PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
+# The following assumes you are using the Github releases system. If not, adjust
+# it accordingly.
+ArchiveURL     := Concatenation(~.GithubWWW,
+                    "/archive/refs/tags/v", ~.Version),
+#https://github.com/davidburrell/GRPS1024/archive/refs/tags/v.0.0.1.zip
+ArchiveFormats := ".tar.gz .zip",
 
 ##  Status information. Currently the following cases are recognized:
 ##    "accepted"      for successfully refereed packages

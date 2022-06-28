@@ -1,7 +1,7 @@
-\indexentry{NumDescendants@\texttt  {NumDescendants}!chardegblocks|hyperpage}{4}
+\indexentry{NumDescendants@\texttt  {NumDescendants}|hyperpage}{4}
 \indexentry{LoadDescendants@\texttt  {LoadDescendants}|hyperpage}{4}
 \indexentry{CheckoutDescendants@\texttt  {CheckoutDescendants}|hyperpage}{4}
 \indexentry{IsAvailable@\texttt  {IsAvailable}|hyperpage}{4}
-\indexentry{FindGroupN@\texttt  {FindGroupN}|hyperpage}{4}
+\indexentry{FindGroupN@\texttt  {FindGroupN}|hyperpage}{5}
 \indexentry{FindNthAvailableGroup@\texttt  {FindNthAvailableGroup}|hyperpage}{5}
 \indexentry{AvailableMap@\texttt  {AvailableMap}|hyperpage}{5}

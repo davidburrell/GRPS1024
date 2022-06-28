@@ -8,7 +8,7 @@
 
   \indexspace
 
-  \item \texttt  {FindGroupN}, \hyperpage{4}
+  \item \texttt  {FindGroupN}, \hyperpage{5}
   \item \texttt  {FindNthAvailableGroup}, \hyperpage{5}
 
   \indexspace
@@ -21,7 +21,6 @@
 
   \indexspace
 
-  \item \texttt  {NumDescendants}
-    \subitem chardegblocks, \hyperpage{4}
+  \item \texttt  {NumDescendants}, \hyperpage{4}
 
 \end{theindex}
