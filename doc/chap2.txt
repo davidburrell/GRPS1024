@@ -9,7 +9,7 @@
   [1X2.1-1 NumDescendants[101X
   
   [33X[1;0Y[29X[2XNumDescendants[102X( [3XOrder[103X, [3XID[103X ) [32X function[133X
-  [6XReturns:[106X  [33X[0;10Yan integer[133X
+  [6XReturns:[106X  [33X[0;10Yan [10Xint[110X[133X
   
   [33X[0;0Yreturns   the   number   of   immediate   descendants   of   order  1024  of
   SmallGroup(Order,ID)[133X
@@ -25,28 +25,29 @@
   
   [1X2.1-3 CheckoutDescendants[101X
   
-  [33X[1;0Y[29X[2XCheckoutDescendants[102X( [3Xarg[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XCheckoutDescendants[102X( [3XOrder[103X, [3XID[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Y'list'[133X
   
   [33X[0;0YReturns  the immediate descendants of [10XSmallGroup(Order,ID)[110X as a list. If the
   list   is   empty   this   implies   that   the   immediate  descendants  of
   [10XSmallGroup(Order,ID)[110X  are  not  available,  this might be because it doesn't
   have  any  or  that [10XSmallGroup(Order,ID)[110X has [23Xp[123X-class 1 and the presentations
   are  not  available.  To  see  if  the  group  has immediate descendants use
-  [10XNumDescendants[110X.[133X
+  [10XNumDescendants(Order,ID)[110X.[133X
   
   [1X2.1-4 IsAvailable[101X
   
   [33X[1;0Y[29X[2XIsAvailable[102X( [3XN[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X or [10Xfalse[110X[133X
   
-  [33X[0;0YChecks  if  the  nth group of order 1024 is available, there are 49487367289
+  [33X[0;0YChecks  if  the  Nth group of order 1024 is available, there are 49487367289
   groups  of  order  1024  and  those which have [23Xp[123X-class three and greater are
-  available.[133X
+  available through this package.[133X
   
   [1X2.1-5 FindGroupN[101X
   
   [33X[1;0Y[29X[2XFindGroupN[102X( [3XN[103X ) [32X function[133X
-  [6XReturns:[106X  [33X[0;10Ylist if available or else nil[133X
+  [6XReturns:[106X  [33X[0;10Ylist if available[133X
   
   [33X[0;0YFinds   the  [23XN[123Xth  group  of  order  1024  in  storage  and  returns  a  list
   [10X[Order,ID,step,n-offset,grp][110X  which  consists  of  the  order  of the parent
@@ -57,24 +58,19 @@
   
   [1X2.1-6 FindNthAvailableGroup[101X
   
-  [33X[1;0Y[29X[2XFindNthAvailableGroup[102X( [3Xarg[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XFindNthAvailableGroup[102X( [3XN[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Y'FindGroupN(AvailableMap(N))'[133X
   
   [33X[0;0YOf  the  available  groups  returns  the  [23XN[123Xth  one.  This should be the main
   function used to iterate throught the [23X683,875,133[123X available groups.[133X
   
   [1X2.1-7 AvailableMap[101X
   
-  [33X[1;0Y[29X[2XAvailableMap[102X( [3Xarg[103X ) [32X function[133X
+  [33X[1;0Y[29X[2XAvailableMap[102X( [3XN[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Y'int'[133X
   
   [33X[0;0YThis  takes  handles  the  translation between the ordering of the groups of
   order  1024  and  the  available  groups  of  order  1024. For [23X1 \leq i \leq
   683,875,133[123X  this  will return the position of the [23Xi[123Xth available group among
   all the groups of order 1024.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XS5 := SymmetricGroup(5);[127X[104X
-    [4X[28XSym( [ 1 .. 5 ] )[128X[104X
-    [4X[25Xgap>[125X [27XOrder(S5);[127X[104X
-    [4X[28X120[128X[104X
-  [4X[32X[104X
   

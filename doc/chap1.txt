@@ -7,5 +7,7 @@
   [33X[0;0YThis  package gives access to all of the groups of order 1024 with p-class 3
   and  greater. The groups are sorted first by their parent group ids and then
   by  the  pc codes of the standard presentations for the groups. These groups
-  were used in the 2021 enumeration of the groups of order 1024 [Bur21][133X
+  were  used  in  the 2021 enumeration of the groups of order 1024 [Bur21] and
+  represent  a complete list of the isomorphism classes of the groups of order
+  1024 with p-class 3 and greater.[133X
   
