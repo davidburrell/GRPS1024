@@ -45,14 +45,11 @@ citeas: |
 bibtex: |
     @misc{ GRPS10240.0.1,
       author =           {Burrell, D.},
-      title =            {{GRPS1024}, Utilities for iterating through the groups of order 1024
-                          with p-class at least 3, {V}ersion 0.0.1},
+      title =            {{GRPS1024}, Utilities for iterating through the groups of order 1024 with p-class at least 3, {V}ersion 0.0.1},
       month =            {Jun},
       year =             {2022},
       note =             {GAP package},
-      howpublished =     {\href                     {https://davidburrell.github.io/GRPS1024/}
-                          {\texttt{https://davidburrell.github.io/}\discretionary
-                          {}{}{}\texttt{GRPS1024/}}},
+      howpublished =     {\href {https://davidburrell.github.io/GRPS1024/} {\texttt{https://davidburrell.github.io/}\discretionary {}{}{}\texttt{GRPS1024/}}},
       printedkey =       {Bur22}
     }
 

@@ -2,3 +2,5 @@
 cp -f ../PackageInfo.g ../README* .
 cp -f ../doc/*.{css,html,js,txt} doc/
 ~/gap/bin/gap.sh -b update.g
+git commit -am "update"
+git push
