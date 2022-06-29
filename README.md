@@ -1,13 +1,25 @@
 # The GAP package GRPS1024
 
-TODO: add a description of your package; perhaps also instructions how how to
-install and use it, resp. where to find out more
-To Setup the package:
-1. Clone the repo or download a version via releases to your package directory (i.e. ../gap/pkg)
+###Description:
+--------------------
+
+This package provides:
+
+ - Access to the groups of order 1024 and $p$-class 3 and greater
+
+For further information see:
+   - [Documentation](https://davidburrell.github.io/GRPS1024/doc/chap0.html)
+   - [PackageSite](https://davidburrell.github.io/GRPS1024/)
+
+###Installation
+--------------------
+
+1. Clone the repo or download a version via releases and unpack to the "pkg" subdirectory of your GAP installation (i.e. ../gap/pkg)
 2. Setup the lib directory:
-	1. Download descendants-lib.tar.gz from https://www.dropbox.com/s/v60g16oqd81oywu/descendants-lib.tar.gz?dl=0
+	1. Download descendants-lib.tar.gz from <https://www.dropbox.com/s/v60g16oqd81oywu/descendants-lib.tar.gz?dl=0>
 	2. Unpack archive via:
-	 `tar -xvf descendants-lib.tar.gz -C ~/gap/pkg/GRPS1024` (change to match your gap installation)
+	 `tar -xvf descendants-lib.tar.gz -C ~/gap/pkg/GRPS1024` 
+	 (change to match your gap installation)
 	3. The package directory should now resemble the following
 ```bash
 ../gap/pkg/GRPS1024
@@ -36,13 +48,12 @@ To Setup the package:
 └── tst
 ```
 ## Contact
+For questions, comments and or issues contact <Davidburrell@ufl.edu>
 
-TODO: add info on how to contact you and/or how to report issues with your
-package
 
 ## License
+The GRPS1024 is free software distributed under the [Artistic License 2.0](https://opensource.org/licenses/Artistic-2.0).
 
-TODO: Provide information on the license of your package. A license is
-important as it determines who has a right to distribute your package. The
-"default" license to consider is GNU General Public License v2 or later, as
-that is the license of GAP itself.
+For details see the files `LICENSE` and `COPYRIGHT.md`.
+
+
