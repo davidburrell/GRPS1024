@@ -51,7 +51,7 @@
 <h5>2.1-1 NumDescendants</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumDescendants</code>( <var class="Arg">Order</var>, <var class="Arg">ID</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: an integer</p>
+<p>Returns: an <code class="code">int</code></p>
 
 <p>returns the number of immediate descendants of order 1024 of SmallGroup(Order,ID)</p>
 
@@ -66,8 +66,10 @@
 
 <h5>2.1-3 CheckoutDescendants</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CheckoutDescendants</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns the immediate descendants of <code class="code">SmallGroup(Order,ID)</code> as a list. If the list is empty this implies that the immediate descendants of <code class="code">SmallGroup(Order,ID)</code> are not available, this might be because it doesn't have any or that <code class="code">SmallGroup(Order,ID)</code> has <span class="SimpleMath">\(p\)</span>-class 1 and the presentations are not available. To see if the group has immediate descendants use <code class="code">NumDescendants</code>.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CheckoutDescendants</code>( <var class="Arg">Order</var>, <var class="Arg">ID</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: 'list'</p>
+
+<p>Returns the immediate descendants of <code class="code">SmallGroup(Order,ID)</code> as a list. If the list is empty this implies that the immediate descendants of <code class="code">SmallGroup(Order,ID)</code> are not available, this might be because it doesn't have any or that <code class="code">SmallGroup(Order,ID)</code> has <span class="SimpleMath">\(p\)</span>-class 1 and the presentations are not available. To see if the group has immediate descendants use <code class="code">NumDescendants(Order,ID)</code>.</p>
 
 <p><a id="X7C8C9C437C9A6BED" name="X7C8C9C437C9A6BED"></a></p>
 
@@ -76,14 +78,14 @@
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsAvailable</code>( <var class="Arg">N</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
 
-<p>Checks if the nth group of order 1024 is available, there are 49487367289 groups of order 1024 and those which have <span class="SimpleMath">\(p\)</span>-class three and greater are available.</p>
+<p>Checks if the Nth group of order 1024 is available, there are 49487367289 groups of order 1024 and those which have <span class="SimpleMath">\(p\)</span>-class three and greater are available through this package.</p>
 
 <p><a id="X7A118404838C8EC7" name="X7A118404838C8EC7"></a></p>
 
 <h5>2.1-5 FindGroupN</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FindGroupN</code>( <var class="Arg">N</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: list if available or else nil</p>
+<p>Returns: list if available</p>
 
 <p>Finds the <span class="SimpleMath">\(N\)</span>th group of order 1024 in storage and returns a list <code class="code">[Order,ID,step,n-offset,grp]</code> which consists of the order of the parent group, the ID of the parent group, the step size, the position relative to its siblings, and the last entry is the pccode of the actual group. if the group is not available then an informative message about the groups heritage is printed.</p>
 
@@ -91,23 +93,19 @@
 
 <h5>2.1-6 FindNthAvailableGroup</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FindNthAvailableGroup</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FindNthAvailableGroup</code>( <var class="Arg">N</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: 'FindGroupN(AvailableMap(N))'</p>
+
 <p>Of the available groups returns the <span class="SimpleMath">\(N\)</span>th one. This should be the main function used to iterate throught the <span class="SimpleMath">\(683,875,133\)</span> available groups.</p>
 
 <p><a id="X7E989FA979E72135" name="X7E989FA979E72135"></a></p>
 
 <h5>2.1-7 AvailableMap</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AvailableMap</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AvailableMap</code>( <var class="Arg">N</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: 'int'</p>
+
 <p>This takes handles the translation between the ordering of the groups of order 1024 and the available groups of order 1024. For <span class="SimpleMath">\(1 \leq i \leq 683,875,133\)</span> this will return the position of the <span class="SimpleMath">\(i\)</span>th available group among all the groups of order 1024.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">S5 := SymmetricGroup(5);</span>
-Sym( [ 1 .. 5 ] )
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Order(S5);</span>
-120
-</pre></div>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapBib_mj.html">[Next Chapter]</a>&nbsp;  </div>

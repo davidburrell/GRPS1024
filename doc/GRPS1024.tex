@@ -141,7 +141,8 @@
  This package gives access to all of the groups of order 1024 with p-class 3
 and greater. The groups are sorted first by their parent group ids and then by
 the pc codes of the standard presentations for the groups. These groups were
-used in the 2021 enumeration of the groups of order 1024 \cite{Burrell2021a} 
+used in the 2021 enumeration of the groups of order 1024 \cite{Burrell2021a} and represent a complete list of the isomorphism classes of the groups of
+order 1024 with p-class 3 and greater. 
 
  }
 
@@ -173,7 +174,7 @@ used in the 2021 enumeration of the groups of order 1024 \cite{Burrell2021a}
 \label{NumDescendants}
 }\hfill{\scriptsize (function)}}\\
 \textbf{\indent Returns:\ }
-an integer 
+an \texttt{int} 
 
 
 
@@ -197,13 +198,16 @@ SmallGroup(Order,ID) }
 \subsection{\textcolor{Chapter }{CheckoutDescendants}}
 \logpage{[ 2, 1, 3 ]}\nobreak
 \hyperdef{L}{X82D11AA08717F710}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CheckoutDescendants({\mdseries\slshape arg})\index{CheckoutDescendants@\texttt{CheckoutDescendants}}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{CheckoutDescendants({\mdseries\slshape Order, ID})\index{CheckoutDescendants@\texttt{CheckoutDescendants}}
 \label{CheckoutDescendants}
 }\hfill{\scriptsize (function)}}\\
+\textbf{\indent Returns:\ }
+'list' 
+
 
 
  Returns the immediate descendants of \texttt{SmallGroup(Order,ID)} as a list. If the list is empty this implies that the immediate descendants of \texttt{SmallGroup(Order,ID)} are not available, this might be because it doesn't have any or that \texttt{SmallGroup(Order,ID)} has $p$-class 1 and the presentations are not available. To see if the group has
-immediate descendants use \texttt{NumDescendants}. }
+immediate descendants use \texttt{NumDescendants(Order,ID)}. }
 
  
 
@@ -218,8 +222,8 @@ immediate descendants use \texttt{NumDescendants}. }
 
 
 
- Checks if the nth group of order 1024 is available, there are 49487367289
-groups of order 1024 and those which have $p$-class three and greater are available. }
+ Checks if the Nth group of order 1024 is available, there are 49487367289
+groups of order 1024 and those which have $p$-class three and greater are available through this package. }
 
  
 
@@ -230,7 +234,7 @@ groups of order 1024 and those which have $p$-class three and greater are availa
 \label{FindGroupN}
 }\hfill{\scriptsize (function)}}\\
 \textbf{\indent Returns:\ }
-list if available or else nil 
+list if available 
 
 
 
@@ -244,9 +248,12 @@ informative message about the groups heritage is printed. }
 \subsection{\textcolor{Chapter }{FindNthAvailableGroup}}
 \logpage{[ 2, 1, 6 ]}\nobreak
 \hyperdef{L}{X87089300865B4A5E}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FindNthAvailableGroup({\mdseries\slshape arg})\index{FindNthAvailableGroup@\texttt{FindNthAvailableGroup}}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{FindNthAvailableGroup({\mdseries\slshape N})\index{FindNthAvailableGroup@\texttt{FindNthAvailableGroup}}
 \label{FindNthAvailableGroup}
 }\hfill{\scriptsize (function)}}\\
+\textbf{\indent Returns:\ }
+'FindGroupN(AvailableMap(N))' 
+
 
 
  Of the available groups returns the $N$th one. This should be the main function used to iterate throught the $683,875,133$ available groups. }
@@ -256,21 +263,17 @@ informative message about the groups heritage is printed. }
 \subsection{\textcolor{Chapter }{AvailableMap}}
 \logpage{[ 2, 1, 7 ]}\nobreak
 \hyperdef{L}{X7E989FA979E72135}{}
-{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AvailableMap({\mdseries\slshape arg})\index{AvailableMap@\texttt{AvailableMap}}
+{\noindent\textcolor{FuncColor}{$\triangleright$\enspace\texttt{AvailableMap({\mdseries\slshape N})\index{AvailableMap@\texttt{AvailableMap}}
 \label{AvailableMap}
 }\hfill{\scriptsize (function)}}\\
+\textbf{\indent Returns:\ }
+'int' 
+
 
 
  This takes handles the translation between the ordering of the groups of order
 1024 and the available groups of order 1024. For $1 \leq i \leq 683,875,133$ this will return the position of the $i$th available group among all the groups of order 1024. }
 
- 
-\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
-  !gapprompt@gap>| !gapinput@S5 := SymmetricGroup(5);|
-  Sym( [ 1 .. 5 ] )
-  !gapprompt@gap>| !gapinput@Order(S5);|
-  120
-\end{Verbatim}
  }
 
  }

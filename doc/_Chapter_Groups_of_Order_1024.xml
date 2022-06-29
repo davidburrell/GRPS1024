@@ -8,7 +8,7 @@
 <Heading>Overview</Heading>
 
 <P/>
- This package gives access to all of the groups of order 1024 with p-class 3 and greater. The groups are sorted first by their parent group ids and then by the pc codes of the standard presentations for the groups. These groups were used in the 2021 enumeration of the groups of order 1024 <Cite Key="Burrell2021a"/>
+ This package gives access to all of the groups of order 1024 with p-class 3 and greater. The groups are sorted first by their parent group ids and then by the pc codes of the standard presentations for the groups. These groups were used in the 2021 enumeration of the groups of order 1024 <Cite Key="Burrell2021a"/> and represent a complete list of the isomorphism classes of the groups of order 1024 with p-class 3 and greater.
 <P/>
 </Section>
 

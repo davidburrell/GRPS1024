@@ -40,11 +40,9 @@ local toRead,toReturn;
 toRead:=StringFormatted("lib/Desc_{}/{}.g",parentGroup_Order,parentGroup_ID);
 if ReadPackage("GRPS1024",toRead) then
 	toReturn:= ValueGlobal(StringFormatted("desc_{}_{}",parentGroup_Order,parentGroup_ID));
-	#remember the first entry is that of the descendants parentgroup id
 	return toReturn{[2..Length(toReturn)]};
 else
 	Info(InfoDebug,1,StringFormatted("The presentations of the immediate descendants of {}#{} are not available",parentGroup_Order,parentGroup_ID));
-	#TODO maybe print or return a total?
 	return [];
 fi;
 end);
