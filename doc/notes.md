@@ -1,6 +1,7 @@
 #bib file creation
 # bib:=ParseBibFiles("manual.bib");
 # WriteBibXMLextFile("manual.bib.xml",bib);
+
 #TODO using autodoc each function needs the following
 1. Args
 2. return value

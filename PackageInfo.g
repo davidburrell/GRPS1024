@@ -67,7 +67,7 @@ PackageDoc := rec(
   HTMLStart := "doc/chap0.html",
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
-  LongTitle := "Utilities for iterating through the groups of order 1024 with p-class at least 3",
+  LongTitle := "Utilities for accessing the groups of order 1024 with p-class at least 3",
 ),
 
 Dependencies := rec(
