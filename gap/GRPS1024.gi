@@ -135,7 +135,7 @@ fi;
 end);
 InstallGlobalFunction("FindGroupN",function(n)
 
-local capableMaster,toRead,j,group_order,group,i,offset,order,step,desc,toSkip;
+local capableMaster,toRead,j,group_order,group,i,offset,order,step,desc,toSkip,toReturn;
 
 if n <= 49487367289 then
 	capableMaster:=[];
@@ -171,7 +171,13 @@ if n <= 49487367289 then
 				#desc:=List(desc,CodePcGroup);
 				# Sort(desc);
 				# these lists were sorted after generation and before preparation of this package
-				return [order,group[1],step,n-offset,desc[n-offset]];
+				toReturn:=PcGroupCode(desc[n-offset],1024);
+				SetParentGroupID(toReturn,group[1]);
+				SetParentGroupOrder(toReturn,order);
+				SetAge(toReturn,n-offset);
+				SetKStepDescendant(toReturn,step);
+				return toReturn;
+				# return [order,group[1],step,n-offset,desc[n-offset]];
 			else
 				continue;
 			fi;
@@ -201,7 +207,13 @@ if n <= 49487367289 then
 				desc:=CheckoutDescendants(order,group[1]);
 				#desc:=List(desc,CodePcGroup);
 				#Sort(desc);
-				return [order,group[1],step,n-offset,desc[n-offset]];
+				toReturn:=PcGroupCode(desc[n-offset],1024);
+				SetParentGroupID(toReturn,group[1]);
+				SetParentGroupOrder(toReturn,order);
+				SetAge(toReturn,n-offset);
+				SetKStepDescendant(toReturn,step);
+				return toReturn;
+				# return [order,group[1],step,n-offset,desc[n-offset]];
 			else
 				continue;
 			fi;
@@ -296,3 +308,6 @@ fi;
 ###49487367276-49487367289 are the descendants of [512,10494213]
 # return toReturn;
 end);
+
+# InstallMethod(ParentGroup,"for p-groups",[IsGroup and IsFinite],function(G)
+# 	return 

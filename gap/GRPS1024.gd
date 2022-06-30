@@ -41,7 +41,7 @@ DeclareGlobalFunction("CheckoutDescendants");
 DeclareGlobalFunction("IsAvailable");
 
 #! @Description
-#! Finds the $N$th group of order 1024 in storage and returns a list `[Order,ID,step,n-offset,grp]` which consists of the order of the parent group, the ID of the parent group, the step size, the position relative to its siblings, and the last entry is the pccode of the actual group. if the group is not available then an informative message about the groups heritage is printed.
+#! Finds the $N$th group of order 1024 in storage and returns the group. If the group is not available then an informative message about the groups heritage is printed.
 #! @Arguments N
 #! @Returns list if available
 DeclareGlobalFunction("FindGroupN");
@@ -62,3 +62,9 @@ DeclareGlobalFunction("AvailableMap");
 #Order(S5);
 ## 120
 ## @EndExample
+
+DeclareAttribute("ParentGroupID",IsGroup);
+DeclareAttribute("ParentGroupOrder",IsGroup);
+DeclareAttribute("KStepDescendant",IsGroup);
+DeclareAttribute("Age",IsGroup);
+

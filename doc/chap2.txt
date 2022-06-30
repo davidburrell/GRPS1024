@@ -49,10 +49,7 @@
   [33X[1;0Y[29X[2XFindGroupN[102X( [3XN[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Ylist if available[133X
   
-  [33X[0;0YFinds   the  [23XN[123Xth  group  of  order  1024  in  storage  and  returns  a  list
-  [10X[Order,ID,step,n-offset,grp][110X  which  consists  of  the  order  of the parent
-  group,  the  ID of the parent group, the step size, the position relative to
-  its  siblings,  and the last entry is the pccode of the actual group. if the
+  [33X[0;0YFinds  the  [23XN[123Xth group of order 1024 in storage and returns the group. If the
   group is not available then an informative message about the groups heritage
   is printed.[133X
   

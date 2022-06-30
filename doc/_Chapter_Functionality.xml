@@ -54,7 +54,7 @@ Loads the immediate descendants of <C>SmallGroup(Order,ID)</C> into global varia
  <Returns>list if available
 </Returns>
  <Description>
- Finds the <Math>N</Math>th group of order 1024 in storage and returns a list <Code>[Order,ID,step,n-offset,grp]</Code> which consists of the order of the parent group, the ID of the parent group, the step size, the position relative to its siblings, and the last entry is the pccode of the actual group. if the group is not available then an informative message about the groups heritage is printed.
+ Finds the <Math>N</Math>th group of order 1024 in storage and returns the group. If the group is not available then an informative message about the groups heritage is printed.
  </Description>
 </ManSection>
 
