@@ -8,6 +8,9 @@
 #!
 #!
 #!
+#### this will allow any call to Capable_n to automatically read in the file and return it
+DeclareAutoreadableVariables("GRPS1024","gap/CapableList16_256.g",["Capable_16","Capable_32","Capable_64","Capable_128","Capable_256"]);
+DeclareAutoreadableVariables("GRPS1024","gap/CapableList_512.g",["Capable_512"]);
 
 DeclareGlobalFunction("ReloadGRPS1024");
 #! @Chapter Functionality
@@ -55,6 +58,8 @@ DeclareGlobalFunction("FindNthAvailableGroup");
 #! @Arguments N
 #! @Returns 'int'
 DeclareGlobalFunction("AvailableMap");
+
+DeclareGlobalFunction("ReturnCapableGroupsOfOrder");
 
 ## @BeginExample
 #S5 := SymmetricGroup(5);

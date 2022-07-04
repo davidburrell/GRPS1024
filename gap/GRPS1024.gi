@@ -55,7 +55,9 @@ end);
 InstallGlobalFunction("IsAvailable",function(n)
 
 local capableMaster,toRead,j,group_order,group,i,offset,order,step,desc,toSkip;
-if n <= 49487367289 then
+#we handle generate the elementary abelian group
+if n = 49487367289 then return true; fi;
+if n < 49487367289 then
 
 
 	capableMaster:=[];
@@ -84,7 +86,7 @@ if n <= 49487367289 then
 				#siblings
 				#desc:=PqDescendants(SmallGroup(order,group[1]):StepSize:=step);
 				if order > 16 and NumberSmallGroups(order)=group[1] then
-					Print(StringFormatted("Descendant {} of the Elementary Abelian group of order {}",n-offset,order));
+					Info(InfoDebug,2,StringFormatted("Descendant {} of the Elementary Abelian group of order {}",n-offset,order));
 					return false;
 				fi;
 				# desc:=CheckoutDescendants(order,group[1]);
@@ -137,7 +139,7 @@ InstallGlobalFunction("FindGroupN",function(n)
 
 local capableMaster,toRead,j,group_order,group,i,offset,order,step,desc,toSkip,toReturn;
 
-if n <= 49487367289 then
+if n < 49487367289 then
 	capableMaster:=[];
 	toRead:=StringFormatted("gap/CapableList16_256.g");
 	if ReadPackage("GRPS1024",toRead) then
@@ -218,6 +220,13 @@ if n <= 49487367289 then
 				continue;
 			fi;
 		od;
+elif n = 49487367289 then
+	toReturn:=ElementaryAbelianGroup(1024);
+	SetParentGroupID(toReturn,1);
+	SetParentGroupOrder(toReturn,1);
+	SetAge(toReturn,1);
+	SetKStepDescendant(toReturn,10);
+	return toReturn;
 else
 	Error("There are only 49487367289 groups of order 1024");
 fi;
@@ -250,7 +259,7 @@ return 0;
 end);
 
 InstallGlobalFunction("AvailableMap",function(i)
-  local length1, length2, length3, length4, length5, offset1, offset2, offset3, offset4, offset5;
+  local length1, length2, length3, length4, length5, offset1, offset2, offset3, offset4, offset5,length6;
   # local offset1, offset2, offset3, offset4, offset5;
   # local toReturn, i;
 
@@ -263,7 +272,7 @@ length2:=Length([378632399..378646474]);
 length3:=Length([48076662881..48081929909]);
 length4:=Length([48808773883..48842627388]);
 length5:=Length([48842630322..49487367275]);
-# length6:=Length([49487367276..49487367289]);
+length6:=Length([49487367276..49487367289]);
 
 offset1:=378628831;
 offset2:=47698016406;
@@ -280,9 +289,11 @@ elif i > length1+length2+length3 and i <= length1+length2+length3+length4 then
 	return i+offset1+offset2+offset3;
 elif i > length1+length2+length3+length4 and i <= length1+length2+length3+length4+length5 then
 	return i+offset1+offset2+offset3+offset4;
+elif i > length1+length2+length3+length4+length5 and i <= length1+length2+length3+length4+length5+1 then
+	return i+offset1+offset2+offset3+offset4+offset5;
 # elif i > length1+length2+length3+length4+length5 and i <= length1+length2+length3+length4+length5+length6 then
 # 	return i+offset1+offset2+offset3+offset4+offset5;
-elif i > length1+length2+length3+length4+length5 then
+elif i > length1+length2+length3+length4+length5+1 then
 	Error(StringFormatted("There are only {} groups of order 1024 available",683875133));
 fi;
 # 1-3566 are available
@@ -298,7 +309,7 @@ fi;
 #
 ###48081929910-48808773882 are descendants of [128,2328] #
 #
-###48808773883-48842627388 are descendants of groups of order 128
+###48808773883-48842627388 are descendants of groups of order 256
 #
 ###48842627389-48842630321 are descendants of [256,56092] #
 #
@@ -309,5 +320,28 @@ fi;
 # return toReturn;
 end);
 
+
+InstallGlobalFunction("ReturnCapableGroupsOfOrder",function(order)
+  local capableMaster, toRead;
+
+	capableMaster:=[];
+	if order in [2,4,8,16,32,64,128,256] then
+		toRead:="gap/CapableList16_256.g";
+	elif order = 512 then
+		toRead:="gap/CapableList512.g";
+	else
+		Info(InfoDebug,2,"Groups of this order are not currently supported");
+		return capableMaster;
+	fi;
+
+	if ReadPackage("GRPS1024",toRead) then
+		Add(capableMaster,ValueGlobal(StringFormatted("Capable_{}",order)));
+		# for j in [16,32,64,128,256] do
+		# 	Add(capableMaster,ValueGlobal(StringFormatted("Capable_{}",j)));
+	# od;
+	fi;
+	
+	return capableMaster;
+end);
 # InstallMethod(ParentGroup,"for p-groups",[IsGroup and IsFinite],function(G)
 # 	return 
