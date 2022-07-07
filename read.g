@@ -4,3 +4,5 @@
 # Reading the implementation part of the package.
 #
 ReadPackage( "GRPS1024", "gap/GRPS1024.gi");
+ReadPackage( "GRPS1024", "gap/GRPS1024.g");
+

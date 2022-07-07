@@ -58,6 +58,7 @@ DeclareGlobalFunction("FindNthAvailableGroup");
 #! @Arguments N
 #! @Returns 'int'
 DeclareGlobalFunction("AvailableMap");
+DeclareGlobalFunction("InverseAvailableMap");
 
 DeclareGlobalFunction("ReturnCapableGroupsOfOrder");
 
@@ -68,8 +69,11 @@ DeclareGlobalFunction("ReturnCapableGroupsOfOrder");
 ## 120
 ## @EndExample
 
-DeclareAttribute("ParentGroupID",IsGroup);
-DeclareAttribute("ParentGroupOrder",IsGroup);
-DeclareAttribute("KStepDescendant",IsGroup);
-DeclareAttribute("Age",IsGroup);
+# DeclareAttribute("ParentGroupID",IsGroup);
+# DeclareAttribute("ParentGroupOrder",IsGroup);
+# DeclareAttribute("KStepDescendant",IsGroup);
+DeclareAttribute("Heritage",IsGroup);
+# DeclareAttribute("Age",IsGroup);
 
+DeclareGlobalFunction("ImmediateDescendantGroupShell");
+DeclareGlobalFunction("CustomPrintPcPresentation");
