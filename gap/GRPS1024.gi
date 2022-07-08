@@ -50,7 +50,8 @@ end);
 
 
 InstallGlobalFunction("FindNthAvailableGroup",function(n)
-return FindGroupN(AvailableMap(n));
+return SmallGroup(1024,AvailableMap(n)); 
+# return FindGroupN(AvailableMap(n));
 end);
 
 InstallGlobalFunction("IsAvailable",function(n)
@@ -378,7 +379,7 @@ elif n in [3568..378632398] then
         Print("This is an immediate descendant of of the elementary abelian group of order 32 and is not available");
 	return 0;
 
-elif n in [378632399..378646475] then
+elif n in [378632399..378646474] then
 ###378632399-378646475 are available
 	return n-offset1;
 #
@@ -528,3 +529,28 @@ InstallGlobalFunction( CustomPrintPcPresentation, function(G)
     # return trivialCommutators;
 end );
 
+InstallGlobalFunction("PrintClassificationTable1024",function()
+  local currentPClass, currentRank, doworking, thencurrentRank, i,working;
+
+currentPClass:=0;
+currentRank:=0;
+# for i in [1..49487367289] do
+#683875133
+for i in [1..683875133] do
+working:=SmallGroup(1024,AvailableMap(i));
+if not currentRank = RankPGroup(working) or not currentPClass = PClassPGroup(working) then
+# if i > 1 then
+# Print(StringFormatted(" Group {} has rank {} and pclass {}\n",AvailableMap(i)-1,currentRank,currentPClass));
+# fi;
+currentRank:=RankPGroup(working);
+currentPClass:=PClassPGroup(working);
+Print(StringFormatted(" Group {} has rank {} and pclass {}\n",AvailableMap(i),currentRank,currentPClass));
+fi;
+
+	
+od;
+
+Print(StringFormatted(" Group {} has rank {} and pclass {}\n",AvailableMap(i),currentRank,currentPClass));
+end);
+
+# ids:=[1,3567,3568,378632398,378632399,378646474,378646475,48076662880,48076662881,48081929909,48081929910,48808773882,48808773883,48842627388,48842627389,48842630321,48842630322,49487367275,49487367276,49487367288,49487367289];

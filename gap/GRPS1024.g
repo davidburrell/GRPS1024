@@ -75,7 +75,7 @@ SMALL_GROUP_FUNCS[ pos_2_10 ] := function( size, n, inforec )
 
 				if order > 16 and NumberSmallGroups(order)=group[1] then
 					# Error(StringFormatted("\n SmallGroup(1024,{}) is an immediate descendant of the Elementary Abelian group of order {} and is not currently available\n ",n,order));
-					Print(StringFormatted("\n SmallGroup(1024,{}) is an immediate descendant of the Elementary Abelian group of order {} and is not currently available.\n Partially constructed group returned \n",n,order));
+					# Print(StringFormatted("\n SmallGroup(1024,{}) is an immediate descendant of the Elementary Abelian group of order {} and is not currently available.\n Partially constructed group returned \n",n,order));
 				#TODO: maybe we should return an empty group shell instead with just the information that is known
 					toReturn:=ImmediateDescendantGroupShell(ElementaryAbelianGroup(order));
 				# SetParentGroupID(toReturn,heritage.ID);
@@ -83,6 +83,7 @@ SMALL_GROUP_FUNCS[ pos_2_10 ] := function( size, n, inforec )
 				# SetAge(toReturn,heritage.Age);
 				SetHeritage(toReturn,[heritage.Order,heritage.ID,heritage.Age]);
 				SetPClassPGroup(toReturn,2);
+				SetRankPGroup(toReturn,RankPGroup(ElementaryAbelianGroup(order)));
 				SetOrder(toReturn,1024);
 				return toReturn;
 					# SetParentGroupID(toReturn,group[1])
@@ -110,7 +111,7 @@ SMALL_GROUP_FUNCS[ pos_2_10 ] := function( size, n, inforec )
 				SetHeritage(toReturn,[heritage.Order,heritage.ID,heritage.Age]);
 				# SetPClassPGroup(toReturn,2);
 				# SetOrder(toReturn,1024);
-
+				
 				return toReturn ;
 				# break;
 				# desc:=CheckoutDescendants(order,group[1]);
@@ -153,7 +154,7 @@ SMALL_GROUP_FUNCS[ pos_2_10 ] := function( size, n, inforec )
 				if NumberSmallGroups(order)=group[1] then
 					# Error(StringFormatted("\n\nSmallGroup(1024,{}) is an immediate descendant of the Elementary Abelian group of order {} and is not currently available\n\n",n,order));
 					# Print(StringFormatted("Descendant {} of the Elementary Abelian group of order {} is not available returning parent group\n",n-offset,order));
-					Print(StringFormatted("\n SmallGroup(1024,{}) is an immediate descendant of the Elementary Abelian group of order {} and is not currently available. Partially constructed group returned\n",n,order));
+					# Print(StringFormatted("\n SmallGroup(1024,{}) is an immediate descendant of the Elementary Abelian group of order {} and is not currently available. Partially constructed group returned\n",n,order));
 				#TODO: maybe we should return an empty group shell instead with just the information that is known
 					toReturn:=ImmediateDescendantGroupShell(ElementaryAbelianGroup(order));
 				# SetParentGroupID(toReturn,heritage.ID);
@@ -161,6 +162,7 @@ SMALL_GROUP_FUNCS[ pos_2_10 ] := function( size, n, inforec )
 				# SetAge(toReturn,heritage.Age);
 				SetHeritage(toReturn,[heritage.Order,heritage.ID,heritage.Age]);
 				SetPClassPGroup(toReturn,2);
+				SetRankPGroup(toReturn,RankPGroup(ElementaryAbelianGroup(order)));
 				SetOrder(toReturn,1024);
 
 				return toReturn;
@@ -251,6 +253,13 @@ SMALL_GROUPS_INFORMATION[ pos_2_10 ] := function( size, inforec, num )
     # Print( "     10494174 - 10494200 have rank 7 ", "and p-class 3.\n" );
     # Print( "     10494201 - 10494212 have rank 8 ", "and p-class 2.\n" );
     # Print( "     10494213 is elementary abelian.\n");
+#  Group 1 has rank 4 and pclass 2
+#  Group 3567 has rank 2 and pclass 3
+#  Group 378632399 has rank 3 and pclass 3
+#  Group 48076662881 has rank 2 and pclass 4
+#  Group 48076663033 has rank 3 and pclass 3
+#  Group 48076854830 has rank 4 and pclass 3
+#  Group 48079429780 has rank 5 and pclass 3
     Print( " \n");
     Print( "This database was created by David Burrell (2022).\n");
 end;
