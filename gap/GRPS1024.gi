@@ -530,27 +530,45 @@ InstallGlobalFunction( CustomPrintPcPresentation, function(G)
 end );
 
 InstallGlobalFunction("PrintClassificationTable1024",function()
-  local currentPClass, currentRank, doworking, thencurrentRank, i,working;
+  local currentPClass, currentRank, doworking, thencurrentRank, i,working,currentParentGroupOrder;
 
 currentPClass:=0;
 currentRank:=0;
+currentParentGroupOrder:=0;
 # for i in [1..49487367289] do
 #683875133
 for i in [1..683875133] do
+# for i in [1..20000] do
 working:=SmallGroup(1024,AvailableMap(i));
-if not currentRank = RankPGroup(working) or not currentPClass = PClassPGroup(working) then
+if not currentParentGroupOrder=Heritage(working)[1] then
+Print(StringFormatted("######################Immediate Descendants of order {}#############\n",Heritage(working)[1]));
+currentParentGroupOrder:=Heritage(working)[1];
+currentRank:=RankPGroup(working);
+currentPClass:=PClassPGroup(working);
+
+Print(StringFormatted(" Group {} has rank {} and pclass {}\n",AvailableMap(i),currentRank,currentPClass));
+fi;
+
+if not currentRank = RankPGroup(working) or not currentPClass = PClassPGroup(working) or not currentParentGroupOrder= Heritage(working)[1] then
 # if i > 1 then
 # Print(StringFormatted(" Group {} has rank {} and pclass {}\n",AvailableMap(i)-1,currentRank,currentPClass));
 # fi;
 currentRank:=RankPGroup(working);
 currentPClass:=PClassPGroup(working);
+
 Print(StringFormatted(" Group {} has rank {} and pclass {}\n",AvailableMap(i),currentRank,currentPClass));
 fi;
 
 	
 od;
 
+Print(StringFormatted("######################Immediate Descendants of order {}#############\n",Heritage(working)[1]));
 Print(StringFormatted(" Group {} has rank {} and pclass {}\n",AvailableMap(i),currentRank,currentPClass));
 end);
 
 # ids:=[1,3567,3568,378632398,378632399,378646474,378646475,48076662880,48076662881,48081929909,48081929910,48808773882,48808773883,48842627388,48842627389,48842630321,48842630322,49487367275,49487367276,49487367288,49487367289];
+#
+ InstallGlobalFunction("ReturnCapableGroups",function()
+return [Capable_16,Capable_32,Capable_64,Capable_128,Capable_256,Capable_512];
+end);
+

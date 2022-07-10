@@ -78,3 +78,4 @@ DeclareAttribute("Heritage",IsGroup);
 DeclareGlobalFunction("ImmediateDescendantGroupShell");
 DeclareGlobalFunction("CustomPrintPcPresentation");
 DeclareGlobalFunction("PrintClassificationTable1024");
+DeclareGlobalFunction("ReturnCapableGroups");
