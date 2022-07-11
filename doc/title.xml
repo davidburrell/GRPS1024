@@ -6,7 +6,7 @@
     GRPS1024
   </Title>
   <Subtitle>
-    Utilities for iterating through the groups of order 1024 with p-class at least 3
+    Library of the groups of order 1024 of p-class at least 3, those of p-class two and rank 4 and those of p-class 1 and rank 10.
   </Subtitle>
   <Version>
     0.0.1

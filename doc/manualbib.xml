@@ -24,4 +24,61 @@
       $1024$.pdf:pdf</other>
   <other type="publisher">Taylor &amp; Francis</other>
 </article></entry>
+<entry id="Gamble2019a"><misc>
+  <author>
+    <name><first>G</first><last>Gamble</last></name>
+    <name><first>W</first><last>Nickel</last></name>
+    <name><first>E</first><last>O'Brien</last></name>
+    <name><first>M</first><last>Horn</last></name>
+  </author>  
+  <title><C>ANU p-Quotient</C></title>
+  <year>2019</year>
+  <url>https://gap-packages.github.io/anupq/</url>
+  <other type="edition">3.2.1</other>
+</misc></entry>
+<entry id="Eick1999a"><article>
+  <author>
+    <name><first>Bettina</first><last>Eick</last></name>
+    <name><first>E A</first><last>O'Brien</last></name>
+  </author>  
+  <title><C>Enumerating p -Groups</C></title>
+  <journal>Journal of the Australian Mathematical Society. Series A. Pure
+      Mathematics and Statistics</journal>
+  <year>1999</year>
+  <volume>67</volume>
+  <number>2</number>
+  <pages>191--205</pages>
+  <month>dec</month>
+  <abstract>We present a new algorithm which uses a cohomological approach to
+      determine the groups of order p", where p is a prime. We develop two methods
+      to enumerate p-groups using the Cauchy-Frobenius Lemma. As an application we
+      show that there are 10494213 groups of order 29.</abstract>
+  <issn>0263-6115</issn>
+  <url>https://www.cambridge.org/core/product/identifier/S1446788700001166/type/journal_article</url>
+  <other type="doi">10.1017/S1446788700001166</other>
+  <other type="file">:home/david/Dropbox (UFL)/Mendeley/Eick, O'Brien/Journal
+      of the Australian Mathematical Society. Series A. Pure Mathematics and
+      Statistics/Eick, O'Brien - 1999 - Enumerating p -Groups.pdf:pdf</other>
+</article></entry>
+<entry id="OBrien1990a"><article>
+  <author>
+    <name><first>E A</first><last>O'Brien</last></name>
+  </author>  
+  <title><C>The p-group generation algorithm</C></title>
+  <journal>Journal of Symbolic Computation</journal>
+  <year>1990</year>
+  <volume>9</volume>
+  <number>5</number>
+  <pages>677--698</pages>
+  <month>oct</month>
+  <abstract>The theory and implementation of an algorithm used in generating
+      descriptions of p-groups aredescribed. Some applications and details of the
+      performance of the algorithm are provided.</abstract>
+  <issn>0747-7171</issn>
+  <url>http://www.sciencedirect.com/science/article/pii/S074771710880082X</url>
+  <other type="doi">10.1016/S0747-7171(08)80082-X</other>
+  <other type="file">:home/david/Dropbox (UFL)/Mendeley/O'Brien/Journal of
+      Symbolic Computation/O'Brien - 1990 - The p-group generation
+      algorithm.pdf:pdf</other>
+</article></entry>
 </file>

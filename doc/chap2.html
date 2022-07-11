@@ -25,13 +25,9 @@
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X8606FDCE878850EF">2.1 <span class="Heading">Methods</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X8434B096793033BC">2.1-1 NumDescendants</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7908BA5B84777B49">2.1-2 LoadDescendants</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X82D11AA08717F710">2.1-3 CheckoutDescendants</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7C8C9C437C9A6BED">2.1-4 IsAvailable</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7A118404838C8EC7">2.1-5 FindGroupN</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X87089300865B4A5E">2.1-6 FindNthAvailableGroup</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7E989FA979E72135">2.1-7 AvailableMap</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7E989FA979E72135">2.1-1 AvailableMap</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X798138987C8EBBB2">2.1-2 InverseAvailableMap</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X78622CFD846746FD">2.1-3 Heritage</a></span>
 </div></div>
 </div>
 
@@ -41,68 +37,71 @@
 
 <h4>2.1 <span class="Heading">Methods</span></h4>
 
-<p>This section will describe the functions available in GRPS1024</p>
+<p>Once the package is loaded the user may call <code class="code">SmallGroup(1024,i)</code> and receive either a group if available or a partially constructed group which has the following attributes set</p>
 
-<p><a id="X8434B096793033BC" name="X8434B096793033BC"></a></p>
 
-<h5>2.1-1 NumDescendants</h5>
+<ul>
+<li><p>p-class</p>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumDescendants</code>( <var class="Arg">Order</var>, <var class="Arg">ID</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: an <code class="code">int</code></p>
+</li>
+<li><p>Rank</p>
 
-<p>returns the number of immediate descendants of order 1024 of SmallGroup(Order,ID)</p>
+</li>
+<li><p>Heritage</p>
 
-<p><a id="X7908BA5B84777B49" name="X7908BA5B84777B49"></a></p>
+</li>
+<li><p>Order</p>
 
-<h5>2.1-2 LoadDescendants</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LoadDescendants</code>( <var class="Arg">Order</var>, <var class="Arg">ID</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Loads the immediate descendants of <code class="code">SmallGroup(Order,ID)</code> into global variable <code class="code">GRPS1024_DESC.(Order)[ID]</code> if the descendants are available else it loads into global variable <code class="code">GRPS1024_ENUM.(Order)[ID]</code> the number of immediate descendants of order 1024 of <code class="code">SmallGroup(Order,ID)</code></p>
-
-<p><a id="X82D11AA08717F710" name="X82D11AA08717F710"></a></p>
-
-<h5>2.1-3 CheckoutDescendants</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CheckoutDescendants</code>( <var class="Arg">Order</var>, <var class="Arg">ID</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: 'list'</p>
-
-<p>Returns the immediate descendants of <code class="code">SmallGroup(Order,ID)</code> as a list. If the list is empty this implies that the immediate descendants of <code class="code">SmallGroup(Order,ID)</code> are not available, this might be because it doesn't have any or that <code class="code">SmallGroup(Order,ID)</code> has <span class="Math">p</span>-class 1 and the presentations are not available. To see if the group has immediate descendants use <code class="code">NumDescendants(Order,ID)</code>.</p>
-
-<p><a id="X7C8C9C437C9A6BED" name="X7C8C9C437C9A6BED"></a></p>
-
-<h5>2.1-4 IsAvailable</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsAvailable</code>( <var class="Arg">N</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">true</code> or <code class="code">false</code></p>
-
-<p>Checks if the Nth group of order 1024 is available, there are 49487367289 groups of order 1024 and those which have <span class="Math">p</span>-class three and greater are available through this package.</p>
-
-<p><a id="X7A118404838C8EC7" name="X7A118404838C8EC7"></a></p>
-
-<h5>2.1-5 FindGroupN</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FindGroupN</code>( <var class="Arg">N</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: list if available</p>
-
-<p>Finds the <span class="Math">N</span>th group of order 1024 in storage and returns the group. If the group is not available then an informative message about the groups heritage is printed.</p>
-
-<p><a id="X87089300865B4A5E" name="X87089300865B4A5E"></a></p>
-
-<h5>2.1-6 FindNthAvailableGroup</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; FindNthAvailableGroup</code>( <var class="Arg">N</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: 'FindGroupN(AvailableMap(N))'</p>
-
-<p>Of the available groups returns the <span class="Math">N</span>th one. This should be the main function used to iterate throught the <span class="Math">683,875,133</span> available groups.</p>
-
+</li>
+</ul>
 <p><a id="X7E989FA979E72135" name="X7E989FA979E72135"></a></p>
 
-<h5>2.1-7 AvailableMap</h5>
+<h5>2.1-1 AvailableMap</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AvailableMap</code>( <var class="Arg">N</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: 'int'</p>
+<p>Returns: <code class="code">int</code></p>
 
-<p>This takes handles the translation between the ordering of the groups of order 1024 and the available groups of order 1024. For <span class="Math">1 \leq i \leq 683,875,133</span> this will return the position of the <span class="Math">i</span>th available group among all the groups of order 1024.</p>
+<p>Since some of the groups of order 1024 are not available, this function handles the translation between the ordering of the groups of order 1024 and the available groups of order 1024. For <span class="Math">1 \leq i \leq 683,875,133</span> this will return the position of the <span class="Math">i</span>th available group among all the groups of order 1024.</p>
+
+
+<div class="example"><pre>
+#groups 1-3567 are available SmallGroup(1024,3568) is not available
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=SmallGroup(1024,3567);</span>
+&lt;pc group of size 1024 with 10 generators&gt; #this is an available group
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=SmallGroup(1024,3568);</span>
+&lt;pc group with 0 generators&gt; #this is a partially constructed group and not available
+#the next available group has index 378632399 
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AvailableMap(3568)</span>
+378632399
+#To iterate through the available groups use
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallGroup(1024,Available(i)) #for i &lt;= 683,875,1333</span>
+</pre></div>
+
+<p><a id="X798138987C8EBBB2" name="X798138987C8EBBB2"></a></p>
+
+<h5>2.1-2 InverseAvailableMap</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InverseAvailableMap</code>( <var class="Arg">N</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">int</code></p>
+
+<p>This function handles the translation between the available ordering of the groups of order 1024 and the groups of order 1024. For <span class="Math">1 \leq i \leq 49,487,367,289</span> if <code class="code">SmallGroup(1024,i)</code> is available this will return its position in the available groups list or else it will print a message telling you that it is not available and return 0.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">InverseAvailableMap(AvailableMap(i)) = i;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">InverseAvailableMap(3568);</span>
+This is an immediate descendant of the elementary abelian group of order 32 and is not available
+0
+</pre></div>
+
+<p><a id="X78622CFD846746FD" name="X78622CFD846746FD"></a></p>
+
+<h5>2.1-3 Heritage</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Heritage</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: <code class="code">list</code></p>
+
+<p>Returns as a list the following information for a group of order 1024 loaded from the library <code class="code">[ParentGroupID, ParentGroupOrder, Step, Age]</code>. The age of a group is the position of the group among its siblings in the ordered list of their standard PC codes.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapBib.html">[Next Chapter]</a>&nbsp;  </div>

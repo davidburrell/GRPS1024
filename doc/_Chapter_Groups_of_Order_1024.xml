@@ -8,7 +8,79 @@
 <Heading>Overview</Heading>
 
 <P/>
- This package gives access to all of the groups of order 1024 with p-class 3 and greater. The groups are sorted first by their parent group ids and then by the pc codes of the standard presentations for the groups. These groups were used in the 2021 enumeration of the groups of order 1024 <Cite Key="Burrell2021a"/> and represent a complete list of the isomorphism classes of the groups of order 1024 with p-class 3 and greater.
+ This library gives explicit access to the following groups of order 1024:
+<List>
+<Item>
+The Rank 1 group
+</Item>
+<Item>
+All Rank 2 groups
+</Item>
+<Item>
+All Rank 3 groups
+</Item>
+<Item>
+All Rank 4 groups
+</Item>
+<Item>
+Rank 5 groups with p-class at least 3
+</Item>
+<Item>
+Rank 6 groups with p-class at least 3
+</Item>
+<Item>
+Rank 7 groups with p-class at least 3
+</Item>
+<Item>
+Rank 8 groups with p-class at least 3
+</Item>
+<Item>
+Rank 9 groups with p-class at least 3
+</Item>
+<Item>
+The Rank 10 group
+</Item>
+</List>
+<P/>
+ This library gives partial information on the remaining groups of order 1024:
+<List>
+<Item>
+Rank 5 groups with p-class 2
+</Item>
+<Item>
+Rank 6 groups with p-class 2
+</Item>
+<Item>
+Rank 7 groups with p-class 2
+</Item>
+<Item>
+Rank 8 groups with p-class 2
+</Item>
+<Item>
+Rank 9 groups with p-class 2
+</Item>
+</List>
+<P/>
+ For the groups that are not explicitly available the following information is available:
+<List>
+<Item>
+Parent Group ID
+</Item>
+<Item>
+Parent Group Order
+</Item>
+<Item>
+p-class
+</Item>
+<Item>
+Rank
+</Item>
+<Item>
+Age
+</Item>
+</List>
+<P/>
+ The groups are sorted first by their parent group ids and then by the pc codes of the standard presentations for the groups. The data contained in this library was used in the 2021 enumeration of the groups of order 1024 <Cite Key="Burrell2021a"/>. The available groups were generated using the p-group generation algorithm  <Cite Key="OBrien1990a"/> as implemented in the ANUPQ package <Cite Key="Gamble2019a"/>. The information on the remaining groups was calculated using the cohomological methods for enumerating p-groups of p-class 2 as introduced in <Cite Key="Eick1999a"/>.
 <P/>
 </Section>
 

@@ -4,23 +4,11 @@
 
   \indexspace
 
-  \item \texttt  {CheckoutDescendants}, \hyperpage{4}
+  \item \texttt  {Heritage}
+    \subitem for IsGroup, \hyperpage{6}
 
   \indexspace
 
-  \item \texttt  {FindGroupN}, \hyperpage{5}
-  \item \texttt  {FindNthAvailableGroup}, \hyperpage{5}
-
-  \indexspace
-
-  \item \texttt  {IsAvailable}, \hyperpage{4}
-
-  \indexspace
-
-  \item \texttt  {LoadDescendants}, \hyperpage{4}
-
-  \indexspace
-
-  \item \texttt  {NumDescendants}, \hyperpage{4}
+  \item \texttt  {InverseAvailableMap}, \hyperpage{5}
 
 \end{theindex}

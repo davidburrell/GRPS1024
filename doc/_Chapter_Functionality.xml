@@ -9,72 +9,69 @@
 <Heading>Methods</Heading>
 
 <P/>
- This section will describe the functions available in GRPS1024
-<P/>
-<ManSection Label="CharacterDegreesOfBlocks">
-  <Func Arg="Order ID" Name="NumDescendants" />
- <Returns>an <Code>int</Code>
-</Returns>
- <Description>
-returns the number of immediate descendants of order 1024 of SmallGroup(Order,ID)
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Func Arg="Order,ID" Name="LoadDescendants" />
- <Description>
-Loads the immediate descendants of <C>SmallGroup(Order,ID)</C> into global variable <C>GRPS1024_DESC.(Order)[ID]</C> if the descendants are available else it loads into global variable <C>GRPS1024_ENUM.(Order)[ID]</C> the number of immediate descendants of order 1024 of <C>SmallGroup(Order,ID)</C>
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Func Arg="Order,ID" Name="CheckoutDescendants" />
- <Returns>'list'
-</Returns>
- <Description>
- Returns the immediate descendants of <C>SmallGroup(Order,ID)</C> as a list. If the list is empty this implies that the immediate descendants of <C>SmallGroup(Order,ID)</C> are not available, this might be because it doesn't have any or that <C>SmallGroup(Order,ID)</C> has <Math>p</Math>-class 1 and the presentations are not available. To see if the group has immediate descendants use <C>NumDescendants(Order,ID)</C>.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Func Arg="N" Name="IsAvailable" />
- <Returns><Code>true</Code> or <Code>false</Code>
-</Returns>
- <Description>
- Checks if the Nth group of order 1024 is available, there are 49487367289 groups of order 1024 and those which have <Math>p</Math>-class three and greater are available through this package.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Func Arg="N" Name="FindGroupN" />
- <Returns>list if available
-</Returns>
- <Description>
- Finds the <Math>N</Math>th group of order 1024 in storage and returns the group. If the group is not available then an informative message about the groups heritage is printed.
- </Description>
-</ManSection>
-
-
-<ManSection>
-  <Func Arg="N" Name="FindNthAvailableGroup" />
- <Returns>'FindGroupN(AvailableMap(N))'
-</Returns>
- <Description>
- Of the available groups returns the <Math>N</Math>th one. This should be the main function used to iterate throught the <Math>683,875,133</Math> available groups.
- </Description>
-</ManSection>
-
-
+ Once the package is loaded the user may call <Code>SmallGroup(1024,i)</Code> and receive either a group if available or a partially constructed group which has the following attributes set
+<List>
+<Item>
+p-class
+</Item>
+<Item>
+Rank
+</Item>
+<Item>
+Heritage
+</Item>
+<Item>
+Order
+</Item>
+</List>
 <ManSection>
   <Func Arg="N" Name="AvailableMap" />
- <Returns>'int'
+ <Returns><Code>int</Code>
 </Returns>
  <Description>
- This takes handles the translation between the ordering of the groups of order 1024 and the available groups of order 1024. For <Math>1 \leq i \leq 683,875,133</Math> this will return the position of the <Math>i</Math>th available group among all the groups of order 1024.
+ Since some of the groups of order 1024 are not available, this function handles the translation between the ordering of the groups of order 1024 and the available groups of order 1024. For <Math>1 \leq i \leq 683,875,133</Math> this will return the position of the <Math>i</Math>th available group among all the groups of order 1024.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+#groups 1-3567 are available SmallGroup(1024,3568) is not available
+gap> g:=SmallGroup(1024,3567);
+<pc group of size 1024 with 10 generators> #this is an available group
+gap> g:=SmallGroup(1024,3568);
+<pc group with 0 generators> #this is a partially constructed group and not available
+#the next available group has index 378632399 
+gap> AvailableMap(3568)
+378632399
+#To iterate through the available groups use
+gap> SmallGroup(1024,Available(i)) #for i <= 683,875,1333
+]]></Example>
+
+
+<ManSection>
+  <Func Arg="N" Name="InverseAvailableMap" />
+ <Returns><Code>int</Code>
+</Returns>
+ <Description>
+ This function handles the translation between the available ordering of the groups of order 1024 and the groups of order 1024. For <Math>1 \leq i \leq 49,487,367,289</Math> if <Code>SmallGroup(1024,i)</Code> is available this will return its position in the available groups list or else it will print a message telling you that it is not available and return 0.
+ </Description>
+</ManSection>
+
+
+<Example><![CDATA[
+gap> InverseAvailableMap(AvailableMap(i)) = i;
+gap> InverseAvailableMap(3568);
+This is an immediate descendant of the elementary abelian group of order 32 and is not available
+0
+]]></Example>
+
+
+<ManSection>
+  <Attr Arg="G" Name="Heritage" Label="for IsGroup"/>
+ <Returns><Code>list</Code>
+</Returns>
+ <Description>
+ Returns as a list the following information for a group of order 1024 loaded from the library <Code>[ParentGroupID, ParentGroupOrder, Step, Age]</Code>. The age of a group is the position of the group among its siblings in the ordered list of their standard PC codes.
  </Description>
 </ManSection>
 

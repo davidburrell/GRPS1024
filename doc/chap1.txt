@@ -4,10 +4,59 @@
   
   [1X1.1 [33X[0;0YOverview[133X[101X
   
-  [33X[0;0YThis  package gives access to all of the groups of order 1024 with p-class 3
-  and  greater. The groups are sorted first by their parent group ids and then
-  by  the  pc codes of the standard presentations for the groups. These groups
-  were  used  in  the 2021 enumeration of the groups of order 1024 [Bur21] and
-  represent  a complete list of the isomorphism classes of the groups of order
-  1024 with p-class 3 and greater.[133X
+  [33X[0;0YThis library gives explicit access to the following groups of order 1024:[133X
+  
+  [30X    [33X[0;6YThe Rank 1 group[133X
+  
+  [30X    [33X[0;6YAll Rank 2 groups[133X
+  
+  [30X    [33X[0;6YAll Rank 3 groups[133X
+  
+  [30X    [33X[0;6YAll Rank 4 groups[133X
+  
+  [30X    [33X[0;6YRank 5 groups with p-class at least 3[133X
+  
+  [30X    [33X[0;6YRank 6 groups with p-class at least 3[133X
+  
+  [30X    [33X[0;6YRank 7 groups with p-class at least 3[133X
+  
+  [30X    [33X[0;6YRank 8 groups with p-class at least 3[133X
+  
+  [30X    [33X[0;6YRank 9 groups with p-class at least 3[133X
+  
+  [30X    [33X[0;6YThe Rank 10 group[133X
+  
+  [33X[0;0YThis  library  gives  partial  information  on the remaining groups of order
+  1024:[133X
+  
+  [30X    [33X[0;6YRank 5 groups with p-class 2[133X
+  
+  [30X    [33X[0;6YRank 6 groups with p-class 2[133X
+  
+  [30X    [33X[0;6YRank 7 groups with p-class 2[133X
+  
+  [30X    [33X[0;6YRank 8 groups with p-class 2[133X
+  
+  [30X    [33X[0;6YRank 9 groups with p-class 2[133X
+  
+  [33X[0;0YFor  the  groups that are not explicitly available the following information
+  is available:[133X
+  
+  [30X    [33X[0;6YParent Group ID[133X
+  
+  [30X    [33X[0;6YParent Group Order[133X
+  
+  [30X    [33X[0;6Yp-class[133X
+  
+  [30X    [33X[0;6YRank[133X
+  
+  [30X    [33X[0;6YAge[133X
+  
+  [33X[0;0YThe  groups  are  sorted  first by their parent group ids and then by the pc
+  codes  of  the  standard presentations for the groups. The data contained in
+  this  library  was  used in the 2021 enumeration of the groups of order 1024
+  [Bur21].  The  available  groups were generated using the p-group generation
+  algorithm  [O'B90]  as  implemented  in  the  ANUPQ  package  [GNOH19].  The
+  information  on  the remaining groups was calculated using the cohomological
+  methods for enumerating p-groups of p-class 2 as introduced in [EO99].[133X
   

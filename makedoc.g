@@ -7,6 +7,9 @@
 
 LoadPackage("AutoDoc");
 
+# bib:=ParseBibFiles("manual.bib");
+# WriteBibXMLextFile("manualbib.xml",bib);
+
 AutoDoc( rec( 
     autodoc := true,
     gapdoc := rec(

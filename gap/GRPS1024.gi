@@ -376,7 +376,7 @@ if n in [1..3567] then
 elif n in [3568..378632398] then
 ###3568-378632398 are descendants of [32,51]
 #
-        Print("This is an immediate descendant of of the elementary abelian group of order 32 and is not available");
+        Print("This is an immediate descendant of the elementary abelian group of order 32 and is not available\n");
 	return 0;
 
 elif n in [378632399..378646474] then
@@ -384,7 +384,7 @@ elif n in [378632399..378646474] then
 	return n-offset1;
 #
 elif n in [378646475..48076662880] then
-        Print("This is an immediate descendant of of the elementary abelian group of order 64 and is not available");
+        Print("This is an immediate descendant of the elementary abelian group of order 64 and is not available\n");
 	return 0;
 ###378646475-48076662880 are descendants of [64,267]
 #
@@ -393,7 +393,7 @@ elif n in [48076662881..48081929909] then
 ###48076662881-48081929909 are available 
 #
 elif n in [48081929910..48808773882] then
-        Print("This is an immediate descendant of of the elementary abelian group of order 128 and is not available");
+        Print("This is an immediate descendant of the elementary abelian group of order 128 and is not available\n");
 	return 0;
 ###48081929910-48808773882 are descendants of [128,2328] #
 #
@@ -404,7 +404,7 @@ elif n in [48808773883..48842627388] then
 elif n in [48842627389..48842630321] then
 ###48842627389-48842630321 are descendants of [256,56092] #
 #
-        Print("This is an immediate descendant of of the elementary abelian group of order 256 and is not available");
+        Print("This is an immediate descendant of the elementary abelian group of order 256 and is not available\n");
 	return 0;
 elif n in [48842630322..49487367275] then
 ###48842630322-49487367275 are available
@@ -412,13 +412,13 @@ elif n in [48842630322..49487367275] then
 	return n-offset1-offset2-offset3-offset4;
 elif n in [49487367276..49487367288] then 
 ###49487367276-49487367289 are the descendants of [512,10494213]
-        Print("This is an immediate descendant of of the elementary abelian group of order 512 and is not available");
+        Print("This is an immediate descendant of the elementary abelian group of order 512 and is not available\n");
 	return 0;
 elif n = 49487367289 then
 	return n-offset1-offset2-offset3-offset4-offset5;
 #49487367289 is the elementary abelian group
 elif n > 49487367289 then
-	Error("There are only 49487367289 groups of order 1024");
+	Error("There are only 49487367289 groups of order 1024\n");
 # return toReturn;
 fi;
 end);
