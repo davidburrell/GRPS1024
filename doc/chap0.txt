@@ -3,8 +3,8 @@
                                    [1X GRPS1024 [101X
   
   
-   [1X Utilities for iterating through the groups of order 1024 with p-class at
-                                    least 3 [101X
+  [1X Library of the groups of order 1024 of p-class at least 3, those of p-class
+              two and rank 4 and those of p-class 1 and rank 10. [101X
   
   
                                      0.0.1
@@ -30,13 +30,9 @@
     1.1 [33X[0;0YOverview[133X
   2 [33X[0;0YFunctionality[133X
     2.1 [33X[0;0YMethods[133X
-      2.1-1 NumDescendants
-      2.1-2 LoadDescendants
-      2.1-3 CheckoutDescendants
-      2.1-4 IsAvailable
-      2.1-5 FindGroupN
-      2.1-6 FindNthAvailableGroup
-      2.1-7 AvailableMap
+      2.1-1 AvailableMap
+      2.1-2 InverseAvailableMap
+      2.1-3 Heritage
   
   
   [32X
