@@ -89,7 +89,7 @@ DeclareGlobalFunction("FindGroupN");
 DeclareGlobalFunction("FindNthAvailableGroup");
 
 #! @Description
-#! Since some of the groups of order 1024 are not available, this function handles the translation between the ordering of the groups of order 1024 and the available groups of order 1024. For $1 \leq i \leq 683,875,133$ this will return the position of the $i$th available group among all the groups of order 1024.
+#! For $1 \leq i \leq 683,875,133$ this function will return the SmallGroup ID of the $i$th available group among all the groups of order 1024.
 #! @Arguments N
 #! @Returns `int`
 DeclareGlobalFunction("AvailableMap");
@@ -102,12 +102,12 @@ DeclareGlobalFunction("AvailableMap");
 #! #the next available group has index 378632399 
 #! gap> AvailableMap(3568)
 #! 378632399
-#! #To iterate through the available groups use
-#! gap> SmallGroup(1024,Available(i)) #for i <= 683,875,1333
+#! #access the ith available group of order 1024
+#! gap> SmallGroup(1024,AvailableMap(i)) #for i <= 683,875,1333
 #! @EndExampleSession
 
 #! @Description
-#! This function handles the translation between the available ordering of the groups of order 1024 and the groups of order 1024. For $1 \leq i \leq 49,487,367,289$ if `SmallGroup(1024,i)` is available this will return its position in the available groups list or else it will print a message telling you that it is not available and return 0.
+#! For $1 \leq i \leq 49,487,367,289$ if `SmallGroup(1024,i)` is available this will return its position in the available groups list or else it will print a message telling you that it is not available and return 0.
 #! @Arguments N
 #! @Returns `int`
 DeclareGlobalFunction("InverseAvailableMap");
