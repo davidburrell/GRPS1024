@@ -197,14 +197,43 @@ cohomological methods for enumerating p-groups of p-class 2 as introduced in \ci
 {
   
 
- Once the package is loaded the user may call \texttt{SmallGroup(1024,i)} and receive either a group if available or a partially constructed group which
-has the following attributes set 
+ Once the package is loaded the user may call \texttt{SmallGroup(1024,i)} and receive either a group if available or a \emph{partially constructed group} which has the following attributes set 
 \begin{itemize}
 \item  p-class 
 \item  Rank 
 \item  Heritage 
 \item  Order 
 \end{itemize}
+ 
+
+ 
+\begin{Verbatim}[commandchars=!@|,fontsize=\small,frame=single,label=Example]
+  !gapprompt@gap>| !gapinput@G:=SmallGroup(1024,1); #this group is available|
+  <pc group of size 1024 with 10 generators>
+  !gapprompt@gap>| !gapinput@RankPGroup(G);|
+  4
+  !gapprompt@gap>| !gapinput@PClassPGroup(G);|
+  2
+  !gapprompt@gap>| !gapinput@Heritage(G);|
+  [ 16, 14, 1 ]
+  !gapprompt@gap>| !gapinput@H:=SmallGroup(1024,3568); #this is a partially constructed group|
+  <pc group with 0 generators>
+  !gapprompt@gap>| !gapinput@PClassPGroup(H);|
+  2
+  !gapprompt@gap>| !gapinput@RankPGroup(H);|
+  5
+  !gapprompt@gap>| !gapinput@Heritage(H);|
+  [ 32, 51, 1 ]
+  !gapprompt@gap>| !gapinput@K:=SmallGroup(1024,3569); #this is a partially constructed group|
+  <pc group with 0 generators>
+  !gapprompt@gap>| !gapinput@PClassPGroup(K);|
+  2
+  !gapprompt@gap>| !gapinput@RankPGroup(K);|
+  5
+  !gapprompt@gap>| !gapinput@Heritage(K);|
+  [ 32, 51, 2 ]
+  #notice that H,K have the same parent group but their age differs
+\end{Verbatim}
  
 
 \subsection{\textcolor{Chapter }{AvailableMap}}
@@ -226,7 +255,7 @@ has the following attributes set
   !gapprompt@gap>| !gapinput@g:=SmallGroup(1024,3567);|
   <pc group of size 1024 with 10 generators> #this is an available group
   !gapprompt@gap>| !gapinput@g:=SmallGroup(1024,3568);|
-  <pc group with 0 generators> #this is a partially constructed group and not available
+  <pc group with 0 generators> #this is a partially constructed group
   #the next available group has index 378632399 
   !gapprompt@gap>| !gapinput@AvailableMap(3568)|
   378632399
@@ -271,8 +300,8 @@ else it will print a message telling you that it is not available and return
 
 
  Returns as a list the following information for a group of order 1024 loaded
-from the library \texttt{[ParentGroupID, ParentGroupOrder, Step, Age]}. The age of a group is the position of the group among its siblings in the
-ordered list of their standard PC codes. }
+from the library \texttt{[ParentGroupID, ParentGroupOrder, Age]}. The \emph{Age} of a group is the position of the group among its siblings in the ordered list
+of their standard PC codes. }
 
  }
 

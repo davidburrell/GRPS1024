@@ -46,12 +46,40 @@ DeclareGlobalFunction("ReloadGRPS1024");
 #!
 #! @Section Methods
 #!
-#! Once the package is loaded the user may call `SmallGroup(1024,i)` and receive either a group if available or a partially constructed group which has the following attributes set
+#! Once the package is loaded the user may call `SmallGroup(1024,i)` and receive either a group if available or a **partially constructed group** which has the following attributes set
 #! * p-class
 #! * Rank
 #! * Heritage
 #! * Order
-
+#! 
+#!
+#! @BeginExampleSession
+#! gap> G:=SmallGroup(1024,1); #this group is available
+#! <pc group of size 1024 with 10 generators>
+#! gap> RankPGroup(G);
+#! 4
+#! gap> PClassPGroup(G);
+#! 2
+#! gap> Heritage(G);
+#! [ 16, 14, 1 ]
+#! gap> H:=SmallGroup(1024,3568); #this is a partially constructed group
+#! <pc group with 0 generators>
+#! gap> PClassPGroup(H);
+#! 2
+#! gap> RankPGroup(H);
+#! 5
+#! gap> Heritage(H);
+#! [ 32, 51, 1 ]
+#! gap> K:=SmallGroup(1024,3569); #this is a partially constructed group
+#! <pc group with 0 generators>
+#! gap> PClassPGroup(K);
+#! 2
+#! gap> RankPGroup(K);
+#! 5
+#! gap> Heritage(K);
+#! [ 32, 51, 2 ]
+#! #notice that H,K have the same parent group but their age differs
+#! @EndExampleSession
 ## @Description returns the number of immediate descendants of order 1024 of SmallGroup(Order,ID)
 ## @Returns an `int`
 ## @Arguments Order ID
@@ -98,7 +126,7 @@ DeclareGlobalFunction("AvailableMap");
 #! gap> g:=SmallGroup(1024,3567);
 #! <pc group of size 1024 with 10 generators> #this is an available group
 #! gap> g:=SmallGroup(1024,3568);
-#! <pc group with 0 generators> #this is a partially constructed group and not available
+#! <pc group with 0 generators> #this is a partially constructed group
 #! #the next available group has index 378632399 
 #! gap> AvailableMap(3568)
 #! 378632399
@@ -126,7 +154,7 @@ DeclareGlobalFunction("InverseAvailableMap");
 # DeclareAttribute("Age",IsGroup);
 #
 #! @Description
-#! Returns as a list the following information for a group of order 1024 loaded from the library `[ParentGroupID, ParentGroupOrder, Step, Age]`. The age of a group is the position of the group among its siblings in the ordered list of their standard PC codes.
+#! Returns as a list the following information for a group of order 1024 loaded from the library `[ParentGroupID, ParentGroupOrder, Age]`. The **Age** of a group is the position of the group among its siblings in the ordered list of their standard PC codes.
 #! @Arguments G
 #! @Returns `list`
 DeclareAttribute("Heritage",IsGroup);

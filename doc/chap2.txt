@@ -5,7 +5,7 @@
   [1X2.1 [33X[0;0YMethods[133X[101X
   
   [33X[0;0YOnce  the package is loaded the user may call [10XSmallGroup(1024,i)[110X and receive
-  either  a  group if available or a partially constructed group which has the
+  either  a  group if available or a [13Xpartially constructed group[113X which has the
   following attributes set[133X
   
   [30X    [33X[0;6Yp-class[133X
@@ -15,6 +15,34 @@
   [30X    [33X[0;6YHeritage[133X
   
   [30X    [33X[0;6YOrder[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XG:=SmallGroup(1024,1); #this group is available[127X[104X
+    [4X[28X<pc group of size 1024 with 10 generators>[128X[104X
+    [4X[25Xgap>[125X [27XRankPGroup(G);[127X[104X
+    [4X[28X4[128X[104X
+    [4X[25Xgap>[125X [27XPClassPGroup(G);[127X[104X
+    [4X[28X2[128X[104X
+    [4X[25Xgap>[125X [27XHeritage(G);[127X[104X
+    [4X[28X[ 16, 14, 1 ][128X[104X
+    [4X[25Xgap>[125X [27XH:=SmallGroup(1024,3568); #this is a partially constructed group[127X[104X
+    [4X[28X<pc group with 0 generators>[128X[104X
+    [4X[25Xgap>[125X [27XPClassPGroup(H);[127X[104X
+    [4X[28X2[128X[104X
+    [4X[25Xgap>[125X [27XRankPGroup(H);[127X[104X
+    [4X[28X5[128X[104X
+    [4X[25Xgap>[125X [27XHeritage(H);[127X[104X
+    [4X[28X[ 32, 51, 1 ][128X[104X
+    [4X[25Xgap>[125X [27XK:=SmallGroup(1024,3569); #this is a partially constructed group[127X[104X
+    [4X[28X<pc group with 0 generators>[128X[104X
+    [4X[25Xgap>[125X [27XPClassPGroup(K);[127X[104X
+    [4X[28X2[128X[104X
+    [4X[25Xgap>[125X [27XRankPGroup(K);[127X[104X
+    [4X[28X5[128X[104X
+    [4X[25Xgap>[125X [27XHeritage(K);[127X[104X
+    [4X[28X[ 32, 51, 2 ][128X[104X
+    [4X[28X#notice that H,K have the same parent group but their age differs[128X[104X
+  [4X[32X[104X
   
   [1X2.1-1 AvailableMap[101X
   
@@ -29,7 +57,7 @@
     [4X[25Xgap>[125X [27Xg:=SmallGroup(1024,3567);[127X[104X
     [4X[28X<pc group of size 1024 with 10 generators> #this is an available group[128X[104X
     [4X[25Xgap>[125X [27Xg:=SmallGroup(1024,3568);[127X[104X
-    [4X[28X<pc group with 0 generators> #this is a partially constructed group and not available[128X[104X
+    [4X[28X<pc group with 0 generators> #this is a partially constructed group[128X[104X
     [4X[28X#the next available group has index 378632399 [128X[104X
     [4X[25Xgap>[125X [27XAvailableMap(3568)[127X[104X
     [4X[28X378632399[128X[104X
@@ -59,7 +87,7 @@
   [6XReturns:[106X  [33X[0;10Y[10Xlist[110X[133X
   
   [33X[0;0YReturns as a list the following information for a group of order 1024 loaded
-  from  the library [10X[ParentGroupID, ParentGroupOrder, Step, Age][110X. The age of a
-  group is the position of the group among its siblings in the ordered list of
-  their standard PC codes.[133X
+  from  the library [10X[ParentGroupID, ParentGroupOrder, Age][110X. The [13XAge[113X of a group
+  is the position of the group among its siblings in the ordered list of their
+  standard PC codes.[133X
   

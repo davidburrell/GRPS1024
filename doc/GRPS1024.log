@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.12.24)  13 JUL 2022 07:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.12.24)  13 JUL 2022 08:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -462,7 +462,7 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ] [4]
 Chapter 2.
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 226.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 211.
 [5
 
 ] (./GRPS1024.bbl (./GRPS1024.brf)
@@ -476,17 +476,17 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
 
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 305.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 305.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 334.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 334.
 
 (./GRPS1024.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 305.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 305.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 334.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 334.
 Package rerunfilecheck Info: File `GRPS1024.out' has not changed.
 (rerunfilecheck)             Checksum: 25F7FD36FE61DD2FA275D240BCB6359A;297.
 Package rerunfilecheck Info: File `GRPS1024.brf' has not changed.
 (rerunfilecheck)             Checksum: 7BA28694FE9D47BE6A5EEA7631AF0C6F;187.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 305.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 334.
  ) 
 Here is how much of TeX's memory you used:
  7339 strings out of 481239
@@ -495,9 +495,9 @@ Here is how much of TeX's memory you used:
  22409 multiletter control sequences out of 15000+600000
  589123 words of font info for 89 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 47i,6n,37p,334b,632s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/
-fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/t
+ 47i,6n,37p,334b,458s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texliv
+e/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfst
 1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb></usr/share
@@ -505,7 +505,7 @@ ublic/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfst
 fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on GRPS1024.pdf (8 pages, 142724 bytes).
+Output written on GRPS1024.pdf (8 pages, 145658 bytes).
 PDF statistics:
  149 PDF objects out of 1000 (max. 8388607)
  128 compressed objects within 2 object streams

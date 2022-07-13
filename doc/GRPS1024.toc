@@ -2,8 +2,8 @@
 \contentsline {section}{\numberline {1.1}\textcolor {Chapter }{Overview}}{3}{section.1.1}%
 \contentsline {chapter}{\numberline {2}\textcolor {Chapter }{Functionality}}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}\textcolor {Chapter }{Methods}}{5}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}\textcolor {Chapter }{AvailableMap}}{5}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}\textcolor {Chapter }{InverseAvailableMap}}{5}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.1}\textcolor {Chapter }{AvailableMap}}{6}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}\textcolor {Chapter }{InverseAvailableMap}}{6}{subsection.2.1.2}%
 \contentsline {subsection}{\numberline {2.1.3}\textcolor {Chapter }{Heritage (for IsGroup)}}{6}{subsection.2.1.3}%
 \contentsline {chapter}{References}{7}{chapter*.2}%
 \contentsline {chapter}{Index}{8}{section*.3}%
