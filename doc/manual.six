@@ -9,6 +9,6 @@ entries :=
       [ 2, 0, 0 ], 1, 5, "functionality", "X87F1120883F5B4D0" ], [ "\033[1X\033[33X\033[0;-2YMethods\033[133X\033[101X", "2.1", [ 2, 1, 0 ], 4, 5, "methods", "X8606FDCE878850EF" ], 
   [ "Bibliography", "bib", [ "Bib", 0, 0 ], 1, 7, "bibliography", "X7A6F98FD85F02BFE" ], [ "References", "bib", [ "Bib", 0, 0 ], 1, 7, "references", "X7A6F98FD85F02BFE" ], 
   [ "Index", "ind", [ "Ind", 0, 0 ], 1, 8, "index", "X83A0356F839C696F" ], [ "\033[2XAvailableMap\033[102X", "2.1-1", [ 2, 1, 1 ], 19, 5, "availablemap", "X7E989FA979E72135" ], 
-  [ "\033[2XInverseAvailableMap\033[102X", "2.1-2", [ 2, 1, 2 ], 43, 5, "inverseavailablemap", "X798138987C8EBBB2" ], [ "\033[2XHeritage\033[102X for IsGroup", "2.1-3", [ 2, 1, 3 ], 61, 6, 
+  [ "\033[2XInverseAvailableMap\033[102X", "2.1-2", [ 2, 1, 2 ], 40, 5, "inverseavailablemap", "X798138987C8EBBB2" ], [ "\033[2XHeritage\033[102X for IsGroup", "2.1-3", [ 2, 1, 3 ], 56, 6, 
       "heritage for isgroup", "X78622CFD846746FD" ] ]
 );

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# cp -f ../PackageInfo.g ../README* .
+# cp -f ../doc/*.{css,html,js,txt} doc/
+~/gap/bin/gap.sh -b makedoc.g
+git commit -am "documentation update"
+git push

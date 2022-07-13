@@ -61,7 +61,7 @@
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AvailableMap</code>( <var class="Arg">N</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">int</code></p>
 
-<p>Since some of the groups of order 1024 are not available, this function handles the translation between the ordering of the groups of order 1024 and the available groups of order 1024. For <span class="Math">1 \leq i \leq 683,875,133</span> this will return the position of the <span class="Math">i</span>th available group among all the groups of order 1024.</p>
+<p>For <span class="Math">1 \leq i \leq 683,875,133</span> this function will return the SmallGroup ID of the <span class="Math">i</span>th available group among all the groups of order 1024.</p>
 
 
 <div class="example"><pre>
@@ -73,8 +73,8 @@
 #the next available group has index 378632399 
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AvailableMap(3568)</span>
 378632399
-#To iterate through the available groups use
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallGroup(1024,Available(i)) #for i &lt;= 683,875,1333</span>
+#access the ith available group of order 1024
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallGroup(1024,AvailableMap(i)) #for i &lt;= 683,875,1333</span>
 </pre></div>
 
 <p><a id="X798138987C8EBBB2" name="X798138987C8EBBB2"></a></p>
@@ -84,7 +84,7 @@
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InverseAvailableMap</code>( <var class="Arg">N</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">int</code></p>
 
-<p>This function handles the translation between the available ordering of the groups of order 1024 and the groups of order 1024. For <span class="Math">1 \leq i \leq 49,487,367,289</span> if <code class="code">SmallGroup(1024,i)</code> is available this will return its position in the available groups list or else it will print a message telling you that it is not available and return 0.</p>
+<p>For <span class="Math">1 \leq i \leq 49,487,367,289</span> if <code class="code">SmallGroup(1024,i)</code> is available this will return its position in the available groups list or else it will print a message telling you that it is not available and return 0.</p>
 
 
 <div class="example"><pre>
