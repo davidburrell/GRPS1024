@@ -40,7 +40,7 @@
 
 <h4>2.1 <span class="Heading">Methods</span></h4>
 
-<p>Once the package is loaded the user may call <code class="code">SmallGroup(1024,i)</code> and receive either a group if available or a partially constructed group which has the following attributes set</p>
+<p>Once the package is loaded the user may call <code class="code">SmallGroup(1024,i)</code> and receive either a group if available or a <em>partially constructed group</em> which has the following attributes set</p>
 
 
 <ul>
@@ -57,6 +57,35 @@
 
 </li>
 </ul>
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=SmallGroup(1024,1); #this group is available</span>
+&lt;pc group of size 1024 with 10 generators&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RankPGroup(G);</span>
+4
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PClassPGroup(G);</span>
+2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Heritage(G);</span>
+[ 16, 14, 1 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H:=SmallGroup(1024,3568); #this is a partially constructed group</span>
+&lt;pc group with 0 generators&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PClassPGroup(H);</span>
+2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RankPGroup(H);</span>
+5
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Heritage(H);</span>
+[ 32, 51, 1 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">K:=SmallGroup(1024,3569); #this is a partially constructed group</span>
+&lt;pc group with 0 generators&gt;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PClassPGroup(K);</span>
+2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RankPGroup(K);</span>
+5
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Heritage(K);</span>
+[ 32, 51, 2 ]
+#notice that H,K have the same parent group but their age differs
+</pre></div>
+
 <p><a id="X7E989FA979E72135" name="X7E989FA979E72135"></a></p>
 
 <h5>2.1-1 AvailableMap</h5>
@@ -72,7 +101,7 @@
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=SmallGroup(1024,3567);</span>
 &lt;pc group of size 1024 with 10 generators&gt; #this is an available group
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=SmallGroup(1024,3568);</span>
-&lt;pc group with 0 generators&gt; #this is a partially constructed group and not available
+&lt;pc group with 0 generators&gt; #this is a partially constructed group
 #the next available group has index 378632399 
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AvailableMap(3568)</span>
 378632399
@@ -104,7 +133,7 @@ This is an immediate descendant of the elementary abelian group of order 32 and 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Heritage</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">list</code></p>
 
-<p>Returns as a list the following information for a group of order 1024 loaded from the library <code class="code">[ParentGroupID, ParentGroupOrder, Step, Age]</code>. The age of a group is the position of the group among its siblings in the ordered list of their standard PC codes.</p>
+<p>Returns as a list the following information for a group of order 1024 loaded from the library <code class="code">[ParentGroupID, ParentGroupOrder, Age]</code>. The <em>Age</em> of a group is the position of the group among its siblings in the ordered list of their standard PC codes.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapBib_mj.html">[Next Chapter]</a>&nbsp;  </div>
