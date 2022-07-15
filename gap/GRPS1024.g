@@ -28,8 +28,7 @@ end;
 
 
 SMALL_GROUP_FUNCS[ pos_2_10 ] := function( size, n, inforec )
-  local capableMaster, toRead, offset, order, step, parent_ID, parent_Order, heritage, toReturn, j, group_order, group, i,breakOuter;
-    # local l, j, k, layer_id, layer_position, toRead, split_size_1, split_size_2,layer_change,offset;
+  local capableMaster, toRead, offset, order, step, parent_ID, parent_Order, heritage, toReturn, j, group_order, group, i,breakOuter,parent;
 
     if n > inforec.number then 
         Error("there are just ",inforec.number," groups of order ",size );
@@ -49,17 +48,15 @@ SMALL_GROUP_FUNCS[ pos_2_10 ] := function( size, n, inforec )
 	offset:=0;
 	order:=8;
 	step:=0;
-	# parent_ID:=0;
-	# parent_Order:=0;
 	heritage:=rec();
 	breakOuter:=false;
-	#toSkip:=[[32,51],[64,267],[128
 	for group_order in capableMaster do
 		order:=order*2;
 		step:=Length(FactorsInt(1024)) - Length(FactorsInt(order));
 		for group in group_order do
 			offset:=i;
 			i:=i+group[2];
+
 			#the first time that i is greater than our number we have found our parent id
 			if i >= n then
 				#
@@ -74,22 +71,13 @@ SMALL_GROUP_FUNCS[ pos_2_10 ] := function( size, n, inforec )
 				heritage.Age:=n-offset;
 
 				if order > 16 and NumberSmallGroups(order)=group[1] then
-					# Error(StringFormatted("\n SmallGroup(1024,{}) is an immediate descendant of the Elementary Abelian group of order {} and is not currently available\n ",n,order));
-					# Print(StringFormatted("\n SmallGroup(1024,{}) is an immediate descendant of the Elementary Abelian group of order {} and is not currently available.\n Partially constructed group returned \n",n,order));
-				#TODO: maybe we should return an empty group shell instead with just the information that is known
 					toReturn:=ImmediateDescendantGroupShell(ElementaryAbelianGroup(order));
-				# SetParentGroupID(toReturn,heritage.ID);
-				# SetParentGroupOrder(toReturn,heritage.Order);
-				# SetAge(toReturn,heritage.Age);
+
 				SetHeritage(toReturn,[heritage.Order,heritage.ID,heritage.Age]);
 				SetPClassPGroup(toReturn,2);
 				SetRankPGroup(toReturn,RankPGroup(ElementaryAbelianGroup(order)));
 				SetOrder(toReturn,1024);
 				return toReturn;
-					# SetParentGroupID(toReturn,group[1])
-					# SetParentGroupOrder(toReturn,order);
-
-					# return ElementaryAbelianGroup(order);
 				fi;
 
 				if not IsBound(SMALL_GROUP_LIB[1024]) then
@@ -105,37 +93,25 @@ SMALL_GROUP_FUNCS[ pos_2_10 ] := function( size, n, inforec )
 				fi;
 
 				toReturn:=PcGroupCode(SMALL_GROUP_LIB[1024][heritage.Order][heritage.ID][heritage.Age],size);
-				# SetParentGroupID(toReturn,heritage.ID);
-				# SetParentGroupOrder(toReturn,heritage.Order);
-				# SetAge(toReturn,heritage.Age);
+
 				SetHeritage(toReturn,[heritage.Order,heritage.ID,heritage.Age]);
-				# SetPClassPGroup(toReturn,2);
-				# SetOrder(toReturn,1024);
+				
+				parent:=SmallGroup(heritage.Order,heritage.ID);
+				SetPClassPGroup(toReturn,PClassPGroup(parent)+1);
+				SetRankPGroup(toReturn,RankPGroup(parent));
 				
 				return toReturn ;
-				# break;
-				# desc:=CheckoutDescendants(order,group[1]);
-				#desc:=List(desc,CodePcGroup);
-				# Sort(desc);
-				# these lists were sorted after generation and before preparation of this package
-				# toReturn:=PcGroupCode(desc[n-offset],1024);
-				# SetParentGroupID(toReturn,group[1]);
-				# SetParentGroupOrder(toReturn,order);
-				# SetAge(toReturn,n-offset);
-				# SetKStepDescendant(toReturn,step);
-				# return toReturn;
-				# return [order,group[1],step,n-offset,desc[n-offset]];
 			else
 				continue;
 			fi;
 		od;
 	od;
+
 	## if we are here then the group is an immediate descendant of a group of order 512
 	order:=512;
 	step:=1;
 	toRead:=StringFormatted("gap/CapableList_512.g");
 	if ReadPackage("PGroupUTILS",toRead) then
-		#Add(capableMaster,ValueGlobal(StringFormatted("Capable_{}",j)));
 		capableMaster:=ValueGlobal(StringFormatted("Capable_{}",512));
 	fi;
 
@@ -146,27 +122,19 @@ SMALL_GROUP_FUNCS[ pos_2_10 ] := function( size, n, inforec )
 				#n-offset is the position in the ordered list of descendants
 				#we are looking for i.e. the age of the nth group among its
 				#siblings
-				#desc:=PqDescendants(SmallGroup(order,group[1]):StepSize:=step);
+
 				heritage.ID:=group[1];
 				heritage.Order:=order;
 				heritage.Age:=n-offset;
 
 				if NumberSmallGroups(order)=group[1] then
-					# Error(StringFormatted("\n\nSmallGroup(1024,{}) is an immediate descendant of the Elementary Abelian group of order {} and is not currently available\n\n",n,order));
-					# Print(StringFormatted("Descendant {} of the Elementary Abelian group of order {} is not available returning parent group\n",n-offset,order));
-					# Print(StringFormatted("\n SmallGroup(1024,{}) is an immediate descendant of the Elementary Abelian group of order {} and is not currently available. Partially constructed group returned\n",n,order));
-				#TODO: maybe we should return an empty group shell instead with just the information that is known
 					toReturn:=ImmediateDescendantGroupShell(ElementaryAbelianGroup(order));
-				# SetParentGroupID(toReturn,heritage.ID);
-				# SetParentGroupOrder(toReturn,heritage.Order);
-				# SetAge(toReturn,heritage.Age);
 				SetHeritage(toReturn,[heritage.Order,heritage.ID,heritage.Age]);
 				SetPClassPGroup(toReturn,2);
 				SetRankPGroup(toReturn,RankPGroup(ElementaryAbelianGroup(order)));
 				SetOrder(toReturn,1024);
 
 				return toReturn;
-					# return ElementaryAbelianGroup(order);
 				fi;
 
 				if not IsBound(SMALL_GROUP_LIB[1024]) then
@@ -182,23 +150,12 @@ SMALL_GROUP_FUNCS[ pos_2_10 ] := function( size, n, inforec )
 				fi;
 
 				toReturn:=PcGroupCode(SMALL_GROUP_LIB[1024][heritage.Order][heritage.ID][heritage.Age],size);
-				# SetParentGroupID(toReturn,heritage.ID);
-				# SetParentGroupOrder(toReturn,heritage.Order);
-				# SetAge(toReturn,heritage.Age);
 				SetHeritage(toReturn,[heritage.Order,heritage.ID,heritage.Age]);
+				parent:=SmallGroup(heritage.Order,heritage.ID);
+				SetPClassPGroup(toReturn,PClassPGroup(parent)+1);
+				SetRankPGroup(toReturn,RankPGroup(parent));
 
 				return toReturn ;
-				# break;
-				#desc:=CheckoutDescendants(order,group[1]);
-				##desc:=List(desc,CodePcGroup);
-				##Sort(desc);
-				#toReturn:=PcGroupCode(desc[n-offset],1024);
-				#SetParentGroupID(toReturn,group[1]);
-				#SetParentGroupOrder(toReturn,order);
-				#SetAge(toReturn,n-offset);
-				#SetKStepDescendant(toReturn,step);
-				#return toReturn;
-				# return [order,group[1],step,n-offset,desc[n-offset]];
 			else
 				continue;
 			fi;
@@ -207,11 +164,8 @@ SMALL_GROUP_FUNCS[ pos_2_10 ] := function( size, n, inforec )
 
 	elif n = 49487367289 then
 		toReturn:=ElementaryAbelianGroup(1024);
-		# SetParentGroupID(toReturn,1);
-		# SetParentGroupOrder(toReturn,1);
-		# SetAge(toReturn,1);
 		SetHeritage(toReturn,[1,1,1]);
-		# SetKStepDescendant(toReturn,10);
+
 		return toReturn;
 	fi;
 end;

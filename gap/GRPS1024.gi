@@ -10,6 +10,8 @@ InstallGlobalFunction("ReloadGRPS1024",function()
  Print(RereadPackage("GRPS1024/gap/GRPS1024.g"),"\n");
 end);
 
+BindGlobal("GRPS1024_AVAIL",683875133);
+
 BindGlobal("GRPS1024_DESC",rec(2:=[],4:=[],8:=[],16:=[],32:=[],64:=[],128:=[],256:=[],512:=[]));
 BindGlobal("GRPS1024_ENUM",rec(2:=[],4:=[],8:=[],16:=[],32:=[],64:=[],128:=[],256:=[],512:=[]));
 
@@ -593,14 +595,17 @@ end );
 return [Capable_16,Capable_32,Capable_64,Capable_128,Capable_256,Capable_512];
 end);
 
-InstallGlobalFunction("PrintClassificationTable1024",function()
-  local i, currentPClass, currentRank, currentParentGroupOrder, doworking, num_siblings, working, numDescendants;
+InstallGlobalFunction("PrintClassificationTable1024",function(start_id,end_id)
+  local i, currentPClass, currentRank, currentParentGroupOrder, num_siblings, working, numDescendants;
 
-i:=1;
+# i:=1;
+i:=start_id;
 currentPClass:=0;
 currentRank:=0;
 currentParentGroupOrder:=0;
-while i <= 683875133 do
+
+# while i <= end_id and i <= 683875133 do
+while i < Minimum(end_id,GRPS1024_AVAIL) do
 # while i <= 875133 do
 working:=SmallGroup(1024,AvailableMap(i));
 num_siblings:=NumDescendants(Heritage(working)[1],Heritage(working)[2]);
@@ -609,36 +614,38 @@ num_siblings:=NumDescendants(Heritage(working)[1],Heritage(working)[2]);
 
 working:=SmallGroup(1024,AvailableMap(i));
 if not currentParentGroupOrder=Heritage(working)[1] then
-if currentRank > 0 then
-Print(StringFormatted("-{} have rank {} and pclass {}\n",i-1,currentRank,currentPClass));
-fi;
-Print(StringFormatted("######################Immediate Descendants of order {}#############\n",Heritage(working)[1]));
-currentParentGroupOrder:=Heritage(working)[1];
-currentRank:=RankPGroup(working);
-currentPClass:=PClassPGroup(working);
+	if currentRank > 0 then
+	Print(StringFormatted("-{} have rank {} and pclass {}\n",i-1,currentRank,currentPClass));
+	fi;
 
-# Print(StringFormatted(" Group {} has rank {} and pclass {}\n",AvailableMap(i),currentRank,currentPClass));
-# Print(StringFormatted("Available Group {} has rank {} and pclass {}\n",i,currentRank,currentPClass));
-Print(StringFormatted("Available Groups {}",i));
-numDescendants:=NumDescendants(Heritage(working)[1],Heritage(working)[2]);
+	Print(StringFormatted("######################Immediate Descendants of order {}#############\n",Heritage(working)[1]));
+	currentParentGroupOrder:=Heritage(working)[1];
+	currentRank:=RankPGroup(working);
+	currentPClass:=PClassPGroup(working);
+
+	Print(StringFormatted("Available Groups {}",i));
+	numDescendants:=NumDescendants(Heritage(working)[1],Heritage(working)[2]);
 fi;
 
 if not currentRank = RankPGroup(working) or not currentPClass = PClassPGroup(working) or not currentParentGroupOrder= Heritage(working)[1] then
-# if i > 1 then
-# Print(StringFormatted(" Group {} has rank {} and pclass {}\n",AvailableMap(i)-1,currentRank,currentPClass));
-# fi;
-# Print(StringFormatted("Available Group {} has rank {} and pclass {}\n",i-1,currentRank,currentPClass));
-Print(StringFormatted("-{} have rank {} and pclass {}\n",i-1,currentRank,currentPClass));
+	Print(StringFormatted("-{} have rank {} and pclass {}\n",i-1,currentRank,currentPClass));
 
-currentRank:=RankPGroup(working);
-currentPClass:=PClassPGroup(working);
+	currentRank:=RankPGroup(working);
+	currentPClass:=PClassPGroup(working);
 
-# Print(StringFormatted("Group {} has rank {} and pclass {}\n",AvailableMap(i),currentRank,currentPClass));
-Print(StringFormatted("Available Groups {}",i));
-numDescendants:=NumDescendants(Heritage(working)[1],Heritage(working)[2]);
+	# Print(StringFormatted("Group {} has rank {} and pclass {}\n",AvailableMap(i),currentRank,currentPClass));
+	Print(StringFormatted("Available Groups {}",i));
+	numDescendants:=NumDescendants(Heritage(working)[1],Heritage(working)[2]);
 fi;
 
 i:=i+num_siblings;
 od;
+
+
+	working:=SmallGroup(1024,AvailableMap(end_id));
+	currentRank:=RankPGroup(working);
+	currentPClass:=PClassPGroup(working);
+	Print(StringFormatted("-{} have rank {} and pclass {}\n",end_id,currentRank,currentPClass));
+
 
 end);
