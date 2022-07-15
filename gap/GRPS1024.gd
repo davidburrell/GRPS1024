@@ -165,4 +165,5 @@ DeclareGlobalFunction("CustomPrintPcPresentation");
 DeclareGlobalFunction("PrintClassificationTable1024");
 DeclareGlobalFunction("ReturnCapableGroups");
 
-# DeclareGlobalFunction("PrintClassificationTable2");
+DeclareGlobalFunction("AvailableGroups1024Information");
+DeclareGlobalFunction("Groups1024Information");

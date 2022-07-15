@@ -649,3 +649,62 @@ od;
 
 
 end);
+
+InstallGlobalFunction("AvailableGroups1024Information",function()
+
+Print( "\n###############Available Groups Information#################\n");
+Print( "\n###############Immediate Descendants of order 16############\n");
+Print( "Available Groups 1-3566 have rank 4 and pclass 2\n");
+Print( "\n###############Immediate Descendants of order 32############\n");
+Print( "Available Groups 3567-3567 have rank 2 and pclass 3\n");
+Print( "\n###############Immediate Descendants of order 64############\n");
+Print( "Available Groups 3568-17643 have rank 3 and pclass 3\n");
+Print( "\n###############Immediate Descendants of order 128###########\n");
+Print( "Available Groups 17644-17795 have rank 2 and pclass 4\n");
+Print( "Available Groups 17796-209592 have rank 3 and pclass 3\n");
+Print( "Available Groups 209593-2784542 have rank 4 and pclass 3\n");
+Print( "Available Groups 2784543-5284672 have rank 5 and pclass 3\n");
+Print( "\n###############Immediate Descendants of order 256###########\n");
+Print( "Available Groups 5284673-5286130 have rank 2 and pclass 4\n");
+Print( "Available Groups 5286131-5286991 have rank 2 and pclass 5\n");
+Print( "Available Groups 5286992-5391292 have rank 3 and pclass 3\n");
+Print( "Available Groups 5391293-5446972 have rank 3 and pclass 4\n");
+Print( "Available Groups 5446973-5448532 have rank 3 and pclass 5\n");
+Print( "Available Groups 5448533-8568423 have rank 4 and pclass 3\n");
+Print( "Available Groups 8568424-8584451 have rank 4 and pclass 4\n");
+Print( "Available Groups 8584452-38912416 have rank 5 and pclass 3\n");
+Print( "Available Groups 38912417-39138178 have rank 6 and pclass 3\n");
+Print( "\n###############Immediate Descendants of order 512###########\n");
+Print( "Available Groups 39138179-39138179 have rank 1 and pclass 10\n");
+Print( "Available Groups 39138180-39138479 have rank 2 and pclass 4\n");
+Print( "Available Groups 39138480-39140738 have rank 2 and pclass 5\n");
+Print( "Available Groups 39140739-39141070 have rank 2 and pclass 6\n");
+Print( "Available Groups 39141071-39142607 have rank 2 and pclass 5\n");
+Print( "Available Groups 39142608-39144344 have rank 2 and pclass 6\n");
+Print( "Available Groups 39144345-39144783 have rank 2 and pclass 7\n");
+Print( "Available Groups 39144784-39144823 have rank 2 and pclass 8\n");
+Print( "Available Groups 39144824-39144828 have rank 2 and pclass 9\n");
+Print( "Available Groups 39144829-39144967 have rank 3 and pclass 3\n");
+Print( "Available Groups 39144968-39474000 have rank 3 and pclass 4\n");
+Print( "Available Groups 39474001-39478685 have rank 3 and pclass 5\n");
+Print( "Available Groups 39478686-39482594 have rank 3 and pclass 4\n");
+Print( "Available Groups 39482595-39549533 have rank 3 and pclass 5\n");
+Print( "Available Groups 39549534-39557923 have rank 3 and pclass 6\n");
+Print( "Available Groups 39557924-39558112 have rank 3 and pclass 7\n");
+Print( "Available Groups 39558113-39558121 have rank 3 and pclass 8\n");
+
+#Print( "");
+
+
+    Print( " \n");
+    Print( "This database was created by David Burrell (2022).\n");
+
+end);
+
+DeclareGlobalFunction("Groups1024Information",function()
+
+
+    Print( " \n");
+    Print( "This database was created by David Burrell (2022).\n");
+
+end);
