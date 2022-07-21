@@ -180,6 +180,6 @@ SELECT_SMALL_GROUPS_FUNCS[ pos_2_10 ] := SELECT_SMALL_GROUPS_FUNCS[ 11 ];
 SMALL_GROUPS_INFORMATION[ pos_2_10 ] := function( size, inforec, num )
 
 AvailableGroups1024Information();
-Groups1024Information();
+# Groups1024Information();
 
 end;

@@ -692,7 +692,11 @@ Print( "Available Groups 39482595-39549533 have rank 3 and pclass 5\n");
 Print( "Available Groups 39549534-39557923 have rank 3 and pclass 6\n");
 Print( "Available Groups 39557924-39558112 have rank 3 and pclass 7\n");
 Print( "Available Groups 39558113-39558121 have rank 3 and pclass 8\n");
-
+Print( "Available Groups 39558122-40250510 have rank 4 and pclass 3\n");
+Print( "Available Groups 40250511-41845930 have rank 4 and pclass 4\n");
+Print( "Available Groups 41845931-41897589 have rank 4 and pclass 5\n");
+Print( "Available Groups 41897590-41898679 have rank 4 and pclass 6\n");
+Print( "Available Groups 41898680-41898693 have rank 4 and pclass 7\n");
 #Print( "");
 
 
@@ -701,10 +705,10 @@ Print( "Available Groups 39558113-39558121 have rank 3 and pclass 8\n");
 
 end);
 
-DeclareGlobalFunction("Groups1024Information",function()
+# DeclareGlobalFunction("Groups1024Information",function()
 
 
-    Print( " \n");
-    Print( "This database was created by David Burrell (2022).\n");
+#     Print( " \n");
+#     Print( "This database was created by David Burrell (2022).\n");
 
-end);
+# end);
