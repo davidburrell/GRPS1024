@@ -595,6 +595,64 @@ end );
 return [Capable_16,Capable_32,Capable_64,Capable_128,Capable_256,Capable_512];
 end);
 
+InstallGlobalFunction("PrintClassificationTable",function(start_id,end_id,order)
+
+local working,i,currentPClass,currentRank;
+
+i:=start_id;
+currentPClass:=0;
+currentRank:=0;
+# currentParentGroupOrder:=0;
+
+# while i <= end_id and i <= 683875133 do
+# while i < Minimum(end_id,GRPS1024_AVAIL) do
+while i <= end_id do
+# while i <= 875133 do
+working:=SmallGroup(order,i);
+# num_siblings:=NumDescendants(Heritage(working)[1],Heritage(working)[2]);
+# Print(StringFormatted("{} - {}\n",i,i+num_siblings-1));
+
+
+# working:=SmallGroup(1024,AvailableMap(i));
+# if not currentParentGroupOrder=Heritage(working)[1] then
+	# if currentRank > 0 then
+	# Print(StringFormatted("-{} have rank {} and pclass {}\n",i-1,currentRank,currentPClass));
+	# fi;
+
+	# Print(StringFormatted("######################Immediate Descendants of order {}#############\n",Heritage(working)[1]));
+	# currentParentGroupOrder:=Heritage(working)[1];
+	# currentRank:=RankPGroup(working);
+	# currentPClass:=PClassPGroup(working);
+
+	# Print(StringFormatted("Available Groups {}",i));
+	# numDescendants:=NumDescendants(Heritage(working)[1],Heritage(working)[2]);
+# fi;
+
+if not currentRank = RankPGroup(working) or not currentPClass = PClassPGroup(working) then
+	Print(StringFormatted("-{} have rank {} and pclass {}\n",i-1,currentRank,currentPClass));
+
+	currentRank:=RankPGroup(working);
+	currentPClass:=PClassPGroup(working);
+
+	# Print(StringFormatted("Group {} has rank {} and pclass {}\n",AvailableMap(i),currentRank,currentPClass));
+	Print(StringFormatted("Groups {}",i));
+	# numDescendants:=NumDescendants(Heritage(working)[1],Heritage(working)[2]);
+fi;
+
+i:=i+1;
+od;
+
+
+	working:=SmallGroup(order,end_id);
+	currentRank:=RankPGroup(working);
+	currentPClass:=PClassPGroup(working);
+	Print(StringFormatted("-{} have rank {} and pclass {}\n",end_id,currentRank,currentPClass));
+
+
+
+
+end);
+
 
 InstallGlobalFunction("PrintClassificationTable1024",function(start_id,end_id)
   local i, currentPClass, currentRank, currentParentGroupOrder, num_siblings, working, numDescendants;

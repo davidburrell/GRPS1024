@@ -162,6 +162,7 @@ DeclareAttribute("Heritage",IsGroup);
 DeclareGlobalFunction("ReturnCapableGroupsOfOrder");
 DeclareGlobalFunction("ImmediateDescendantGroupShell");
 DeclareGlobalFunction("CustomPrintPcPresentation");
+DeclareGlobalFunction("PrintClassificationTable");
 DeclareGlobalFunction("PrintClassificationTable1024");
 DeclareGlobalFunction("ReturnCapableGroups");
 
