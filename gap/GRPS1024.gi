@@ -595,6 +595,7 @@ end );
 return [Capable_16,Capable_32,Capable_64,Capable_128,Capable_256,Capable_512];
 end);
 
+
 InstallGlobalFunction("PrintClassificationTable1024",function(start_id,end_id)
   local i, currentPClass, currentRank, currentParentGroupOrder, num_siblings, working, numDescendants;
 
@@ -697,6 +698,9 @@ Print( "Available Groups 40250511-41845930 have rank 4 and pclass 4\n");
 Print( "Available Groups 41845931-41897589 have rank 4 and pclass 5\n");
 Print( "Available Groups 41897590-41898679 have rank 4 and pclass 6\n");
 Print( "Available Groups 41898680-41898693 have rank 4 and pclass 7\n");
+Print( "Available Groups 41898694-374220787 have rank 5 and pclass 3\n");
+Print( "Available Groups 374220788- have rank 5 and pclass 4\n");
+
 #Print( "");
 
 
