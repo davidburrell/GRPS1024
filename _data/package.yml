@@ -1,5 +1,5 @@
 name: GRPS1024
-version: "0.0.3"
+version: "0.0.4"
 license: "GPL-2.0-or-later"
 date: 2022-06-20
 description: |
@@ -22,9 +22,9 @@ github: https://github.com/davidburrell/GRPS1024
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/davidburrell/GRPS1024/archive/refs/tags/v.0.0.3.tar.gz
+      url: https://github.com/davidburrell/GRPS1024/archive/refs/tags/v.0.0.4.tar.gz
     - name: .zip
-      url: https://github.com/davidburrell/GRPS1024/archive/refs/tags/v.0.0.3.zip
+      url: https://github.com/davidburrell/GRPS1024/archive/refs/tags/v.0.0.4.zip
 
 abstract: |
 
@@ -35,7 +35,7 @@ citeas: |
     <p class='BibEntry'>
     [<span class='BibKey'>Bur22</span>]   <b class='BibAuthor'>Burrell, D.</b>,
      <i class='BibTitle'>GRPS1024, Library of the groups of order 1024 of p-class at least 3, those of p-class two and rank 4 and those of p-class 1 and rank 10.,
-             Version 0.0.3</i>
+             Version 0.0.4</i>
      (<span class='BibYear'>2022</span>)<br />
     (<span class='BibNote'>GAP package</span>),
     <span class='BibHowpublished'><a href="https://davidburrell.github.io/GRPS1024/">https://davidburrell.github.io/GRPS1024/</a></span>.
@@ -43,11 +43,11 @@ citeas: |
     
 
 bibtex: |
-    @misc{ GRPS10240.0.3,
+    @misc{ GRPS10240.0.4,
       author =           {Burrell, D.},
       title =            {{GRPS1024},  Library of the groups of order 1024 of p-class at least
                           3,  those  of p-class two and rank 4 and those of p-class 1 and rank
-                          10., {V}ersion 0.0.3},
+                          10., {V}ersion 0.0.4},
       month =            {Jun},
       year =             {2022},
       note =             {GAP package},
