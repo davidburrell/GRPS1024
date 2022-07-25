@@ -167,4 +167,4 @@ DeclareGlobalFunction("PrintClassificationTable1024");
 DeclareGlobalFunction("ReturnCapableGroups");
 
 DeclareGlobalFunction("AvailableGroups1024Information");
-# DeclareGlobalFunction("Groups1024Information");
+DeclareGlobalFunction("Groups1024Information");
