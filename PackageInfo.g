@@ -45,7 +45,7 @@ PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
 # The following assumes you are using the Github releases system. If not, adjust
 # it accordingly.
 ArchiveURL     := Concatenation(~.GithubWWW,
-                    "/archive/refs/tags/v", ~.Version),
+                    "/archive/refs/tags/v.", ~.Version),
 #https://github.com/davidburrell/GRPS1024/archive/refs/tags/v.0.0.1.zip
 ArchiveFormats := ".tar.gz .zip",
 
