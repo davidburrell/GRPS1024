@@ -60,7 +60,7 @@ DeclareGlobalFunction("ReloadGRPS1024");
 #! 4
 #! gap> PClassPGroup(G);
 #! 2
-#! gap> Heritage(G);
+#! gap> GRPS1024_Heritage(G);
 #! [ 16, 14, 1 ]
 #! gap> H:=SmallGroup(1024,3568); #this is a partially constructed group
 #! <pc group with 0 generators>
@@ -68,7 +68,7 @@ DeclareGlobalFunction("ReloadGRPS1024");
 #! 2
 #! gap> RankPGroup(H);
 #! 5
-#! gap> Heritage(H);
+#! gap> GRPS1024_Heritage(H);
 #! [ 32, 51, 1 ]
 #! gap> K:=SmallGroup(1024,3569); #this is a partially constructed group
 #! <pc group with 0 generators>
@@ -76,7 +76,7 @@ DeclareGlobalFunction("ReloadGRPS1024");
 #! 2
 #! gap> RankPGroup(K);
 #! 5
-#! gap> Heritage(K);
+#! gap> GRPS1024_Heritage(K);
 #! [ 32, 51, 2 ]
 #! #notice that H,K have the same parent group but their age differs
 #! @EndExampleSession
@@ -157,7 +157,7 @@ DeclareGlobalFunction("InverseAvailableMap");
 #! Returns as a list the following information for a group of order 1024 loaded from the library `[ParentGroupID, ParentGroupOrder, Age]`. The **Age** of a group is the position of the group among its siblings in the ordered list of their standard PC codes.
 #! @Arguments G
 #! @Returns `list`
-DeclareAttribute("Heritage",IsGroup);
+DeclareAttribute("GRPS1024_Heritage",IsGroup);
 
 DeclareGlobalFunction("ReturnCapableGroupsOfOrder");
 DeclareGlobalFunction("ImmediateDescendantGroupShell");

@@ -73,7 +73,7 @@ SMALL_GROUP_FUNCS[ pos_2_10 ] := function( size, n, inforec )
 				if order > 16 and NumberSmallGroups(order)=group[1] then
 					toReturn:=ImmediateDescendantGroupShell(ElementaryAbelianGroup(order));
 
-				SetHeritage(toReturn,[heritage.Order,heritage.ID,heritage.Age]);
+				SetGRPS1024_Heritage(toReturn,[heritage.Order,heritage.ID,heritage.Age]);
 				SetPClassPGroup(toReturn,2);
 				SetRankPGroup(toReturn,RankPGroup(ElementaryAbelianGroup(order)));
 				SetOrder(toReturn,1024);
@@ -94,7 +94,7 @@ SMALL_GROUP_FUNCS[ pos_2_10 ] := function( size, n, inforec )
 
 				toReturn:=PcGroupCode(SMALL_GROUP_LIB[1024][heritage.Order][heritage.ID][heritage.Age],size);
 
-				SetHeritage(toReturn,[heritage.Order,heritage.ID,heritage.Age]);
+				SetGRPS1024_Heritage(toReturn,[heritage.Order,heritage.ID,heritage.Age]);
 				
 				parent:=SmallGroup(heritage.Order,heritage.ID);
 				SetPClassPGroup(toReturn,PClassPGroup(parent)+1);
@@ -129,7 +129,7 @@ SMALL_GROUP_FUNCS[ pos_2_10 ] := function( size, n, inforec )
 
 				if NumberSmallGroups(order)=group[1] then
 					toReturn:=ImmediateDescendantGroupShell(ElementaryAbelianGroup(order));
-				SetHeritage(toReturn,[heritage.Order,heritage.ID,heritage.Age]);
+				SetGRPS1024_Heritage(toReturn,[heritage.Order,heritage.ID,heritage.Age]);
 				SetPClassPGroup(toReturn,2);
 				SetRankPGroup(toReturn,RankPGroup(ElementaryAbelianGroup(order)));
 				SetOrder(toReturn,1024);
@@ -150,7 +150,7 @@ SMALL_GROUP_FUNCS[ pos_2_10 ] := function( size, n, inforec )
 				fi;
 
 				toReturn:=PcGroupCode(SMALL_GROUP_LIB[1024][heritage.Order][heritage.ID][heritage.Age],size);
-				SetHeritage(toReturn,[heritage.Order,heritage.ID,heritage.Age]);
+				SetGRPS1024_Heritage(toReturn,[heritage.Order,heritage.ID,heritage.Age]);
 				parent:=SmallGroup(heritage.Order,heritage.ID);
 				SetPClassPGroup(toReturn,PClassPGroup(parent)+1);
 				SetRankPGroup(toReturn,RankPGroup(parent));
@@ -164,7 +164,7 @@ SMALL_GROUP_FUNCS[ pos_2_10 ] := function( size, n, inforec )
 
 	elif n = 49487367289 then
 		toReturn:=ElementaryAbelianGroup(1024);
-		SetHeritage(toReturn,[1,1,1]);
+		SetGRPS1024_Heritage(toReturn,[1,1,1]);
 
 		return toReturn;
 	fi;
