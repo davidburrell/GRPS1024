@@ -10,7 +10,7 @@ SetPackageInfo( rec(
 
 PackageName := "GRPS1024",
 Subtitle := "Library of the groups of order 1024 of p-class at least 3, those of p-class two and rank 4 and those of p-class 1 and rank 10.",
-Version := "0.0.1",
+Version := "0.0.4",
 Date := "20/06/2022", # dd/mm/yyyy format
 License := "GPL-2.0-or-later",
 
@@ -45,7 +45,7 @@ PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
 # The following assumes you are using the Github releases system. If not, adjust
 # it accordingly.
 ArchiveURL     := Concatenation(~.GithubWWW,
-                    "/archive/refs/tags/v", ~.Version),
+                    "/archive/refs/tags/v.", ~.Version),
 #https://github.com/davidburrell/GRPS1024/archive/refs/tags/v.0.0.1.zip
 ArchiveFormats := ".tar.gz .zip",
 

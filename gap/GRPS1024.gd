@@ -162,8 +162,9 @@ DeclareAttribute("GRPS1024_Heritage",IsGroup);
 DeclareGlobalFunction("ReturnCapableGroupsOfOrder");
 DeclareGlobalFunction("ImmediateDescendantGroupShell");
 DeclareGlobalFunction("CustomPrintPcPresentation");
+DeclareGlobalFunction("PrintClassificationTable");
 DeclareGlobalFunction("PrintClassificationTable1024");
 DeclareGlobalFunction("ReturnCapableGroups");
 
 DeclareGlobalFunction("AvailableGroups1024Information");
-# DeclareGlobalFunction("Groups1024Information");
+DeclareGlobalFunction("Groups1024Information");
