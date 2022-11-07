@@ -474,8 +474,9 @@ end );
 
 #this is different than the system defined one since it only takes one input
 InstallGlobalFunction( CustomPrintPcPresentation, function(G)
-    local pcgs, n, F, gens, i, pis, exp, t, h, rel, commPower, j, trivialCommutators,commBool;
+    local pcgs, n, F, gens, i, pis, exp, t, h, rel, commPower, j, trivialCommutators,commBool,toReturn,workingString;
 
+    toReturn:=[];
     pcgs:=Pcgs(G);
     n:=Length(pcgs);
     F    := FreeGroup( n, "f" );
@@ -493,6 +494,7 @@ InstallGlobalFunction( CustomPrintPcPresentation, function(G)
             t := "id";
         fi;
         Print(gens[i], "^", pis[i], " = ", t, "\n");
+	Add(toReturn,StringFormatted("{}^{}={}",gens[i],pis[i],t));
     od;
 
     # compute the commutators / conjugation
@@ -517,17 +519,22 @@ InstallGlobalFunction( CustomPrintPcPresentation, function(G)
             od;
             if commBool then
                 Print("[", gens[j], ",", gens[i] , "]");
+		workingString:=StringFormatted("[{},{}]",gens[j],gens[i]);
+		# Add(toRead,"[{},{}]
             else
+		workingString:=StringFormatted("{}^{}",gens[j],gens[i]);
                 Print(gens[j], "^", gens[i]);
             fi;
 	if IsOne( t ) then
 	    t := "id";
 	fi;
             Print(" = ", t, "\n");
+		Add(toReturn,Concatenation(workingString,"=",t));
         od;
     od;
 
     # return trivialCommutators;
+    return toReturn;
 end );
 
 #InstallGlobalFunction("PrintClassificationTable1024",function()

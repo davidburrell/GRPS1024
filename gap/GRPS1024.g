@@ -111,7 +111,8 @@ SMALL_GROUP_FUNCS[ pos_2_10 ] := function( size, n, inforec )
 	order:=512;
 	step:=1;
 	toRead:=StringFormatted("gap/CapableList_512.g");
-	if ReadPackage("PGroupUTILS",toRead) then
+
+	if ReadPackage("GRPS1024",toRead) then
 		capableMaster:=ValueGlobal(StringFormatted("Capable_{}",512));
 	fi;
 
