@@ -601,13 +601,16 @@ end );
 return [Capable_16,Capable_32,Capable_64,Capable_128,Capable_256,Capable_512];
 end);
 
-InstallGlobalFunction("PrintClassificationTable",function(start_id,end_id,order)
+InstallGlobalFunction("PrintClassificationTable",function(order)
 
-local working,i,currentPClass,currentRank;
+local working,i,currentPClass,currentRank,end_id,pairs,currentPair;
 
-i:=start_id;
+i:=1;
 currentPClass:=0;
 currentRank:=0;
+end_id:=NumberSmallGroups(order);
+pairs:=[];
+currentPair:=[];
 # currentParentGroupOrder:=0;
 
 # while i <= end_id and i <= 683875133 do
@@ -635,8 +638,10 @@ working:=SmallGroup(order,i);
 # fi;
 
 if not currentRank = RankPGroup(working) or not currentPClass = PClassPGroup(working) then
+if currentRank > 0 then
 	Print(StringFormatted("-{} have rank {} and pclass {}\n",i-1,currentRank,currentPClass));
-
+	Add(pairs,[currentRank,currentPClass]);
+fi;
 	currentRank:=RankPGroup(working);
 	currentPClass:=PClassPGroup(working);
 
@@ -653,9 +658,10 @@ od;
 	currentRank:=RankPGroup(working);
 	currentPClass:=PClassPGroup(working);
 	Print(StringFormatted("-{} have rank {} and pclass {}\n",end_id,currentRank,currentPClass));
+	Add(pairs,[currentRank,currentPClass]);
 
 
-
+return pairs;
 
 end);
 

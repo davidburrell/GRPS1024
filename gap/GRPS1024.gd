@@ -5,16 +5,16 @@
 #! @Section Overview
 #!
 #! This library gives explicit access to the following groups of order 1024:
-#! * The Rank 1 group
-#! * All Rank 2 groups
-#! * All Rank 3 groups
-#! * All Rank 4 groups
+#! * The rank 1 group
+#! * All rank 2 groups
+#! * All rank 3 groups
+#! * All rank 4 groups
 #! * Rank 5 groups with p-class at least 3
 #! * Rank 6 groups with p-class at least 3
 #! * Rank 7 groups with p-class at least 3
 #! * Rank 8 groups with p-class at least 3
 #! * Rank 9 groups with p-class at least 3
-#! * The Rank 10 group
+#! * The rank 10 group
 #!
 #!
 #! This library gives partial information on the remaining groups of order 1024:
@@ -88,20 +88,20 @@ DeclareGlobalFunction("ReloadGRPS1024");
 ## @ChapterInfo Functionality, Methods
 DeclareGlobalFunction("NumDescendants");
 
-# @Description Loads the immediate descendants of <C>SmallGroup(Order,ID)</C> into global variable <C>GRPS1024_DESC.(Order)[ID]</C> if the descendants are available else it loads into global variable <C>GRPS1024_ENUM.(Order)[ID]</C> the number of immediate descendants of order 1024 of <C>SmallGroup(Order,ID)</C>
-# @Arguments Order,ID
+## @Description Loads the immediate descendants of <C>SmallGroup(Order,ID)</C> into global variable <C>GRPS1024_DESC.(Order)[ID]</C> if the descendants are available else it loads into global variable <C>GRPS1024_ENUM.(Order)[ID]</C> the number of immediate descendants of order 1024 of <C>SmallGroup(Order,ID)</C>
+## @Arguments Order,ID
 DeclareGlobalFunction("LoadDescendants");
 
-# @Description
-# Returns the immediate descendants of <C>SmallGroup(Order,ID)</C> as a list. If the list is empty this implies that the immediate descendants of <C>SmallGroup(Order,ID)</C> are not available, this might be because it doesn't have any or that <C>SmallGroup(Order,ID)</C> has $p$-class 1 and the presentations are not available. To see if the group has immediate descendants use <C>NumDescendants(Order,ID)</C>.
-# @Arguments Order,ID
-# @Returns `list`
+## @Description
+## Returns the immediate descendants of <C>SmallGroup(Order,ID)</C> as a list. If the list is empty this implies that the immediate descendants of <C>SmallGroup(Order,ID)</C> are not available, this might be because it doesn't have any or that <C>SmallGroup(Order,ID)</C> has $p$-class 1 and the presentations are not available. To see if the group has immediate descendants use <C>NumDescendants(Order,ID)</C>.
+## @Arguments Order,ID
+## @Returns `list`
 DeclareGlobalFunction("CheckoutDescendants");
 
-# @Description
-# Checks if `SmallGroup(1024,N)` is available,
-# @Arguments N
-# @Returns `true` or `false`
+## @Description
+## Checks if `SmallGroup(1024,N)` is available,
+## @Arguments N
+## @Returns `true` or `false`
 DeclareGlobalFunction("IsAvailable");
 
 ## @Description
@@ -122,7 +122,7 @@ DeclareGlobalFunction("FindNthAvailableGroup");
 #! @Returns `int`
 DeclareGlobalFunction("AvailableMap");
 #! @BeginExampleSession
-#! #groups 1-3567 are available SmallGroup(1024,3568) is not available
+#! #groups 1-3567 are available, SmallGroup(1024,3568) is not available
 #! gap> g:=SmallGroup(1024,3567);
 #! <pc group of size 1024 with 10 generators> #this is an available group
 #! gap> g:=SmallGroup(1024,3568);
@@ -131,7 +131,7 @@ DeclareGlobalFunction("AvailableMap");
 #! gap> AvailableMap(3568)
 #! 378632399
 #! #access the ith available group of order 1024
-#! gap> SmallGroup(1024,AvailableMap(i)) #for i <= 683,875,1333
+#! gap> SmallGroup(1024,AvailableMap(i)); #for i <= 683,875,1333
 #! @EndExampleSession
 
 #! @Description

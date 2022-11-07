@@ -9,10 +9,10 @@
 SetPackageInfo( rec(
 
 PackageName := "GRPS1024",
-Subtitle := "Library of the groups of order 1024 of p-class at least 3, those of p-class two and rank 4 and those of p-class 1 and rank 10.",
+Subtitle := "Library of the groups of order 1024.",
 Version := "0.0.4",
 Date := "20/06/2022", # dd/mm/yyyy format
-License := "GPL-2.0-or-later",
+License := "Artistic-2.0",
 
 Persons := [
   rec(
@@ -67,7 +67,7 @@ PackageDoc := rec(
   HTMLStart := "doc/chap0.html",
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
-  LongTitle := "Utilities for accessing the groups of order 1024 with p-class at least 3",
+  LongTitle := "Utilities for accessing the groups of order 1024",
 ),
 
 Dependencies := rec(
