@@ -160,6 +160,7 @@ DeclareGlobalFunction("InverseAvailableMap");
 DeclareAttribute("GRPS1024_Heritage",IsGroup);
 
 DeclareGlobalFunction("ReturnCapableGroupsOfOrder");
+DeclareGlobalFunction("ImmediateDescendantGroupsShell_NEW");
 DeclareGlobalFunction("ImmediateDescendantGroupShell");
 DeclareGlobalFunction("CustomPrintPcPresentation");
 DeclareGlobalFunction("PrintClassificationTable");

@@ -74,6 +74,49 @@ end;
 #Groups 260-266 have rank 5 and pclass 2
 #Groups 267-267 have rank 6 and pclass 1
 
+#128
+# Groups 1-1 have rank 1 and pclass 7
+# Groups 2-41 have rank 2 and pclass 3
+# Groups 42-127 have rank 2 and pclass 4
+# Groups 128-158 have rank 2 and pclass 5
+# Groups 159-163 have rank 2 and pclass 6
+# Groups 164-178 have rank 3 and pclass 2
+# Groups 179-836 have rank 3 and pclass 3
+# Groups 837-987 have rank 3 and pclass 4
+# Groups 988-996 have rank 3 and pclass 5
+# Groups 997-1600 have rank 4 and pclass 2
+# Groups 1601-2135 have rank 4 and pclass 3
+# Groups 2136-2149 have rank 4 and pclass 4
+# Groups 2150-2300 have rank 5 and pclass 2
+# Groups 2301-2318 have rank 5 and pclass 3
+# Groups 2319-2327 have rank 6 and pclass 2
+# Groups 2328-2328 have rank 7 and pclass 1
+
+#256
+# Groups 1-1 have rank 1 and pclass 8
+# Groups 2-38 have rank 2 and pclass 3
+# Groups 39-315 have rank 2 and pclass 4
+# Groups 316-496 have rank 2 and pclass 5
+# Groups 497-536 have rank 2 and pclass 6
+# Groups 537-541 have rank 2 and pclass 7
+# Groups 542-545 have rank 3 and pclass 2
+# Groups 546-4383 have rank 3 and pclass 3
+# Groups 4384-6533 have rank 3 and pclass 4
+# Groups 6534-6722 have rank 3 and pclass 5
+# Groups 6723-6731 have rank 3 and pclass 6
+# Groups 6732-10297 have rank 4 and pclass 2
+# Groups 10298-26307 have rank 4 and pclass 3
+# Groups 26308-26958 have rank 4 and pclass 4
+# Groups 26959-26972 have rank 4 and pclass 5
+# Groups 26973-53037 have rank 5 and pclass 2
+# Groups 53038-55607 have rank 5 and pclass 3
+# Groups 55608-55625 have rank 5 and pclass 4
+# Groups 55626-56058 have rank 6 and pclass 2
+# Groups 56059-56081 have rank 6 and pclass 3
+# Groups 56082-56091 have rank 7 and pclass 2
+# Groups 56092-56092 have rank 8 and pclass 1
+
+#512
 #Groups 1-1 have rank 1 and pclass 9
 #Groups 2-10 have rank 2 and pclass 3
 #Groups 11-386 have rank 2 and pclass 4
