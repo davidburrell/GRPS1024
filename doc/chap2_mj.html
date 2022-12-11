@@ -30,7 +30,7 @@
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7E989FA979E72135">2.1-1 AvailableMap</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X798138987C8EBBB2">2.1-2 InverseAvailableMap</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X78622CFD846746FD">2.1-3 Heritage</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X785B0B91847FFEE8">2.1-3 GRPS1024_Heritage</a></span>
 </div></div>
 </div>
 
@@ -65,7 +65,7 @@
 4
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PClassPGroup(G);</span>
 2
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Heritage(G);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GRPS1024_Heritage(G);</span>
 [ 16, 14, 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H:=SmallGroup(1024,3568); #this is a partially constructed group</span>
 &lt;pc group with 0 generators&gt;
@@ -73,7 +73,7 @@
 2
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RankPGroup(H);</span>
 5
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Heritage(H);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GRPS1024_Heritage(H);</span>
 [ 32, 51, 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">K:=SmallGroup(1024,3569); #this is a partially constructed group</span>
 &lt;pc group with 0 generators&gt;
@@ -81,7 +81,7 @@
 2
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RankPGroup(K);</span>
 5
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Heritage(K);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GRPS1024_Heritage(K);</span>
 [ 32, 51, 2 ]
 #notice that H,K have the same parent group but their age differs
 </pre></div>
@@ -97,7 +97,7 @@
 
 
 <div class="example"><pre>
-#groups 1-3567 are available SmallGroup(1024,3568) is not available
+#groups 1-3567 are available, SmallGroup(1024,3568) is not available
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=SmallGroup(1024,3567);</span>
 &lt;pc group of size 1024 with 10 generators&gt; #this is an available group
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=SmallGroup(1024,3568);</span>
@@ -106,7 +106,7 @@
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AvailableMap(3568)</span>
 378632399
 #access the ith available group of order 1024
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallGroup(1024,AvailableMap(i)) #for i &lt;= 683,875,1333</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallGroup(1024,AvailableMap(i)); #for i &lt;= 683,875,1333</span>
 </pre></div>
 
 <p><a id="X798138987C8EBBB2" name="X798138987C8EBBB2"></a></p>
@@ -126,11 +126,11 @@ This is an immediate descendant of the elementary abelian group of order 32 and 
 0
 </pre></div>
 
-<p><a id="X78622CFD846746FD" name="X78622CFD846746FD"></a></p>
+<p><a id="X785B0B91847FFEE8" name="X785B0B91847FFEE8"></a></p>
 
-<h5>2.1-3 Heritage</h5>
+<h5>2.1-3 GRPS1024_Heritage</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Heritage</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GRPS1024_Heritage</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">list</code></p>
 
 <p>Returns as a list the following information for a group of order 1024 loaded from the library <code class="code">[ParentGroupID, ParentGroupOrder, Age]</code>. The <em>Age</em> of a group is the position of the group among its siblings in the ordered list of their standard PC codes.</p>

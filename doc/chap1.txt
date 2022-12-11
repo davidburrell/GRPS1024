@@ -6,13 +6,13 @@
   
   [33X[0;0YThis library gives explicit access to the following groups of order 1024:[133X
   
-  [30X    [33X[0;6YThe Rank 1 group[133X
+  [30X    [33X[0;6YThe rank 1 group[133X
   
-  [30X    [33X[0;6YAll Rank 2 groups[133X
+  [30X    [33X[0;6YAll rank 2 groups[133X
   
-  [30X    [33X[0;6YAll Rank 3 groups[133X
+  [30X    [33X[0;6YAll rank 3 groups[133X
   
-  [30X    [33X[0;6YAll Rank 4 groups[133X
+  [30X    [33X[0;6YAll rank 4 groups[133X
   
   [30X    [33X[0;6YRank 5 groups with p-class at least 3[133X
   
@@ -24,7 +24,7 @@
   
   [30X    [33X[0;6YRank 9 groups with p-class at least 3[133X
   
-  [30X    [33X[0;6YThe Rank 10 group[133X
+  [30X    [33X[0;6YThe rank 10 group[133X
   
   [33X[0;0YThis  library  gives  partial  information  on the remaining groups of order
   1024:[133X
