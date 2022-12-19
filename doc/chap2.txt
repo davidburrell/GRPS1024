@@ -17,21 +17,21 @@
   [30X    [33X[0;6YOrder[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XG:=SmallGroup(1024,1); #this group is available[127X[104X
+    [4X[25Xgap>[125X [27XG:=SmallGroup(1024,1);[127X[104X
     [4X[28X<pc group of size 1024 with 10 generators>[128X[104X
-    [4X[25Xgap>[125X [27XRankPGroup(G);[127X[104X
-    [4X[28X4[128X[104X
+    [4X[25Xgap>[125X [27XRank(G);[127X[104X
+    [4X[28X1[128X[104X
     [4X[25Xgap>[125X [27XPClassPGroup(G);[127X[104X
-    [4X[28X2[128X[104X
-    [4X[25Xgap>[125X [27XHeritage(G);[127X[104X
-    [4X[28X[ 16, 14, 1 ][128X[104X
+    [4X[28X10[128X[104X
+    [4X[25Xgap>[125X [27XGRPS1024_Heritage(G);[127X[104X
+    [4X[28X[ 512, 1, 1 ][128X[104X
     [4X[25Xgap>[125X [27XH:=SmallGroup(1024,3568); #this is a partially constructed group[127X[104X
     [4X[28X<pc group with 0 generators>[128X[104X
     [4X[25Xgap>[125X [27XPClassPGroup(H);[127X[104X
     [4X[28X2[128X[104X
     [4X[25Xgap>[125X [27XRankPGroup(H);[127X[104X
     [4X[28X5[128X[104X
-    [4X[25Xgap>[125X [27XHeritage(H);[127X[104X
+    [4X[25Xgap>[125X [27XGRPS1024_Heritage(H);[127X[104X
     [4X[28X[ 32, 51, 1 ][128X[104X
     [4X[25Xgap>[125X [27XK:=SmallGroup(1024,3569); #this is a partially constructed group[127X[104X
     [4X[28X<pc group with 0 generators>[128X[104X
@@ -39,55 +39,59 @@
     [4X[28X2[128X[104X
     [4X[25Xgap>[125X [27XRankPGroup(K);[127X[104X
     [4X[28X5[128X[104X
-    [4X[25Xgap>[125X [27XHeritage(K);[127X[104X
+    [4X[25Xgap>[125X [27XGRPS1024_Heritage(K);[127X[104X
     [4X[28X[ 32, 51, 2 ][128X[104X
     [4X[28X#notice that H,K have the same parent group but their age differs[128X[104X
   [4X[32X[104X
   
-  [1X2.1-1 AvailableMap[101X
+  [1X2.1-1 Groups1024Information[101X
   
-  [33X[1;0Y[29X[2XAvailableMap[102X( [3XN[103X ) [32X function[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xint[110X[133X
+  [33X[1;0Y[29X[2XGroups1024Information[102X( [3Xarg[103X ) [32X function[133X
   
-  [33X[0;0YFor [23X1 \leq i \leq 683,875,133[123X this function will return the SmallGroup ID of
-  the [23Xi[123Xth available group among all the groups of order 1024.[133X
+  [33X[0;0Yprints information on the groups of the specified order.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[28X#groups 1-3567 are available SmallGroup(1024,3568) is not available[128X[104X
-    [4X[25Xgap>[125X [27Xg:=SmallGroup(1024,3567);[127X[104X
-    [4X[28X<pc group of size 1024 with 10 generators> #this is an available group[128X[104X
-    [4X[25Xgap>[125X [27Xg:=SmallGroup(1024,3568);[127X[104X
-    [4X[28X<pc group with 0 generators> #this is a partially constructed group[128X[104X
-    [4X[28X#the next available group has index 378632399 [128X[104X
-    [4X[25Xgap>[125X [27XAvailableMap(3568)[127X[104X
-    [4X[28X378632399[128X[104X
-    [4X[28X#access the ith available group of order 1024[128X[104X
-    [4X[25Xgap>[125X [27XSmallGroup(1024,AvailableMap(i)) #for i <= 683,875,1333[127X[104X
+    [4X[25Xgap>[125X [27XGroups1024Information();[127X[104X
+    [4X[28X##################  Groups Information  #########################[128X[104X
+    [4X[28XThere are 49487367289 groups of order 1024[128X[104X
+    [4X[28XThey are sorted by rank, pclass, parent group and then age[128X[104X
+    [4X[28X[128X[104X
+    [4X[28XGroup  1				has rank 1 and pclass 10[128X[104X
+    [4X[28XGroup  2				has rank 2 and pclass 3[128X[104X
+    [4X[28XGroups 3-1912				have rank 2 and pclass 4[128X[104X
+    [4X[28XGroups 1913-6569			have rank 2 and pclass 5[128X[104X
+    [4X[28XGroups 6570-8638			have rank 2 and pclass 6[128X[104X
+    [4X[28XGroups 8639-9077			have rank 2 and pclass 7[128X[104X
+    [4X[28XGroups 9078-9117			have rank 2 and pclass 8[128X[104X
+    [4X[28XGroups 9118-9122			have rank 2 and pclass 9[128X[104X
+    [4X[28XGroups 9123-319435			have rank 3 and pclass 3[128X[104X
+    [4X[28XGroups 319436-708057			have rank 3 and pclass 4[128X[104X
+    [4X[28XGroups 708058-781241			have rank 3 and pclass 5[128X[104X
+    [4X[28XGroups 781242-789631			have rank 3 and pclass 6[128X[104X
+    [4X[28XGroups 789632-789820			have rank 3 and pclass 7[128X[104X
+    [4X[28XGroups 789821-789829			have rank 3 and pclass 8[128X[104X
+    [4X[28XGroups 789830-793395			have rank 4 and pclass 2[128X[104X
+    [4X[28XGroups 793396-7180625			have rank 4 and pclass 3[128X[104X
+    [4X[28XGroups 7180626-8792073			have rank 4 and pclass 4[128X[104X
+    [4X[28XGroups 8792074-8843732			have rank 4 and pclass 5[128X[104X
+    [4X[28XGroups 8843733-8844822			have rank 4 and pclass 6[128X[104X
+    [4X[28XGroups 8844823-8844836			have rank 4 and pclass 7[128X[104X
+    [4X[28XGroups 8844837-387473667		have rank 5 and pclass 2 ## Not Available ##[128X[104X
+    [4X[28XGroups 387473668-752623856		have rank 5 and pclass 3[128X[104X
+    [4X[28XGroups 752623857-754063194		have rank 5 and pclass 4[128X[104X
+    [4X[28XGroups 754063195-754066166		have rank 5 and pclass 5[128X[104X
+    [4X[28XGroups 754066167-754066184		have rank 5 and pclass 6[128X[104X
+    [4X[28XGroups 754066185-48452082590		have rank 6 and pclass 2 ## Not Available ##[128X[104X
+    [4X[28XGroups 48452082591-48760455837	        have rank 6 and pclass 3[128X[104X
+    [4X[28XGroups 48760455838-48760467931	        have rank 6 and pclass 4[128X[104X
+    [4X[28XGroups 48760467932-48760467954	        have rank 6 and pclass 5[128X[104X
+    [4X[28XGroups 48760467955-49487311927	        have rank 7 and pclass 2 ## Not Available ##[128X[104X
+    [4X[28XGroups 49487311928-49487364283	        have rank 7 and pclass 3[128X[104X
+    [4X[28XGroups 49487364284-49487364310	        have rank 7 and pclass 4[128X[104X
+    [4X[28XGroups 49487364311-49487367243	        have rank 8 and pclass 2[128X[104X
+    [4X[28XGroups 49487367244-49487367275	        have rank 8 and pclass 3[128X[104X
+    [4X[28XGroups 49487367276-49487367288	        have rank 9 and pclass 2 ## Not Available ##[128X[104X
+    [4X[28XGroup  49487367289                      has rank 10 and pclass 1[128X[104X
+    [4X[28XThis library was created by David Burrell (2022).[128X[104X
   [4X[32X[104X
-  
-  [1X2.1-2 InverseAvailableMap[101X
-  
-  [33X[1;0Y[29X[2XInverseAvailableMap[102X( [3XN[103X ) [32X function[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xint[110X[133X
-  
-  [33X[0;0YFor  [23X1  \leq  i  \leq 49,487,367,289[123X if [10XSmallGroup(1024,i)[110X is available this
-  will  return its position in the available groups list or else it will print
-  a message telling you that it is not available and return 0.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XInverseAvailableMap(AvailableMap(i)) = i;[127X[104X
-    [4X[25Xgap>[125X [27XInverseAvailableMap(3568);[127X[104X
-    [4X[28XThis is an immediate descendant of the elementary abelian group of order 32 and is not available[128X[104X
-    [4X[28X0[128X[104X
-  [4X[32X[104X
-  
-  [1X2.1-3 Heritage[101X
-  
-  [33X[1;0Y[29X[2XHeritage[102X( [3XG[103X ) [32X attribute[133X
-  [6XReturns:[106X  [33X[0;10Y[10Xlist[110X[133X
-  
-  [33X[0;0YReturns as a list the following information for a group of order 1024 loaded
-  from  the library [10X[ParentGroupID, ParentGroupOrder, Age][110X. The [13XAge[113X of a group
-  is the position of the group among its siblings in the ordered list of their
-  standard PC codes.[133X
   

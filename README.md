@@ -16,10 +16,10 @@ For further information see:
 
 1. Clone the repo or download a version via releases and unpack to the "pkg" subdirectory of your GAP installation (i.e. ../gap/pkg)
 2. Setup the lib directory:
-	1. Download descendants-lib.tar.gz from <https://www.dropbox.com/s/v60g16oqd81oywu/descendants-lib.tar.gz>
-	2. Unpack archive via:
+	1. Download descendants-lib.tar.gz from <https://www.dropbox.com/s/sphgl7zk123efdi/descendants-lib-1024.tar.gz?dl=0>	
+	2. Unpack archive into package forlder via:
 	 `tar -xvf descendants-lib.tar.gz -C ~/gap/pkg/GRPS1024` 
-	 (change to match your gap installation)
+	 (change to match your gap installation if necessary)
 	3. The package directory should now resemble the following
 ```bash
 ../gap/pkg/GRPS1024

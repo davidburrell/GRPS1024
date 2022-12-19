@@ -15,7 +15,7 @@ BindGlobal("GRPS1024_AVAIL",683875133);
 BindGlobal("GRPS1024_DESC",rec(2:=[],4:=[],8:=[],16:=[],32:=[],64:=[],128:=[],256:=[],512:=[]));
 BindGlobal("GRPS1024_ENUM",rec(2:=[],4:=[],8:=[],16:=[],32:=[],64:=[],128:=[],256:=[],512:=[]));
 
-InstallGlobalFunction("LoadDescendants",function(parentGroup_Order,parentGroup_ID)
+InstallGlobalFunction("GRPS1024_LoadDescendants",function(parentGroup_Order,parentGroup_ID)
 local toRead;
 toRead := StringFormatted("lib/Desc_{}/{}.g",parentGroup_Order,parentGroup_ID);
 if not ReadPackage("GRPS1024",toRead) then
@@ -37,7 +37,7 @@ else
 fi;
 end);
 
-InstallGlobalFunction("CheckoutDescendants",function(parentGroup_Order,parentGroup_ID)
+InstallGlobalFunction("GRPS1024_CheckoutDescendants",function(parentGroup_Order,parentGroup_ID)
 local toRead,toReturn;
 
 toRead:=StringFormatted("lib/Desc_{}/{}.g",parentGroup_Order,parentGroup_ID);
@@ -93,7 +93,7 @@ if n < 49487367289 then
 					Info(InfoDebug,2,StringFormatted("Descendant {} of the Elementary Abelian group of order {}",n-offset,order));
 					return false;
 				fi;
-				# desc:=CheckoutDescendants(order,group[1]);
+				# desc:=GRPS1024_CheckoutDescendants(order,group[1]);
 				#desc:=List(desc,CodePcGroup);
 				# Sort(desc);
 				# these lists were sorted after generation and before preparation of this package
@@ -125,7 +125,7 @@ if n < 49487367289 then
 					# Print(StringFormatted("Descendant {} of the Elementary Abelian group of order {}",n-offset,order));
 					return false;
 				fi;
-				# desc:=CheckoutDescendants(order,group[1]);
+				# desc:=GRPS1024_CheckoutDescendants(order,group[1]);
 				#desc:=List(desc,CodePcGroup);
 				# Sort(desc);
 				# return [order,group[1],step,n-offset,desc[n-offset]];
@@ -173,7 +173,7 @@ end);
 #					Print(StringFormatted("Descendant {} of the Elementary Abelian group of order {}",n-offset,order));
 #					return;
 #				fi;
-#				desc:=CheckoutDescendants(order,group[1]);
+#				desc:=GRPS1024_CheckoutDescendants(order,group[1]);
 #				#desc:=List(desc,CodePcGroup);
 #				# Sort(desc);
 #				# these lists were sorted after generation and before preparation of this package
@@ -213,7 +213,7 @@ end);
 #					Print(StringFormatted("Descendant {} of the Elementary Abelian group of order {}",n-offset,order));
 #					return;
 #				fi;
-#				desc:=CheckoutDescendants(order,group[1]);
+#				desc:=GRPS1024_CheckoutDescendants(order,group[1]);
 #				#desc:=List(desc,CodePcGroup);
 #				#Sort(desc);
 #				toReturn:=PcGroupCode(desc[n-offset],1024);
@@ -240,7 +240,7 @@ end);
 ## return fail;
 #end);
 
-InstallGlobalFunction("NumDescendants",function(parentGroup_Order,parentGroup_ID)
+InstallGlobalFunction("GRPS1024_NumDescendants",function(parentGroup_Order,parentGroup_ID)
   local capableMaster, toRead, entry;
 
 capableMaster:=[];
@@ -453,18 +453,18 @@ end);
 #############################################################################
 ## GroupShell in a parent group and outputs a partially constructed immediate descendant
 ##
-InstallGlobalFunction("ImmediateDescendantGroupsShell_NEW",function()
-  local group_shell, S;
+# InstallGlobalFunction("ImmediateDescendantGroupsShell_NEW",function()
+#   local group_shell, S;
 
-	group_shell:=NewType(FamilyObj([]),IsGroup and IsAttributeStoringRep and IsFinitelyGeneratedGroup and IsFinite);
+# 	group_shell:=NewType(FamilyObj([]),IsGroup and IsAttributeStoringRep and IsFinitelyGeneratedGroup and IsFinite);
 
-	# S:=rec();
-	S:=Objectify(group_shell,rec());
-	return S;
-end);
+# 	# S:=rec();
+# 	S:=Objectify(group_shell,rec());
+# 	return S;
+# end);
 
 # InstallGlobalFunction("ImmediateDescendantGroupShell", function(M)
-InstallGlobalFunction("ImmediateDescendantGroupShell", function()
+InstallGlobalFunction("GRPS1024_ImmediateDescendantGroupShell", function()
 # InstallGlobalFunction( SubmagmaWithInversesNC, function( M, gens )
   local group_shell, S;
 
@@ -492,69 +492,69 @@ InstallGlobalFunction("ImmediateDescendantGroupShell", function()
 end );
 
 #this is different than the system defined one since it only takes one input
-InstallGlobalFunction( CustomPrintPcPresentation, function(G)
-    local pcgs, n, F, gens, i, pis, exp, t, h, rel, commPower, j, trivialCommutators,commBool,toReturn,workingString;
+# InstallGlobalFunction( CustomPrintPcPresentation, function(G)
+#     local pcgs, n, F, gens, i, pis, exp, t, h, rel, commPower, j, trivialCommutators,commBool,toReturn,workingString;
 
-    toReturn:=[];
-    pcgs:=Pcgs(G);
-    n:=Length(pcgs);
-    F    := FreeGroup( n, "f" );
-    gens := GeneratorsOfGroup( F );
-    pis  := RelativeOrders( pcgs );
+#     toReturn:=[];
+#     pcgs:=Pcgs(G);
+#     n:=Length(pcgs);
+#     F    := FreeGroup( n, "f" );
+#     gens := GeneratorsOfGroup( F );
+#     pis  := RelativeOrders( pcgs );
 
-    # compute the orders of the pc-generators
-    for i in [1..n] do
-        exp := ExponentsOfRelativePower( pcgs, i ){[i+1..n]};
-        t   := One( F );
-        for h in [i+1..n] do
-            t := t * gens[h]^exp[h-i];
-        od;
-        if IsOne( t ) then
-            t := "id";
-        fi;
-        Print(gens[i], "^", pis[i], " = ", t, "\n");
-	Add(toReturn,StringFormatted("{}^{}={}",gens[i],pis[i],t));
-    od;
+#     # compute the orders of the pc-generators
+#     for i in [1..n] do
+#         exp := ExponentsOfRelativePower( pcgs, i ){[i+1..n]};
+#         t   := One( F );
+#         for h in [i+1..n] do
+#             t := t * gens[h]^exp[h-i];
+#         od;
+#         if IsOne( t ) then
+#             t := "id";
+#         fi;
+#         Print(gens[i], "^", pis[i], " = ", t, "\n");
+# 	Add(toReturn,StringFormatted("{}^{}={}",gens[i],pis[i],t));
+#     od;
 
-    # compute the commutators / conjugation
-    # of all pairs of pc-generators
-    trivialCommutators := false;
-    commBool:=true;
-    for i in [1..n] do
-        for j in [i+1..n] do
-            if pcgs[j] * pcgs[i] = pcgs[i] * pcgs[j] then
-                trivialCommutators := true;
-                # continue;
-            fi;
-            if commBool then
-                commPower := Comm( pcgs[j], pcgs[i] );
-            else
-                commPower := pcgs[j]^pcgs[i];
-            fi;
-            exp := ExponentsOfPcElement( pcgs, commPower ){[i+1..n]};
-            t   := One( F );
-            for h in [i+1..n] do
-                t := t * gens[h]^exp[h-i];
-            od;
-            if commBool then
-                Print("[", gens[j], ",", gens[i] , "]");
-		workingString:=StringFormatted("[{},{}]",gens[j],gens[i]);
-		# Add(toRead,"[{},{}]
-            else
-		workingString:=StringFormatted("{}^{}",gens[j],gens[i]);
-                Print(gens[j], "^", gens[i]);
-            fi;
-	if IsOne( t ) then
-	    t := "id";
-	fi;
-            Print(" = ", t, "\n");
-		Add(toReturn,Concatenation(workingString,"=",t));
-        od;
-    od;
+#     # compute the commutators / conjugation
+#     # of all pairs of pc-generators
+#     trivialCommutators := false;
+#     commBool:=true;
+#     for i in [1..n] do
+#         for j in [i+1..n] do
+#             if pcgs[j] * pcgs[i] = pcgs[i] * pcgs[j] then
+#                 trivialCommutators := true;
+#                 # continue;
+#             fi;
+#             if commBool then
+#                 commPower := Comm( pcgs[j], pcgs[i] );
+#             else
+#                 commPower := pcgs[j]^pcgs[i];
+#             fi;
+#             exp := ExponentsOfPcElement( pcgs, commPower ){[i+1..n]};
+#             t   := One( F );
+#             for h in [i+1..n] do
+#                 t := t * gens[h]^exp[h-i];
+#             od;
+#             if commBool then
+#                 Print("[", gens[j], ",", gens[i] , "]");
+# 		workingString:=StringFormatted("[{},{}]",gens[j],gens[i]);
+# 		# Add(toRead,"[{},{}]
+#             else
+# 		workingString:=StringFormatted("{}^{}",gens[j],gens[i]);
+#                 Print(gens[j], "^", gens[i]);
+#             fi;
+# 	if IsOne( t ) then
+# 	    t := "id";
+# 	fi;
+#             Print(" = ", t, "\n");
+# 		Add(toReturn,Concatenation(workingString,"=",t));
+#         od;
+#     od;
 
-    # return trivialCommutators;
-    return toReturn;
-end );
+#     # return trivialCommutators;
+#     return toReturn;
+# end );
 
 #InstallGlobalFunction("PrintClassificationTable1024",function()
 #  local currentPClass, currentRank, doworking, thencurrentRank, i,working,currentParentGroupOrder,numDescendants;
@@ -620,191 +620,191 @@ end );
 return [Capable_16,Capable_32,Capable_64,Capable_128,Capable_256,Capable_512];
 end);
 
-InstallGlobalFunction("PrintClassificationTable",function(order)
+# InstallGlobalFunction("PrintClassificationTable",function(order)
 
-local working,i,currentPClass,currentRank,end_id,pairs,currentPair;
+# local working,i,currentPClass,currentRank,end_id,pairs,currentPair;
 
-i:=1;
-currentPClass:=0;
-currentRank:=0;
-end_id:=NumberSmallGroups(order);
-pairs:=[];
-currentPair:=[];
+# i:=1;
+# currentPClass:=0;
+# currentRank:=0;
+# end_id:=NumberSmallGroups(order);
+# pairs:=[];
+# currentPair:=[];
+# # currentParentGroupOrder:=0;
+
+# # while i <= end_id and i <= 683875133 do
+# # while i < Minimum(end_id,GRPS1024_AVAIL) do
+# while i <= end_id do
+# # while i <= 875133 do
+# working:=SmallGroup(order,i);
+# # num_siblings:=NumDescendants(Heritage(working)[1],Heritage(working)[2]);
+# # Print(StringFormatted("{} - {}\n",i,i+num_siblings-1));
+
+
+# # working:=SmallGroup(1024,AvailableMap(i));
+# # if not currentParentGroupOrder=Heritage(working)[1] then
+# 	# if currentRank > 0 then
+# 	# Print(StringFormatted("-{} have rank {} and pclass {}\n",i-1,currentRank,currentPClass));
+# 	# fi;
+
+# 	# Print(StringFormatted("######################Immediate Descendants of order {}#############\n",Heritage(working)[1]));
+# 	# currentParentGroupOrder:=Heritage(working)[1];
+# 	# currentRank:=RankPGroup(working);
+# 	# currentPClass:=PClassPGroup(working);
+
+# 	# Print(StringFormatted("Available Groups {}",i));
+# 	# numDescendants:=NumDescendants(Heritage(working)[1],Heritage(working)[2]);
+# # fi;
+
+# if not currentRank = RankPGroup(working) or not currentPClass = PClassPGroup(working) then
+# if currentRank > 0 then
+# 	Print(StringFormatted("-{} have rank {} and pclass {}\n",i-1,currentRank,currentPClass));
+# 	Add(pairs,[currentRank,currentPClass]);
+# fi;
+# 	currentRank:=RankPGroup(working);
+# 	currentPClass:=PClassPGroup(working);
+
+# 	# Print(StringFormatted("Group {} has rank {} and pclass {}\n",AvailableMap(i),currentRank,currentPClass));
+# 	Print(StringFormatted("Groups {}",i));
+# 	# numDescendants:=NumDescendants(Heritage(working)[1],Heritage(working)[2]);
+# fi;
+
+# i:=i+1;
+# od;
+
+
+# 	working:=SmallGroup(order,end_id);
+# 	currentRank:=RankPGroup(working);
+# 	currentPClass:=PClassPGroup(working);
+# 	Print(StringFormatted("-{} have rank {} and pclass {}\n",end_id,currentRank,currentPClass));
+# 	Add(pairs,[currentRank,currentPClass]);
+
+
+# return pairs;
+
+# end);
+
+
+# InstallGlobalFunction("PrintClassificationTable1024",function(start_id,end_id)
+#   local i, currentPClass, currentRank, currentParentGroupOrder, num_siblings, working, numDescendants;
+
+# # i:=1;
+# i:=start_id;
+# currentPClass:=0;
+# currentRank:=0;
 # currentParentGroupOrder:=0;
 
-# while i <= end_id and i <= 683875133 do
+# # while i <= end_id and i <= 683875133 do
 # while i < Minimum(end_id,GRPS1024_AVAIL) do
-while i <= end_id do
-# while i <= 875133 do
-working:=SmallGroup(order,i);
-# num_siblings:=NumDescendants(Heritage(working)[1],Heritage(working)[2]);
-# Print(StringFormatted("{} - {}\n",i,i+num_siblings-1));
+# # while i <= 875133 do
+# working:=SmallGroup(1024,AvailableMap(i));
+# num_siblings:=GRPS1024_NumDescendants(GRPS1024_Heritage(working)[1],GRPS1024_Heritage(working)[2]);
+# # Print(StringFormatted("{} - {}\n",i,i+num_siblings-1));
 
 
 # working:=SmallGroup(1024,AvailableMap(i));
-# if not currentParentGroupOrder=Heritage(working)[1] then
-	# if currentRank > 0 then
-	# Print(StringFormatted("-{} have rank {} and pclass {}\n",i-1,currentRank,currentPClass));
-	# fi;
+# if not currentParentGroupOrder=GRPS1024_Heritage(working)[1] then
+# 	if currentRank > 0 then
+# 	Print(StringFormatted("-{} have rank {} and pclass {}\n",i-1,currentRank,currentPClass));
+# 	fi;
 
-	# Print(StringFormatted("######################Immediate Descendants of order {}#############\n",Heritage(working)[1]));
-	# currentParentGroupOrder:=Heritage(working)[1];
-	# currentRank:=RankPGroup(working);
-	# currentPClass:=PClassPGroup(working);
+# 	Print(StringFormatted("######################Immediate Descendants of order {}#############\n",GRPS1024_Heritage(working)[1]));
+# 	currentParentGroupOrder:=GRPS1024_Heritage(working)[1];
+# 	currentRank:=RankPGroup(working);
+# 	currentPClass:=PClassPGroup(working);
 
-	# Print(StringFormatted("Available Groups {}",i));
-	# numDescendants:=NumDescendants(Heritage(working)[1],Heritage(working)[2]);
+# 	Print(StringFormatted("Available Groups {}",i));
+# 	numDescendants:=GRPS1024_NumDescendants(GRPS1024_Heritage(working)[1],GRPS1024_Heritage(working)[2]);
 # fi;
 
-if not currentRank = RankPGroup(working) or not currentPClass = PClassPGroup(working) then
-if currentRank > 0 then
-	Print(StringFormatted("-{} have rank {} and pclass {}\n",i-1,currentRank,currentPClass));
-	Add(pairs,[currentRank,currentPClass]);
-fi;
-	currentRank:=RankPGroup(working);
-	currentPClass:=PClassPGroup(working);
+# if not currentRank = RankPGroup(working) or not currentPClass = PClassPGroup(working) or not currentParentGroupOrder = GRPS1024_Heritage(working)[1] then
+# 	Print(StringFormatted("-{} have rank {} and pclass {}\n",i-1,currentRank,currentPClass));
 
-	# Print(StringFormatted("Group {} has rank {} and pclass {}\n",AvailableMap(i),currentRank,currentPClass));
-	Print(StringFormatted("Groups {}",i));
-	# numDescendants:=NumDescendants(Heritage(working)[1],Heritage(working)[2]);
-fi;
+# 	currentRank:=RankPGroup(working);
+# 	currentPClass:=PClassPGroup(working);
 
-i:=i+1;
-od;
+# 	# Print(StringFormatted("Group {} has rank {} and pclass {}\n",AvailableMap(i),currentRank,currentPClass));
+# 	Print(StringFormatted("Available Groups {}",i));
+# 	numDescendants:=GRPS1024_NumDescendants(GRPS1024_Heritage(working)[1],GRPS1024_Heritage(working)[2]);
+# fi;
+
+# i:=i+num_siblings;
+# od;
 
 
-	working:=SmallGroup(order,end_id);
-	currentRank:=RankPGroup(working);
-	currentPClass:=PClassPGroup(working);
-	Print(StringFormatted("-{} have rank {} and pclass {}\n",end_id,currentRank,currentPClass));
-	Add(pairs,[currentRank,currentPClass]);
+# 	working:=SmallGroup(1024,AvailableMap(end_id));
+# 	currentRank:=RankPGroup(working);
+# 	currentPClass:=PClassPGroup(working);
+# 	Print(StringFormatted("-{} have rank {} and pclass {}\n",end_id,currentRank,currentPClass));
 
 
-return pairs;
+# end);
 
-end);
+#InstallGlobalFunction("AvailableGroups1024Information",function()
+#Print( "\n");
+#Print( "###############  Available Groups Information ###################\n");
+#Print( "There are 683875133 available groups of order 1024\n");
+#Print( "They are sorted by parent group ID and then by the pccode of their standard presentations\n\n");
+#Print( "################ Immediate Descendants of order 16 groups #######\n");
+#Print( "Available Groups 1-3566                  have rank 4 and pclass 2\n\n");
+#Print( "###############  Immediate Descendants of order 32 groups #######\n");
+#Print( "Available Group  3567                    has rank 2 and pclass 3\n");
+#Print( "################ Immediate Descendants of order 64 groups #######\n");
+#Print( "Available Groups 3568-17643              have rank 3 and pclass 3\n\n");
+#Print( "################ Immediate Descendants of order 128 groups#######\n");
+#Print( "Available Groups 17644-17795             have rank 2 and pclass 4\n");
+#Print( "Available Groups 17796-209592            have rank 3 and pclass 3\n");
+#Print( "Available Groups 209593-2784542          have rank 4 and pclass 3\n");
+#Print( "Available Groups 2784543-5284672         have rank 5 and pclass 3\n\n");
+#Print( "################ Immediate Descendants of order 256 groups#######\n");
+#Print( "Available Groups 5284673-5286130         have rank 2 and pclass 4\n");
+#Print( "Available Groups 5286131-5286991         have rank 2 and pclass 5\n");
+#Print( "Available Groups 5286992-5391292         have rank 3 and pclass 3\n");
+#Print( "Available Groups 5391293-5446972         have rank 3 and pclass 4\n");
+#Print( "Available Groups 5446973-5448532         have rank 3 and pclass 5\n");
+#Print( "Available Groups 5448533-8568423         have rank 4 and pclass 3\n");
+#Print( "Available Groups 8568424-8584451         have rank 4 and pclass 4\n");
+#Print( "Available Groups 8584452-38912416        have rank 5 and pclass 3\n");
+#Print( "Available Groups 38912417-39138178       have rank 6 and pclass 3\n\n");
+#Print( "###############  Immediate Descendants of order 512 groups ######\n");
+#Print( "Available Group  39138179                has rank 1 and pclass 10\n");
+#Print( "Available Groups 39138180-39138479       have rank 2 and pclass 4\n");
+#Print( "Available Groups 39138480-39140738       have rank 2 and pclass 5\n");
+#Print( "Available Groups 39140739-39141070       have rank 2 and pclass 6\n");
+#Print( "Available Groups 39141071-39142607       have rank 2 and pclass 5\n");
+#Print( "Available Groups 39142608-39144344       have rank 2 and pclass 6\n");
+#Print( "Available Groups 39144345-39144783       have rank 2 and pclass 7\n");
+#Print( "Available Groups 39144784-39144823       have rank 2 and pclass 8\n");
+#Print( "Available Groups 39144824-39144828       have rank 2 and pclass 9\n");
+#Print( "Available Groups 39144829-39144967       have rank 3 and pclass 3\n");
+#Print( "Available Groups 39144968-39474000       have rank 3 and pclass 4\n");
+#Print( "Available Groups 39474001-39478685       have rank 3 and pclass 5\n");
+#Print( "Available Groups 39478686-39482594       have rank 3 and pclass 4\n");
+#Print( "Available Groups 39482595-39549533       have rank 3 and pclass 5\n");
+#Print( "Available Groups 39549534-39557923       have rank 3 and pclass 6\n");
+#Print( "Available Groups 39557924-39558112       have rank 3 and pclass 7\n");
+#Print( "Available Groups 39558113-39558121       have rank 3 and pclass 8\n");
+#Print( "Available Groups 39558122-40250510       have rank 4 and pclass 3\n");
+#Print( "Available Groups 40250511-41845930       have rank 4 and pclass 4\n");
+#Print( "Available Groups 41845931-41897589       have rank 4 and pclass 5\n");
+#Print( "Available Groups 41897590-41898679       have rank 4 and pclass 6\n");
+#Print( "Available Groups 41898680-41898693       have rank 4 and pclass 7\n");
+#Print( "Available Groups 41898694-374220787      have rank 5 and pclass 3\n");
+#Print( "Available Groups 374220788-375660125     have rank 5 and pclass 4\n");
+#Print( "Available Groups 375660126-375663097     have rank 5 and pclass 5\n");
+#Print( "Available Groups 375663098-375663115     have rank 5 and pclass 6\n");
+#Print( "Available Groups 375663116-683810600     have rank 6 and pclass 3\n");
+#Print( "Available Groups 683810601-683822694     have rank 6 and pclass 4\n");
+#Print( "Available Groups 683822695-683822717     have rank 6 and pclass 5\n");
+#Print( "Available Groups 683822718-683875073     have rank 7 and pclass 3\n");
+#Print( "Available Groups 683875074-683875100     have rank 7 and pclass 4\n");
+#Print( "Available Groups 683875101-683875132     have rank 8 and pclass 3\n\n");
+###############################################################################
+#Print( "###############  Immediate Descendants of the trivial group  ####\n");
+#Print( "Available Group  683875133               has rank 10 and pclass 1\n\n");
+#Print( "This library was created by David Burrell (2022).\n");
 
-
-InstallGlobalFunction("PrintClassificationTable1024",function(start_id,end_id)
-  local i, currentPClass, currentRank, currentParentGroupOrder, num_siblings, working, numDescendants;
-
-# i:=1;
-i:=start_id;
-currentPClass:=0;
-currentRank:=0;
-currentParentGroupOrder:=0;
-
-# while i <= end_id and i <= 683875133 do
-while i < Minimum(end_id,GRPS1024_AVAIL) do
-# while i <= 875133 do
-working:=SmallGroup(1024,AvailableMap(i));
-num_siblings:=NumDescendants(GRPS1024_Heritage(working)[1],GRPS1024_Heritage(working)[2]);
-# Print(StringFormatted("{} - {}\n",i,i+num_siblings-1));
-
-
-working:=SmallGroup(1024,AvailableMap(i));
-if not currentParentGroupOrder=GRPS1024_Heritage(working)[1] then
-	if currentRank > 0 then
-	Print(StringFormatted("-{} have rank {} and pclass {}\n",i-1,currentRank,currentPClass));
-	fi;
-
-	Print(StringFormatted("######################Immediate Descendants of order {}#############\n",GRPS1024_Heritage(working)[1]));
-	currentParentGroupOrder:=GRPS1024_Heritage(working)[1];
-	currentRank:=RankPGroup(working);
-	currentPClass:=PClassPGroup(working);
-
-	Print(StringFormatted("Available Groups {}",i));
-	numDescendants:=NumDescendants(GRPS1024_Heritage(working)[1],GRPS1024_Heritage(working)[2]);
-fi;
-
-if not currentRank = RankPGroup(working) or not currentPClass = PClassPGroup(working) or not currentParentGroupOrder = GRPS1024_Heritage(working)[1] then
-	Print(StringFormatted("-{} have rank {} and pclass {}\n",i-1,currentRank,currentPClass));
-
-	currentRank:=RankPGroup(working);
-	currentPClass:=PClassPGroup(working);
-
-	# Print(StringFormatted("Group {} has rank {} and pclass {}\n",AvailableMap(i),currentRank,currentPClass));
-	Print(StringFormatted("Available Groups {}",i));
-	numDescendants:=NumDescendants(GRPS1024_Heritage(working)[1],GRPS1024_Heritage(working)[2]);
-fi;
-
-i:=i+num_siblings;
-od;
-
-
-	working:=SmallGroup(1024,AvailableMap(end_id));
-	currentRank:=RankPGroup(working);
-	currentPClass:=PClassPGroup(working);
-	Print(StringFormatted("-{} have rank {} and pclass {}\n",end_id,currentRank,currentPClass));
-
-
-end);
-
-InstallGlobalFunction("AvailableGroups1024Information",function()
-Print( "\n");
-Print( "###############  Available Groups Information ###################\n");
-Print( "There are 683875133 available groups of order 1024\n");
-Print( "They are sorted by parent group ID and then by the pccode of their standard presentations\n\n");
-Print( "################ Immediate Descendants of order 16 groups #######\n");
-Print( "Available Groups 1-3566                  have rank 4 and pclass 2\n\n");
-Print( "###############  Immediate Descendants of order 32 groups #######\n");
-Print( "Available Group  3567                    has rank 2 and pclass 3\n");
-Print( "################ Immediate Descendants of order 64 groups #######\n");
-Print( "Available Groups 3568-17643              have rank 3 and pclass 3\n\n");
-Print( "################ Immediate Descendants of order 128 groups#######\n");
-Print( "Available Groups 17644-17795             have rank 2 and pclass 4\n");
-Print( "Available Groups 17796-209592            have rank 3 and pclass 3\n");
-Print( "Available Groups 209593-2784542          have rank 4 and pclass 3\n");
-Print( "Available Groups 2784543-5284672         have rank 5 and pclass 3\n\n");
-Print( "################ Immediate Descendants of order 256 groups#######\n");
-Print( "Available Groups 5284673-5286130         have rank 2 and pclass 4\n");
-Print( "Available Groups 5286131-5286991         have rank 2 and pclass 5\n");
-Print( "Available Groups 5286992-5391292         have rank 3 and pclass 3\n");
-Print( "Available Groups 5391293-5446972         have rank 3 and pclass 4\n");
-Print( "Available Groups 5446973-5448532         have rank 3 and pclass 5\n");
-Print( "Available Groups 5448533-8568423         have rank 4 and pclass 3\n");
-Print( "Available Groups 8568424-8584451         have rank 4 and pclass 4\n");
-Print( "Available Groups 8584452-38912416        have rank 5 and pclass 3\n");
-Print( "Available Groups 38912417-39138178       have rank 6 and pclass 3\n\n");
-Print( "###############  Immediate Descendants of order 512 groups ######\n");
-Print( "Available Group  39138179                has rank 1 and pclass 10\n");
-Print( "Available Groups 39138180-39138479       have rank 2 and pclass 4\n");
-Print( "Available Groups 39138480-39140738       have rank 2 and pclass 5\n");
-Print( "Available Groups 39140739-39141070       have rank 2 and pclass 6\n");
-Print( "Available Groups 39141071-39142607       have rank 2 and pclass 5\n");
-Print( "Available Groups 39142608-39144344       have rank 2 and pclass 6\n");
-Print( "Available Groups 39144345-39144783       have rank 2 and pclass 7\n");
-Print( "Available Groups 39144784-39144823       have rank 2 and pclass 8\n");
-Print( "Available Groups 39144824-39144828       have rank 2 and pclass 9\n");
-Print( "Available Groups 39144829-39144967       have rank 3 and pclass 3\n");
-Print( "Available Groups 39144968-39474000       have rank 3 and pclass 4\n");
-Print( "Available Groups 39474001-39478685       have rank 3 and pclass 5\n");
-Print( "Available Groups 39478686-39482594       have rank 3 and pclass 4\n");
-Print( "Available Groups 39482595-39549533       have rank 3 and pclass 5\n");
-Print( "Available Groups 39549534-39557923       have rank 3 and pclass 6\n");
-Print( "Available Groups 39557924-39558112       have rank 3 and pclass 7\n");
-Print( "Available Groups 39558113-39558121       have rank 3 and pclass 8\n");
-Print( "Available Groups 39558122-40250510       have rank 4 and pclass 3\n");
-Print( "Available Groups 40250511-41845930       have rank 4 and pclass 4\n");
-Print( "Available Groups 41845931-41897589       have rank 4 and pclass 5\n");
-Print( "Available Groups 41897590-41898679       have rank 4 and pclass 6\n");
-Print( "Available Groups 41898680-41898693       have rank 4 and pclass 7\n");
-Print( "Available Groups 41898694-374220787      have rank 5 and pclass 3\n");
-Print( "Available Groups 374220788-375660125     have rank 5 and pclass 4\n");
-Print( "Available Groups 375660126-375663097     have rank 5 and pclass 5\n");
-Print( "Available Groups 375663098-375663115     have rank 5 and pclass 6\n");
-Print( "Available Groups 375663116-683810600     have rank 6 and pclass 3\n");
-Print( "Available Groups 683810601-683822694     have rank 6 and pclass 4\n");
-Print( "Available Groups 683822695-683822717     have rank 6 and pclass 5\n");
-Print( "Available Groups 683822718-683875073     have rank 7 and pclass 3\n");
-Print( "Available Groups 683875074-683875100     have rank 7 and pclass 4\n");
-Print( "Available Groups 683875101-683875132     have rank 8 and pclass 3\n\n");
-##############################################################################
-Print( "###############  Immediate Descendants of the trivial group  ####\n");
-Print( "Available Group  683875133               has rank 10 and pclass 1\n\n");
-Print( "This library was created by David Burrell (2022).\n");
-
-end);
+#end);
 
 
 InstallGlobalFunction("Groups1024Information",function()

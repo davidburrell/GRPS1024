@@ -28,9 +28,7 @@
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2_mj.html#X8606FDCE878850EF">2.1 <span class="Heading">Methods</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7E989FA979E72135">2.1-1 AvailableMap</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X798138987C8EBBB2">2.1-2 InverseAvailableMap</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X78622CFD846746FD">2.1-3 Heritage</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7DFDCA3C78469B87">2.1-1 Groups1024Information</a></span>
 </div></div>
 </div>
 
@@ -59,21 +57,21 @@
 </ul>
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=SmallGroup(1024,1); #this group is available</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G:=SmallGroup(1024,1);</span>
 &lt;pc group of size 1024 with 10 generators&gt;
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RankPGroup(G);</span>
-4
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Rank(G);</span>
+1
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PClassPGroup(G);</span>
-2
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Heritage(G);</span>
-[ 16, 14, 1 ]
+10
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GRPS1024_Heritage(G);</span>
+[ 512, 1, 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H:=SmallGroup(1024,3568); #this is a partially constructed group</span>
 &lt;pc group with 0 generators&gt;
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">PClassPGroup(H);</span>
 2
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RankPGroup(H);</span>
 5
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Heritage(H);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GRPS1024_Heritage(H);</span>
 [ 32, 51, 1 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">K:=SmallGroup(1024,3569); #this is a partially constructed group</span>
 &lt;pc group with 0 generators&gt;
@@ -81,59 +79,63 @@
 2
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">RankPGroup(K);</span>
 5
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Heritage(K);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GRPS1024_Heritage(K);</span>
 [ 32, 51, 2 ]
 #notice that H,K have the same parent group but their age differs
 </pre></div>
 
-<p><a id="X7E989FA979E72135" name="X7E989FA979E72135"></a></p>
+<p><a id="X7DFDCA3C78469B87" name="X7DFDCA3C78469B87"></a></p>
 
-<h5>2.1-1 AvailableMap</h5>
+<h5>2.1-1 Groups1024Information</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AvailableMap</code>( <var class="Arg">N</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">int</code></p>
-
-<p>For <span class="SimpleMath">\(1 \leq i \leq 683,875,133\)</span> this function will return the SmallGroup ID of the <span class="SimpleMath">\(i\)</span>th available group among all the groups of order 1024.</p>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Groups1024Information</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>prints information on the groups of the specified order.</p>
 
 
 <div class="example"><pre>
-#groups 1-3567 are available SmallGroup(1024,3568) is not available
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=SmallGroup(1024,3567);</span>
-&lt;pc group of size 1024 with 10 generators&gt; #this is an available group
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">g:=SmallGroup(1024,3568);</span>
-&lt;pc group with 0 generators&gt; #this is a partially constructed group
-#the next available group has index 378632399 
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AvailableMap(3568)</span>
-378632399
-#access the ith available group of order 1024
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SmallGroup(1024,AvailableMap(i)) #for i &lt;= 683,875,1333</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Groups1024Information();</span>
+##################  Groups Information  #########################
+There are 49487367289 groups of order 1024
+They are sorted by rank, pclass, parent group and then age
+
+Group  1				has rank 1 and pclass 10
+Group  2				has rank 2 and pclass 3
+Groups 3-1912				have rank 2 and pclass 4
+Groups 1913-6569			have rank 2 and pclass 5
+Groups 6570-8638			have rank 2 and pclass 6
+Groups 8639-9077			have rank 2 and pclass 7
+Groups 9078-9117			have rank 2 and pclass 8
+Groups 9118-9122			have rank 2 and pclass 9
+Groups 9123-319435			have rank 3 and pclass 3
+Groups 319436-708057			have rank 3 and pclass 4
+Groups 708058-781241			have rank 3 and pclass 5
+Groups 781242-789631			have rank 3 and pclass 6
+Groups 789632-789820			have rank 3 and pclass 7
+Groups 789821-789829			have rank 3 and pclass 8
+Groups 789830-793395			have rank 4 and pclass 2
+Groups 793396-7180625			have rank 4 and pclass 3
+Groups 7180626-8792073			have rank 4 and pclass 4
+Groups 8792074-8843732			have rank 4 and pclass 5
+Groups 8843733-8844822			have rank 4 and pclass 6
+Groups 8844823-8844836			have rank 4 and pclass 7
+Groups 8844837-387473667		have rank 5 and pclass 2 ## Not Available ##
+Groups 387473668-752623856		have rank 5 and pclass 3
+Groups 752623857-754063194		have rank 5 and pclass 4
+Groups 754063195-754066166		have rank 5 and pclass 5
+Groups 754066167-754066184		have rank 5 and pclass 6
+Groups 754066185-48452082590		have rank 6 and pclass 2 ## Not Available ##
+Groups 48452082591-48760455837	        have rank 6 and pclass 3
+Groups 48760455838-48760467931	        have rank 6 and pclass 4
+Groups 48760467932-48760467954	        have rank 6 and pclass 5
+Groups 48760467955-49487311927	        have rank 7 and pclass 2 ## Not Available ##
+Groups 49487311928-49487364283	        have rank 7 and pclass 3
+Groups 49487364284-49487364310	        have rank 7 and pclass 4
+Groups 49487364311-49487367243	        have rank 8 and pclass 2
+Groups 49487367244-49487367275	        have rank 8 and pclass 3
+Groups 49487367276-49487367288	        have rank 9 and pclass 2 ## Not Available ##
+Group  49487367289                      has rank 10 and pclass 1
+This library was created by David Burrell (2022).
 </pre></div>
-
-<p><a id="X798138987C8EBBB2" name="X798138987C8EBBB2"></a></p>
-
-<h5>2.1-2 InverseAvailableMap</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InverseAvailableMap</code>( <var class="Arg">N</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">int</code></p>
-
-<p>For <span class="SimpleMath">\(1 \leq i \leq 49,487,367,289\)</span> if <code class="code">SmallGroup(1024,i)</code> is available this will return its position in the available groups list or else it will print a message telling you that it is not available and return 0.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">InverseAvailableMap(AvailableMap(i)) = i;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">InverseAvailableMap(3568);</span>
-This is an immediate descendant of the elementary abelian group of order 32 and is not available
-0
-</pre></div>
-
-<p><a id="X78622CFD846746FD" name="X78622CFD846746FD"></a></p>
-
-<h5>2.1-3 Heritage</h5>
-
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Heritage</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
-<p>Returns: <code class="code">list</code></p>
-
-<p>Returns as a list the following information for a group of order 1024 loaded from the library <code class="code">[ParentGroupID, ParentGroupOrder, Age]</code>. The <em>Age</em> of a group is the position of the group among its siblings in the ordered list of their standard PC codes.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapBib_mj.html">[Next Chapter]</a>&nbsp;  </div>

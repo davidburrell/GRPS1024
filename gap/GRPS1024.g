@@ -29,14 +29,14 @@ end;
 if not IsBound(GRPS1024_class_matrix) then ReadPackage("GRPS1024","gap/class_matrix.g"); fi;
 
 
-find_rank:=function(n)
+GRPS1024_find_rank:=function(n)
 	return Length(Positions(List(GRPS1024_row_partial_sums,x->n>x),true))+1;
 end;
 
-find_class:=function(n)
+GRPS1024_find_class:=function(n)
   local rank, offset;
 
-	rank:=find_rank(n);
+	rank:=GRPS1024_find_rank(n);
 
 	if rank = 1 then
 		# offset:=1;
@@ -48,7 +48,7 @@ find_class:=function(n)
 	# PrintFormatted("The Offset is {}\n",offset);
 	return Length(Positions(List(GRPS1024_p_class_sums_matrix[rank],x-> offset > x),true))+1;
 	
-	# for i in [1..find_rank] do
+	# for i in [1..GRPS1024_find_rank] do
 	# od;
 end;
 
@@ -85,7 +85,7 @@ end;
 #				fi;
 
 #				if not IsBound(SMALL_GROUP_LIB[1024][heritage.Order][heritage.ID]) then
-#					SMALL_GROUP_LIB[1024][heritage.Order][heritage.ID]:=CheckoutDescendants(heritage.Order,heritage.ID);
+#					SMALL_GROUP_LIB[1024][heritage.Order][heritage.ID]:=GRPS1024_CheckoutDescendants(heritage.Order,heritage.ID);
 #				fi;
 
 #				toReturn:=PcGroupCode(SMALL_GROUP_LIB[1024][heritage.Order][heritage.ID][heritage.Age],size);
@@ -111,15 +111,15 @@ end;
 #	if ReadPackage("GRPS1024",toRead) then
 #		capableMaster:=ValueGlobal(StringFormatted("Capable_{}",512));
 #=======
-find_parent:=function(n)
+GRPS1024_find_parent:=function(n)
   local rank, pclass, offset, working_sum, age, entry;
 	
 	if n = 1 then
 		return [GRPS1024_class_matrix[1][10][1],1];
 # >>>>>>> Stashed changes
 	fi;
-	rank:=find_rank(n);
-	pclass:=find_class(n);
+	rank:=GRPS1024_find_rank(n);
+	pclass:=GRPS1024_find_class(n);
 
 	offset:=(GRPS1024_row_partial_sums[rank-1]+GRPS1024_p_class_sums_matrix[rank][pclass-1]);
 	age := n-offset;
@@ -191,7 +191,7 @@ GRPS1024_P_G:=function(G)
 	#TODO this might not be set for an arbitrarily constructed pgroup
 	parent_ID:=GRPS1024_Heritage(G){[1..2]};
 	#TODO we can transition away from this using the class_matrix
-	Add(parent_ID,NumDescendants(parent_ID[1],parent_ID[2]));
+	Add(parent_ID,GRPS1024_NumDescendants(parent_ID[1],parent_ID[2]));
 	parents:=GRPS1024_class_matrix[rank][pclass];
 	parent_prec:=parents{[1..Position(parents,parent_ID)-1]};
 
@@ -213,7 +213,7 @@ end;
 #   local G, parent, heritage;
 	
 # 	G:=SmallGroup(1024,i);
-# 	parent:=Flat(find_parent(label_group(G)));
+# 	parent:=Flat(GRPS1024_find_parent(label_group(G)));
 # 	Remove(parent,3);
 # 	heritage:=GRPS1024_Heritage(G);
 # 	if parent = heritage then
@@ -247,23 +247,23 @@ SMALL_GROUP_FUNCS[ pos_2_10 ] := function( size, n, inforec )
 
    if n < inforec.number then
 
-	ancestry:=Flat(find_parent(n));
+	ancestry:=Flat(GRPS1024_find_parent(n));
 	Remove(ancestry,3);
 	#[parent_order,parent_id,age]
 	heritage:=rec();
 	heritage.Order:=ancestry[1];
 	heritage.ID:=ancestry[2];
 	heritage.Age:=ancestry[3];
-	if find_class(n) = 2 and heritage.Order > 16 then
+	if GRPS1024_find_class(n) = 2 and heritage.Order > 16 then
 
-		toReturn:=ImmediateDescendantGroupShell();
+		toReturn:=GRPS1024_ImmediateDescendantGroupShell();
 		SetIsPGroup(toReturn,true);
 
 		SetGRPS1024_Heritage(toReturn,[heritage.Order,heritage.ID,heritage.Age]);
 		SetPClassPGroup(toReturn,2);
 		#TODO this next statement is an artifact of how group shell are programmed
 		# SetIsElementaryAbelian(toReturn,false);
-		SetRankPGroup(toReturn,find_rank(n));
+		SetRankPGroup(toReturn,GRPS1024_find_rank(n));
 		SetOrder(toReturn,1024);
 		return toReturn;
 	fi;
@@ -278,7 +278,7 @@ SMALL_GROUP_FUNCS[ pos_2_10 ] := function( size, n, inforec )
 	fi;
 
 	if not IsBound(SMALL_GROUP_LIB[1024][heritage.Order][heritage.ID]) then
-		SMALL_GROUP_LIB[1024][heritage.Order][heritage.ID]:=CheckoutDescendants(heritage.Order,heritage.ID);
+		SMALL_GROUP_LIB[1024][heritage.Order][heritage.ID]:=GRPS1024_CheckoutDescendants(heritage.Order,heritage.ID);
 	fi;
 
 	toReturn:=PcGroupCode(SMALL_GROUP_LIB[1024][heritage.Order][heritage.ID][heritage.Age],size);
@@ -351,7 +351,7 @@ GRPS1024_old_label:=function(n)
 
 				if order > 16 and NumberSmallGroups(order)=group[1] then
 					# toReturn:=ImmediateDescendantGroupShell(ElementaryAbelianGroup(order));
-					toReturn:=ImmediateDescendantGroupShell();
+					toReturn:=GRPS1024_ImmediateDescendantGroupShell();
 					SetIsPGroup(toReturn,true);
 
 					SetGRPS1024_Heritage(toReturn,[heritage.Order,heritage.ID,heritage.Age]);
@@ -372,7 +372,7 @@ GRPS1024_old_label:=function(n)
 				fi;
 
 				if not IsBound(SMALL_GROUP_LIB[1024][heritage.Order][heritage.ID]) then
-					SMALL_GROUP_LIB[1024][heritage.Order][heritage.ID]:=CheckoutDescendants(heritage.Order,heritage.ID);
+					SMALL_GROUP_LIB[1024][heritage.Order][heritage.ID]:=GRPS1024_CheckoutDescendants(heritage.Order,heritage.ID);
 				fi;
 
 				toReturn:=PcGroupCode(SMALL_GROUP_LIB[1024][heritage.Order][heritage.ID][heritage.Age],1024);
@@ -412,7 +412,7 @@ GRPS1024_old_label:=function(n)
 
 				if NumberSmallGroups(order)=group[1] then
 					# toReturn:=ImmediateDescendantGroupShell(ElementaryAbelianGroup(order));
-				toReturn:=ImmediateDescendantGroupShell();
+				toReturn:=GRPS1024_ImmediateDescendantGroupShell();
 				SetIsPGroup(toReturn,true);
 
 				SetGRPS1024_Heritage(toReturn,[heritage.Order,heritage.ID,heritage.Age]);
@@ -432,7 +432,7 @@ GRPS1024_old_label:=function(n)
 				fi;
 
 				if not IsBound(SMALL_GROUP_LIB[1024][heritage.Order][heritage.ID]) then
-					SMALL_GROUP_LIB[1024][heritage.Order][heritage.ID]:=CheckoutDescendants(heritage.Order,heritage.ID);
+					SMALL_GROUP_LIB[1024][heritage.Order][heritage.ID]:=GRPS1024_CheckoutDescendants(heritage.Order,heritage.ID);
 				fi;
 
 				toReturn:=PcGroupCode(SMALL_GROUP_LIB[1024][heritage.Order][heritage.ID][heritage.Age],1024);
@@ -468,4 +468,28 @@ SMALL_GROUPS_INFORMATION[ pos_2_10 ] := function( size, inforec, num )
 AvailableGroups1024Information();
 # Groups1024Information();
 
+end;
+
+GRPS1024_check_groups_random:=function(n)
+  local block, i, G, parent, heritage, j;
+	block:=1000;
+	PrintFormatted("Working on Groups# {}-{}\n",1,block-1);
+	for j in [1..n] do
+		if j mod block = 0 then
+			PrintFormatted("Working on Groups# {}-{}\n",j,j+block-1);
+		fi;	
+		#here we take a random group in the range of groups of order 3^9
+		i:=Random(1,NumberSmallGroups(1024));
+		G:=SmallGroup(1024,i);
+		parent:=Flat(GRPS1024_find_parent(GRPS1024_label_group(G)));
+		Remove(parent,3);
+		heritage:=GRPS1024_Heritage(G);
+		if parent = heritage then
+			# PrintFormatted("There is no issue with # {}\n parent:{} \n heritage:{}\n",i,parent,heritage);
+			# return true;
+		else
+			Error(StringFormatted("There is an issue with # {}\n parent:{} \n heritage:{}\n",i,parent,heritage));
+		fi;
+	od;
+	return true;
 end;

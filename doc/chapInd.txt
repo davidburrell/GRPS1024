@@ -2,9 +2,7 @@
   
   [1XIndex[101X
   
-  [2XAvailableMap[102X 2.1-1 
-  [2XHeritage[102X, for IsGroup 2.1-3 
-  [2XInverseAvailableMap[102X 2.1-2 
+  [2XGroups1024Information[102X 2.1-1 
   
   
   -------------------------------------------------------

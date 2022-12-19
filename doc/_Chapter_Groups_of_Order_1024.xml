@@ -11,16 +11,16 @@
  This library gives explicit access to the following groups of order 1024:
 <List>
 <Item>
-The Rank 1 group
+The rank 1 group
 </Item>
 <Item>
-All Rank 2 groups
+All rank 2 groups
 </Item>
 <Item>
-All Rank 3 groups
+All rank 3 groups
 </Item>
 <Item>
-All Rank 4 groups
+All rank 4 groups
 </Item>
 <Item>
 Rank 5 groups with p-class at least 3
@@ -38,7 +38,7 @@ Rank 8 groups with p-class at least 3
 Rank 9 groups with p-class at least 3
 </Item>
 <Item>
-The Rank 10 group
+The rank 10 group
 </Item>
 </List>
 <P/>
