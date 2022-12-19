@@ -1,6 +1,0 @@
-#this will give you a tarball of the lib directory
- tar -zcvf descendants-lib.tar.gz lib/
-
-#this will recursively compress all the files in Desc_128 folder
-#todo write a script which automatically does all this
-gzip -9rv Desc_128
