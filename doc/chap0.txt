@@ -6,7 +6,7 @@
                      [1X Library of the groups of order 1024. [101X
   
   
-                                     0.0.4
+                                     0.0.5
   
   
                                   20 June 2022
