@@ -465,31 +465,30 @@ SELECT_SMALL_GROUPS_FUNCS[ pos_2_10 ] := SELECT_SMALL_GROUPS_FUNCS[ 11 ];
 #
 SMALL_GROUPS_INFORMATION[ pos_2_10 ] := function( size, inforec, num )
 
-AvailableGroups1024Information();
-# Groups1024Information();
+Groups1024Information();
 
 end;
 
-GRPS1024_check_groups_random:=function(n)
-  local block, i, G, parent, heritage, j;
-	block:=1000;
-	PrintFormatted("Working on Groups# {}-{}\n",1,block-1);
-	for j in [1..n] do
-		if j mod block = 0 then
-			PrintFormatted("Working on Groups# {}-{}\n",j,j+block-1);
-		fi;	
-		#here we take a random group in the range of groups of order 3^9
-		i:=Random(1,NumberSmallGroups(1024));
-		G:=SmallGroup(1024,i);
-		parent:=Flat(GRPS1024_find_parent(GRPS1024_label_group(G)));
-		Remove(parent,3);
-		heritage:=GRPS1024_Heritage(G);
-		if parent = heritage then
-			# PrintFormatted("There is no issue with # {}\n parent:{} \n heritage:{}\n",i,parent,heritage);
-			# return true;
-		else
-			Error(StringFormatted("There is an issue with # {}\n parent:{} \n heritage:{}\n",i,parent,heritage));
-		fi;
-	od;
-	return true;
-end;
+#GRPS1024_check_groups_random:=function(n)
+#  local block, i, G, parent, heritage, j;
+#	block:=1000;
+#	PrintFormatted("Working on Groups# {}-{}\n",1,block-1);
+#	for j in [1..n] do
+#		if j mod block = 0 then
+#			PrintFormatted("Working on Groups# {}-{}\n",j,j+block-1);
+#		fi;	
+#		#here we take a random group in the range of groups of order 3^9
+#		i:=Random(1,NumberSmallGroups(1024));
+#		G:=SmallGroup(1024,i);
+#		parent:=Flat(GRPS1024_find_parent(GRPS1024_label_group(G)));
+#		Remove(parent,3);
+#		heritage:=GRPS1024_Heritage(G);
+#		if parent = heritage then
+#			# PrintFormatted("There is no issue with # {}\n parent:{} \n heritage:{}\n",i,parent,heritage);
+#			# return true;
+#		else
+#			Error(StringFormatted("There is an issue with # {}\n parent:{} \n heritage:{}\n",i,parent,heritage));
+#		fi;
+#	od;
+#	return true;
+#end;

@@ -102,25 +102,25 @@ DeclareGlobalFunction("GRPS1024_CheckoutDescendants");
 ## Checks if `SmallGroup(1024,N)` is available,
 ## @Arguments N
 ## @Returns `true` or `false`
-DeclareGlobalFunction("IsAvailable");
+# DeclareGlobalFunction("IsAvailable");
 
 ## @Description
 ## Finds the $N$th group of order 1024 in storage and returns the group. If the group is not available then a partially constructed group is returned
 ## @Arguments N
 ## @Returns list if available
-DeclareGlobalFunction("FindGroupN");
+# DeclareGlobalFunction("FindGroupN");
 
 ## @Description 
 ## Of the available groups returns the $N$th one. This should be the main function used to iterate throught the $683,875,133$ available groups.
 ## @Arguments N
 ## @Returns `FindGroupN(AvailableMap(N))`
-DeclareGlobalFunction("FindNthAvailableGroup");
+# DeclareGlobalFunction("FindNthAvailableGroup");
 
 # @Description
 # For $1 \leq i \leq 683,875,133$ this function will return the SmallGroup ID of the $i$th available group among all the groups of order 1024.
 # @Arguments N
 # @Returns `int`
-DeclareGlobalFunction("AvailableMap");
+# DeclareGlobalFunction("AvailableMap");
 # @BeginExampleSession
 # #groups 1-3567 are available, SmallGroup(1024,3568) is not available
 # gap> g:=SmallGroup(1024,3567);
@@ -138,7 +138,7 @@ DeclareGlobalFunction("AvailableMap");
 # For $1 \leq i \leq 49,487,367,289$ if `SmallGroup(1024,i)` is available this will return its position in the available groups list or else it will print a message telling you that it is not available and return 0.
 # @Arguments N
 # @Returns `int`
-DeclareGlobalFunction("InverseAvailableMap");
+# DeclareGlobalFunction("InverseAvailableMap");
 
 # @BeginExampleSession
 # gap> InverseAvailableMap(AvailableMap(i)) = i;

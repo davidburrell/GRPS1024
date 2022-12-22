@@ -51,94 +51,94 @@ fi;
 end);
 
 
-InstallGlobalFunction("FindNthAvailableGroup",function(n)
-return SmallGroup(1024,AvailableMap(n)); 
-# return FindGroupN(AvailableMap(n));
-end);
+# InstallGlobalFunction("FindNthAvailableGroup",function(n)
+# return SmallGroup(1024,AvailableMap(n)); 
+# # return FindGroupN(AvailableMap(n));
+# end);
 
-InstallGlobalFunction("IsAvailable",function(n)
+#InstallGlobalFunction("IsAvailable",function(n)
 
-local capableMaster,toRead,j,group_order,group,i,offset,order,step,desc,toSkip;
-#we handle generate the elementary abelian group
-if n = 49487367289 then return true; fi;
-if n < 49487367289 then
+#local capableMaster,toRead,j,group_order,group,i,offset,order,step,desc,toSkip;
+##we handle generate the elementary abelian group
+#if n = 49487367289 then return true; fi;
+#if n < 49487367289 then
 
 
-	capableMaster:=[];
-	toRead:=StringFormatted("gap/CapableList16_256.g");
-	if ReadPackage("GRPS1024",toRead) then
-		for j in [16,32,64,128,256] do
-			Add(capableMaster,ValueGlobal(StringFormatted("Capable_{}",j)));
-	od;
-	fi;
-	#return capableMaster;
-	i:=0;
-	offset:=0;
-	order:=8;
-	step:=0;
-	#toSkip:=[[32,51],[64,267],[128
-	for group_order in capableMaster do
-		order:=order*2;
-		step:=Length(FactorsInt(1024)) - Length(FactorsInt(order));
-		for group in group_order do
-			offset:=i;
-			i:=i+group[2];
-			if i >= n then
-				#
-				#n-offset is the position in the ordered list of descendants
-				#we are looking for i.e. the age of the nth group among its
-				#siblings
-				#desc:=PqDescendants(SmallGroup(order,group[1]):StepSize:=step);
-				if order > 16 and NumberSmallGroups(order)=group[1] then
-					Info(InfoDebug,2,StringFormatted("Descendant {} of the Elementary Abelian group of order {}",n-offset,order));
-					return false;
-				fi;
-				# desc:=GRPS1024_CheckoutDescendants(order,group[1]);
-				#desc:=List(desc,CodePcGroup);
-				# Sort(desc);
-				# these lists were sorted after generation and before preparation of this package
-				# return [order,group[1],step,n-offset,desc[n-offset]];
-				return true;
-			else
-				continue;
-			fi;
-		od;
-	od;
-	## if we are here then the group is an immediate descendant of a group of order 512
-	order:=512;
-	step:=1;
-	toRead:=StringFormatted("gap/CapableList_512.g");
-	if ReadPackage("PGroupUTILS",toRead) then
-		#Add(capableMaster,ValueGlobal(StringFormatted("Capable_{}",j)));
-		capableMaster:=ValueGlobal(StringFormatted("Capable_{}",512));
-	fi;
+#	capableMaster:=[];
+#	toRead:=StringFormatted("gap/CapableList16_256.g");
+#	if ReadPackage("GRPS1024",toRead) then
+#		for j in [16,32,64,128,256] do
+#			Add(capableMaster,ValueGlobal(StringFormatted("Capable_{}",j)));
+#	od;
+#	fi;
+#	#return capableMaster;
+#	i:=0;
+#	offset:=0;
+#	order:=8;
+#	step:=0;
+#	#toSkip:=[[32,51],[64,267],[128
+#	for group_order in capableMaster do
+#		order:=order*2;
+#		step:=Length(FactorsInt(1024)) - Length(FactorsInt(order));
+#		for group in group_order do
+#			offset:=i;
+#			i:=i+group[2];
+#			if i >= n then
+#				#
+#				#n-offset is the position in the ordered list of descendants
+#				#we are looking for i.e. the age of the nth group among its
+#				#siblings
+#				#desc:=PqDescendants(SmallGroup(order,group[1]):StepSize:=step);
+#				if order > 16 and NumberSmallGroups(order)=group[1] then
+#					Info(InfoDebug,2,StringFormatted("Descendant {} of the Elementary Abelian group of order {}",n-offset,order));
+#					return false;
+#				fi;
+#				# desc:=GRPS1024_CheckoutDescendants(order,group[1]);
+#				#desc:=List(desc,CodePcGroup);
+#				# Sort(desc);
+#				# these lists were sorted after generation and before preparation of this package
+#				# return [order,group[1],step,n-offset,desc[n-offset]];
+#				return true;
+#			else
+#				continue;
+#			fi;
+#		od;
+#	od;
+#	## if we are here then the group is an immediate descendant of a group of order 512
+#	order:=512;
+#	step:=1;
+#	toRead:=StringFormatted("gap/CapableList_512.g");
+#	if ReadPackage("PGroupUTILS",toRead) then
+#		#Add(capableMaster,ValueGlobal(StringFormatted("Capable_{}",j)));
+#		capableMaster:=ValueGlobal(StringFormatted("Capable_{}",512));
+#	fi;
 
-		for group in capableMaster do
-			offset:=i;
-			i:=i+group[2];
-			if i >= n then
-				#n-offset is the position in the ordered list of descendants
-				#we are looking for i.e. the age of the nth group among its
-				#siblings
-				#desc:=PqDescendants(SmallGroup(order,group[1]):StepSize:=step);
-				if order > 16 and NumberSmallGroups(order)=group[1] then
-					# Print(StringFormatted("Descendant {} of the Elementary Abelian group of order {}",n-offset,order));
-					return false;
-				fi;
-				# desc:=GRPS1024_CheckoutDescendants(order,group[1]);
-				#desc:=List(desc,CodePcGroup);
-				# Sort(desc);
-				# return [order,group[1],step,n-offset,desc[n-offset]];
-				return true;
-			else
-				continue;
-			fi;
-		od;
-else
-	Error("There are only 49487367289 groups of order 1024");
-fi;
+#		for group in capableMaster do
+#			offset:=i;
+#			i:=i+group[2];
+#			if i >= n then
+#				#n-offset is the position in the ordered list of descendants
+#				#we are looking for i.e. the age of the nth group among its
+#				#siblings
+#				#desc:=PqDescendants(SmallGroup(order,group[1]):StepSize:=step);
+#				if order > 16 and NumberSmallGroups(order)=group[1] then
+#					# Print(StringFormatted("Descendant {} of the Elementary Abelian group of order {}",n-offset,order));
+#					return false;
+#				fi;
+#				# desc:=GRPS1024_CheckoutDescendants(order,group[1]);
+#				#desc:=List(desc,CodePcGroup);
+#				# Sort(desc);
+#				# return [order,group[1],step,n-offset,desc[n-offset]];
+#				return true;
+#			else
+#				continue;
+#			fi;
+#		od;
+#else
+#	Error("There are only 49487367289 groups of order 1024");
+#fi;
 
-end);
+#end);
 #InstallGlobalFunction("FindGroupN",function(n)
 
 #local capableMaster,toRead,j,group_order,group,i,offset,order,step,desc,toSkip,toReturn;
@@ -265,164 +265,158 @@ return 0;
 
 end);
 
-# these are the numbers which bound the available groups and where offsets change
-# 1-3567
-# 17643
-# 5284672
-# 39138178
-# 683875132
 
 
-InstallGlobalFunction("AvailableMap",function(i)
-  local length1, length2, length3, length4, length5, offset1, offset2, offset3, offset4, offset5,length6;
-  # local offset1, offset2, offset3, offset4, offset5;
-  # local toReturn, i;
+#InstallGlobalFunction("AvailableMap",function(i)
+#  local length1, length2, length3, length4, length5, offset1, offset2, offset3, offset4, offset5,length6;
+#  # local offset1, offset2, offset3, offset4, offset5;
+#  # local toReturn, i;
 
-# toReturn:=[];
-
-
-# toReturn:=Concatenation([1..3567],[378632399..378646474],[48076662881..48081929909],[48808773883..48842627388],[48842630322..49487367275]);;
-# length1:=Length([1..3567]);
-length1:=3567;
-# length2:=Length([378632399..378646474]);
-length2:=14076;
-# length3:=Length([48076662881..48081929909]);
-length3:=5267029;
-# length4:=Length([48808773883..48842627388]);
-length4:=33853506;
-# length5:=Length([48842630322..49487367275]);
-length5:=644736954;
-# length6:=Length([49487367276..49487367289]);
-length6:=14;
-
-offset1:=378628831;
-offset2:=47698016406;
-offset3:=726843973;
-offset4:=2933;
-offset5:=13;
-if i <= length1 then
-	return i;
-elif i > length1 and i <= length1+length2 then
-	return i+offset1;
-elif i > length1+length2 and i <= length1+length2+length3 then
-	return i+offset1+offset2;
-elif i > length1+length2+length3 and i <= length1+length2+length3+length4 then
-	return i+offset1+offset2+offset3;
-elif i > length1+length2+length3+length4 and i <= length1+length2+length3+length4+length5 then
-	return i+offset1+offset2+offset3+offset4;
-elif i > length1+length2+length3+length4+length5 and i <= length1+length2+length3+length4+length5+1 then
-	return i+offset1+offset2+offset3+offset4+offset5;
-# elif i > length1+length2+length3+length4+length5 and i <= length1+length2+length3+length4+length5+length6 then
-# 	return i+offset1+offset2+offset3+offset4+offset5;
-elif i > length1+length2+length3+length4+length5+1 then
-	Error(StringFormatted("There are only {} groups of order 1024 available",683875133));
-fi;
-# 1-3566 are available
-# 3567 is available
-#
-###3568-378632398 are descendants of [32,51]
-#
-###378632399-378646475 are descendants of groups of order 64
-#
-###378646475-48076662880 are descendants of [64,267]
-#
-###48076662881-48081929909 are descendants of groups of order 128
-#
-###48081929910-48808773882 are descendants of [128,2328] #
-#
-###48808773883-48842627388 are descendants of groups of order 256
-#
-###48842627389-48842630321 are descendants of [256,56092] #
-#
-###48842630322-49487367275 are descendants of groups of order 128
-#
-#elif i in [49487367276-49487367289] then 
-###49487367276-49487367289 are the descendants of [512,10494213]
-# return toReturn;
-end);
+## toReturn:=[];
 
 
-InstallGlobalFunction("InverseAvailableMap",function(n)
-  local length1, length2, length3, length4, length5, offset1, offset2, offset3, offset4, offset5,length6;
-  # local offset1, offset2, offset3, offset4, offset5;
-  # local toReturn, i;
+## toReturn:=Concatenation([1..3567],[378632399..378646474],[48076662881..48081929909],[48808773883..48842627388],[48842630322..49487367275]);;
+## length1:=Length([1..3567]);
+#length1:=3567;
+## length2:=Length([378632399..378646474]);
+#length2:=14076;
+## length3:=Length([48076662881..48081929909]);
+#length3:=5267029;
+## length4:=Length([48808773883..48842627388]);
+#length4:=33853506;
+## length5:=Length([48842630322..49487367275]);
+#length5:=644736954;
+## length6:=Length([49487367276..49487367289]);
+#length6:=14;
 
-# toReturn:=[];
-
-
-# toReturn:=Concatenation([1..3567],[378632399..378646474],[48076662881..48081929909],[48808773883..48842627388],[48842630322..49487367275]);;
-# length1:=Length([1..3567]);
-length1:=3567;
-# length2:=Length([378632399..378646474]);
-length2:=14076;
-# length3:=Length([48076662881..48081929909]);
-length3:=5267029;
-# length4:=Length([48808773883..48842627388]);
-length4:=33853506;
-# length5:=Length([48842630322..49487367275]);
-length5:=644736954;
-# length6:=Length([49487367276..49487367289]);
-length6:=14;
-
-offset1:=378628831;
-offset2:=47698016406;
-offset3:=726843973;
-offset4:=2933;
-offset5:=13;
-
-# 1-3567 are available
-#
-if n in [1..3567] then
-	return n;
-elif n in [3568..378632398] then
-###3568-378632398 are descendants of [32,51]
-#
-        Print("This is an immediate descendant of the elementary abelian group of order 32 and is not available\n");
-	return 0;
-
-elif n in [378632399..378646474] then
-###378632399-378646475 are available
-	return n-offset1;
-#
-elif n in [378646475..48076662880] then
-        Print("This is an immediate descendant of the elementary abelian group of order 64 and is not available\n");
-	return 0;
-###378646475-48076662880 are descendants of [64,267]
-#
-elif n in [48076662881..48081929909] then
-	return n-offset1-offset2;
-###48076662881-48081929909 are available 
-#
-elif n in [48081929910..48808773882] then
-        Print("This is an immediate descendant of the elementary abelian group of order 128 and is not available\n");
-	return 0;
-###48081929910-48808773882 are descendants of [128,2328] #
-#
-elif n in [48808773883..48842627388] then
-###48808773883-48842627388 are available
+#offset1:=378628831;
+#offset2:=47698016406;
+#offset3:=726843973;
+#offset4:=2933;
+#offset5:=13;
+#if i <= length1 then
+#	return i;
+#elif i > length1 and i <= length1+length2 then
+#	return i+offset1;
+#elif i > length1+length2 and i <= length1+length2+length3 then
+#	return i+offset1+offset2;
+#elif i > length1+length2+length3 and i <= length1+length2+length3+length4 then
+#	return i+offset1+offset2+offset3;
+#elif i > length1+length2+length3+length4 and i <= length1+length2+length3+length4+length5 then
+#	return i+offset1+offset2+offset3+offset4;
+#elif i > length1+length2+length3+length4+length5 and i <= length1+length2+length3+length4+length5+1 then
+#	return i+offset1+offset2+offset3+offset4+offset5;
+## elif i > length1+length2+length3+length4+length5 and i <= length1+length2+length3+length4+length5+length6 then
+## 	return i+offset1+offset2+offset3+offset4+offset5;
+#elif i > length1+length2+length3+length4+length5+1 then
+#	Error(StringFormatted("There are only {} groups of order 1024 available",683875133));
+#fi;
+## 1-3566 are available
+## 3567 is available
 ##
-	return n-offset1-offset2-offset3;
-elif n in [48842627389..48842630321] then
-###48842627389-48842630321 are descendants of [256,56092] #
-#
-        Print("This is an immediate descendant of the elementary abelian group of order 256 and is not available\n");
-	return 0;
-elif n in [48842630322..49487367275] then
-###48842630322-49487367275 are available
+####3568-378632398 are descendants of [32,51]
 ##
-	return n-offset1-offset2-offset3-offset4;
-elif n in [49487367276..49487367288] then 
-###49487367276-49487367289 are the descendants of [512,10494213]
-        Print("This is an immediate descendant of the elementary abelian group of order 512 and is not available\n");
-	return 0;
-elif n = 49487367289 then
-	return n-offset1-offset2-offset3-offset4-offset5;
-#49487367289 is the elementary abelian group
-elif n > 49487367289 then
-	Error("There are only 49487367289 groups of order 1024\n");
-# return toReturn;
-fi;
-end);
+####378632399-378646475 are descendants of groups of order 64
+##
+####378646475-48076662880 are descendants of [64,267]
+##
+####48076662881-48081929909 are descendants of groups of order 128
+##
+####48081929910-48808773882 are descendants of [128,2328] #
+##
+####48808773883-48842627388 are descendants of groups of order 256
+##
+####48842627389-48842630321 are descendants of [256,56092] #
+##
+####48842630322-49487367275 are descendants of groups of order 128
+##
+##elif i in [49487367276-49487367289] then 
+####49487367276-49487367289 are the descendants of [512,10494213]
+## return toReturn;
+#end);
+
+
+#InstallGlobalFunction("InverseAvailableMap",function(n)
+#  local length1, length2, length3, length4, length5, offset1, offset2, offset3, offset4, offset5,length6;
+#  # local offset1, offset2, offset3, offset4, offset5;
+#  # local toReturn, i;
+
+## toReturn:=[];
+
+
+## toReturn:=Concatenation([1..3567],[378632399..378646474],[48076662881..48081929909],[48808773883..48842627388],[48842630322..49487367275]);;
+## length1:=Length([1..3567]);
+#length1:=3567;
+## length2:=Length([378632399..378646474]);
+#length2:=14076;
+## length3:=Length([48076662881..48081929909]);
+#length3:=5267029;
+## length4:=Length([48808773883..48842627388]);
+#length4:=33853506;
+## length5:=Length([48842630322..49487367275]);
+#length5:=644736954;
+## length6:=Length([49487367276..49487367289]);
+#length6:=14;
+
+#offset1:=378628831;
+#offset2:=47698016406;
+#offset3:=726843973;
+#offset4:=2933;
+#offset5:=13;
+
+## 1-3567 are available
+##
+#if n in [1..3567] then
+#	return n;
+#elif n in [3568..378632398] then
+####3568-378632398 are descendants of [32,51]
+##
+#        Print("This is an immediate descendant of the elementary abelian group of order 32 and is not available\n");
+#	return 0;
+
+#elif n in [378632399..378646474] then
+####378632399-378646475 are available
+#	return n-offset1;
+##
+#elif n in [378646475..48076662880] then
+#        Print("This is an immediate descendant of the elementary abelian group of order 64 and is not available\n");
+#	return 0;
+####378646475-48076662880 are descendants of [64,267]
+##
+#elif n in [48076662881..48081929909] then
+#	return n-offset1-offset2;
+####48076662881-48081929909 are available 
+##
+#elif n in [48081929910..48808773882] then
+#        Print("This is an immediate descendant of the elementary abelian group of order 128 and is not available\n");
+#	return 0;
+####48081929910-48808773882 are descendants of [128,2328] #
+##
+#elif n in [48808773883..48842627388] then
+####48808773883-48842627388 are available
+###
+#	return n-offset1-offset2-offset3;
+#elif n in [48842627389..48842630321] then
+####48842627389-48842630321 are descendants of [256,56092] #
+##
+#        Print("This is an immediate descendant of the elementary abelian group of order 256 and is not available\n");
+#	return 0;
+#elif n in [48842630322..49487367275] then
+####48842630322-49487367275 are available
+###
+#	return n-offset1-offset2-offset3-offset4;
+#elif n in [49487367276..49487367288] then 
+####49487367276-49487367289 are the descendants of [512,10494213]
+#        Print("This is an immediate descendant of the elementary abelian group of order 512 and is not available\n");
+#	return 0;
+#elif n = 49487367289 then
+#	return n-offset1-offset2-offset3-offset4-offset5;
+##49487367289 is the elementary abelian group
+#elif n > 49487367289 then
+#	Error("There are only 49487367289 groups of order 1024\n");
+## return toReturn;
+#fi;
+#end);
 
 
 InstallGlobalFunction("ReturnCapableGroupsOfOrder",function(order)
@@ -810,10 +804,6 @@ end);
 InstallGlobalFunction("Groups1024Information",function()
 
 
-#     Print( " \n");
-#     Print( "This database was created by David Burrell (2022).\n");
-
-# end);
 Print("##################  Groups Information  #########################\n");
 Print( "There are 49487367289 groups of order 1024\n");
 Print( "They are sorted by rank, p-class, parent group and then age\n\n");
