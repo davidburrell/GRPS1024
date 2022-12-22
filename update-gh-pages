@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 cp -f ../PackageInfo.g ../README* .
-cp -f ../doc/*.{css,html,js,txt,xml.bib,bib} doc/
+cp -f ../doc/*.{css,html,js,txt,bib} doc/
 ~/gap/bin/gap.sh -b update.g
 git commit -am "update"
 git push
