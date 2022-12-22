@@ -13,6 +13,6 @@
 <Body>
 <#Include SYSTEM "_AutoDocMainFile.xml">
 </Body>
-<Bibliography Databases="manualbib.xml"/>
+<Bibliography Databases="manual.bib"/>
 <TheIndex/>
 </Book>

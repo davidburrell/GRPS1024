@@ -2,27 +2,27 @@ This is BibTeX, Version 0.99d (TeX Live 2022)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: GRPS1024.aux
 The style file: alpha.bst
-Database file #1: manualbib.xml.bib
+Database file #1: manual.bib
 You've used 4 entries,
             2543 wiz_defined-function locations,
-            589 strings with 4961 characters,
-and the built_in function-call counts, 1516 in all, are:
-= -- 151
+            591 strings with 4966 characters,
+and the built_in function-call counts, 1570 in all, are:
+= -- 157
 > -- 66
 < -- 2
 + -- 22
 - -- 22
-* -- 117
-:= -- 257
+* -- 123
+:= -- 263
 add.period$ -- 11
 call.type$ -- 4
 change.case$ -- 24
 chr.to.int$ -- 4
 cite$ -- 4
 duplicate$ -- 54
-empty$ -- 112
+empty$ -- 118
 format.name$ -- 28
-if$ -- 298
+if$ -- 310
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 3
@@ -34,7 +34,7 @@ purify$ -- 28
 quote$ -- 0
 skip$ -- 48
 stack$ -- 0
-substring$ -- 91
+substring$ -- 109
 swap$ -- 4
 text.length$ -- 2
 text.prefix$ -- 2
