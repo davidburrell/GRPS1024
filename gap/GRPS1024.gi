@@ -816,7 +816,7 @@ InstallGlobalFunction("Groups1024Information",function()
 # end);
 Print("##################  Groups Information  #########################\n");
 Print( "There are 49487367289 groups of order 1024\n");
-Print( "They are sorted by rank, pclass, parent group and then age\n\n");
+Print( "They are sorted by rank, p-class, parent group and then age\n\n");
 Print( "Group  1				has rank 1 and pclass 10\n");
 Print( "Group  2				has rank 2 and pclass 3\n");
 Print( "Groups 3-1912				have rank 2 and pclass 4\n");
