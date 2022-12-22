@@ -55,7 +55,7 @@
   [33X[0;0YThe  groups  are  sorted  first by their parent group ids and then by the pc
   codes  of  the  standard presentations for the groups. The data contained in
   this  library  was  used in the 2021 enumeration of the groups of order 1024
-  [Bur21].  The  available  groups were generated using the p-group generation
+  [Bur22].  The  available  groups were generated using the p-group generation
   algorithm  [O'B90]  as  implemented  in  the  ANUPQ  package  [GNOH19].  The
   information  on  the remaining groups was calculated using the cohomological
   methods for enumerating p-groups of p-class 2 as introduced in [EO99].[133X
