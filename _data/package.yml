@@ -45,11 +45,13 @@ citeas: |
 bibtex: |
     @misc{ GRPS10240.0.5,
       author =           {Burrell, D.},
-      title =            {{GRPS1024}, Library of the groups of order 1024., {V}ersion 0.0.5},
+      title =            {{GRPS1024},  Library of the groups of
+                          order 1024., {V}ersion 0.0.5},
       month =            {Jun},
       year =             {2022},
       note =             {GAP package},
-      howpublished =     {\href                      {https://davidburrell.github.io/GRPS1024/}
+      howpublished =     {\href
+                          {https://davidburrell.github.io/GRPS1024/}
                           {\texttt{https://davidburrell.github.io/}\discretionary
                           {}{}{}\texttt{GRPS1024/}}},
       printedkey =       {Bur22}
