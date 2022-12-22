@@ -21,6 +21,7 @@ For further information see:
 	 `tar -xvf descendants-lib-1024.tar.gz -C ~/gap/pkg/GRPS1024` 
 	 (change to match your gap installation if necessary)
 	3. The package directory should now resemble the following
+
 ```bash
 ../gap/pkg/GRPS1024
 
