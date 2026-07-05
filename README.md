@@ -52,7 +52,7 @@ For further information see:
 └── tst
 ```
 ## Contact
-For questions, comments and or issues contact [David Burrell](Davidburrell@ufl.edu)
+For questions, comments and or issues contact [David Burrell](mailto:davidburrell@me.com)
 
 
 ## License
