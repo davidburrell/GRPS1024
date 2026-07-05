@@ -1,7 +1,7 @@
 name: GRPS1024
-version: "0.0.5"
+version: "0.0.6"
 license: "Artistic-2.0"
-date: 2022-06-20
+date: 2026-07-05
 description: |
     Library of the groups of order 1024.
 
@@ -22,9 +22,9 @@ github: https://github.com/davidburrell/GRPS1024
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/davidburrell/GRPS1024/archive/refs/tags/v.0.0.5.tar.gz
+      url: https://github.com/davidburrell/GRPS1024/archive/refs/tags/v.0.0.6.tar.gz
     - name: .zip
-      url: https://github.com/davidburrell/GRPS1024/archive/refs/tags/v.0.0.5.zip
+      url: https://github.com/davidburrell/GRPS1024/archive/refs/tags/v.0.0.6.zip
 
 abstract: |
 
@@ -33,10 +33,10 @@ doc-html: doc/chap0.html
 doc-pdf: doc/manual.pdf
 citeas: |
     <p class='BibEntry'>
-    [<span class='BibKey'>Bur22</span>]   <b class='BibAuthor'>Burrell, D.</b>,
+    [<span class='BibKey'>Bur26</span>]   <b class='BibAuthor'>Burrell, D.</b>,
      <i class='BibTitle'>GRPS1024, Library of the groups of order 1024.,
-             Version 0.0.5</i>
-     (<span class='BibYear'>2022</span>)<br />
+             Version 0.0.6</i>
+     (<span class='BibYear'>2026</span>)<br />
     (<span class='BibNote'>GAP package</span>),
     <span class='BibHowpublished'><a href="https://davidburrell.github.io/GRPS1024/">https://davidburrell.github.io/GRPS1024/</a></span>.
     </p>
@@ -45,12 +45,12 @@ citeas: |
 bibtex: |
     @misc{ GRPS1024,
       author =           {Burrell, D.},
-      title =            {{GRPS1024}, {Library of the groups of order 1024.}, {V}ersion 0.0.5},
-      month =            {Jun},
-      year =             {2022},
+      title =            {{GRPS1024}, {Library of the groups of order 1024.}, {V}ersion 0.0.6},
+      month =            {Jul},
+      year =             {2026},
       note =             {GAP package},
       howpublished =     {\href                                             {https://davidburrell.github.io/GRPS1024/}
                           {\texttt{https://davidburrell.github.io/}\discretionary {}{}{}\texttt{GRPS1024/}}},
-      printedkey =       {Bur22}
+      printedkey =       {Bur26}
     }
 

@@ -10,8 +10,8 @@ SetPackageInfo( rec(
 
 PackageName := "GRPS1024",
 Subtitle := "Library of the groups of order 1024.",
-Version := "0.0.5",
-Date := "20/06/2022", # dd/mm/yyyy format
+Version := "0.0.6",
+Date := "05/07/2026", # dd/mm/yyyy format
 License := "Artistic-2.0",
 
 Persons := [
