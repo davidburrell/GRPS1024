@@ -16,11 +16,14 @@ For further information see:
 
 1. Clone the repo or download a version via releases and unpack to the "pkg" subdirectory of your GAP installation (i.e. ~/gap/pkg)
 2. Setup the lib directory:
-	1. Download descendants-lib.tar.gz from [here](https://www.dropbox.com/s/v60g16oqd81oywu/descendants-lib.tar.gz?st=cp63v7yl&dl=0)
+	1. Download descendants-lib.tar.gz from [here](https://www.dropbox.com/scl/fi/rdkog7pms0ujrzwdz2bud/descendants-lib.tar.gz?rlkey=513fdhagjy0rlv5lyd652peuv&st=faivkyfy&dl=0)
 	2. Unpack archive into package folder via:
 	 `tar -xvf descendants-lib.tar.gz -C ~/gap/pkg/GRPS1024` 
 	 (change to match your gap installation if necessary)
-	3. The package directory should now resemble the following
+	3. Verify the download (optional but recommended):
+	 `python3 generate_checksums.py --verify`
+	 This checks every file in `lib/` against the bundled `lib/SHA256SUMS`. Any mismatch or missing file is reported.
+	4. The package directory should now resemble the following
 
 ```bash
 ../gap/pkg/GRPS1024

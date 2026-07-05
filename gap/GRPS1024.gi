@@ -14,35 +14,43 @@ BindGlobal("GRPS1024_AVAIL",683875133);
 
 BindGlobal("GRPS1024_DESC",rec(2:=[],4:=[],8:=[],16:=[],32:=[],64:=[],128:=[],256:=[],512:=[]));
 BindGlobal("GRPS1024_ENUM",rec(2:=[],4:=[],8:=[],16:=[],32:=[],64:=[],128:=[],256:=[],512:=[]));
+# Tracks which chunk files have been read: key "order_chunkNum" -> true/false
+BindGlobal("GRPS1024_LOADED_CHUNKS",rec());
 
 InstallGlobalFunction("GRPS1024_LoadDescendants",function(parentGroup_Order,parentGroup_ID)
-local toRead;
-toRead := StringFormatted("lib/Desc_{}/{}.g",parentGroup_Order,parentGroup_ID);
-if not ReadPackage("GRPS1024",toRead) then
-	Info(InfoDebug,1,StringFormatted("The presentations of the immediate descendants of {}#{} are not available",parentGroup_Order,parentGroup_ID));
-	toRead := StringFormatted("lib/Enum_{}/{}.g",parentGroup_Order,parentGroup_ID);
-
-	if not ReadPackage("GRPS1024",toRead) then
-	Info(InfoDebug,1,StringFormatted("{}#{} doesn't have immediate descendants of order 1024",parentGroup_Order,parentGroup_ID));
-	# Info(InfoDebug,1,StringFormatted("The enumeration of the immediate descendants of {}#{} are not available",parentGroup_Order,parentGroup_ID));
-	#we assume that to get here neither the determination are available nor the enumeration, so it must be the case that this group has no immediate descendants
-	GRPS1024_ENUM.(parentGroup_Order)[parentGroup_ID]:= 0;
-	else
-	GRPS1024_ENUM.(parentGroup_Order)[parentGroup_ID]:= ValueGlobal(StringFormatted("enum_{}_{}",parentGroup_Order,parentGroup_ID));
-	fi;	
+local chunkNum,chunkKey,toRead,varName;
+chunkNum := QuoInt(parentGroup_ID - 1, 1000);
+chunkKey := StringFormatted("{}_{}", parentGroup_Order, chunkNum);
+if not IsBound(GRPS1024_LOADED_CHUNKS.(chunkKey)) then
+	toRead := StringFormatted("lib/Desc_{}/chunk_{}.g", parentGroup_Order, chunkNum);
+	GRPS1024_LOADED_CHUNKS.(chunkKey) := ReadPackage("GRPS1024", toRead);
+fi;
+varName := StringFormatted("desc_{}_{}", parentGroup_Order, parentGroup_ID);
+if IsBoundGlobal(varName) then
+	GRPS1024_DESC.(parentGroup_Order)[parentGroup_ID] := ValueGlobal(varName);
 else
-	#Print(StringFormatted("Loaded Descendants of SmallGroup({},{})\n",parentGroup_Order,parentGroup_ID));
-	#desc_{}_{} refers to the variable name in the actual library file that was loaded
-	GRPS1024_DESC.(parentGroup_Order)[parentGroup_ID]:= ValueGlobal(StringFormatted("desc_{}_{}",parentGroup_Order,parentGroup_ID));
+	Info(InfoDebug,1,StringFormatted("The presentations of the immediate descendants of {}#{} are not available",parentGroup_Order,parentGroup_ID));
+	toRead := StringFormatted("lib/Enum_{}/{}.g", parentGroup_Order, parentGroup_ID);
+	if not ReadPackage("GRPS1024", toRead) then
+		Info(InfoDebug,1,StringFormatted("{}#{} doesn't have immediate descendants of order 1024",parentGroup_Order,parentGroup_ID));
+		GRPS1024_ENUM.(parentGroup_Order)[parentGroup_ID] := 0;
+	else
+		GRPS1024_ENUM.(parentGroup_Order)[parentGroup_ID] := ValueGlobal(StringFormatted("enum_{}_{}", parentGroup_Order, parentGroup_ID));
+	fi;
 fi;
 end);
 
 InstallGlobalFunction("GRPS1024_CheckoutDescendants",function(parentGroup_Order,parentGroup_ID)
-local toRead,toReturn;
-
-toRead:=StringFormatted("lib/Desc_{}/{}.g",parentGroup_Order,parentGroup_ID);
-if ReadPackage("GRPS1024",toRead) then
-	toReturn:= ValueGlobal(StringFormatted("desc_{}_{}",parentGroup_Order,parentGroup_ID));
+local chunkNum,chunkKey,toRead,varName,toReturn;
+chunkNum := QuoInt(parentGroup_ID - 1, 1000);
+chunkKey := StringFormatted("{}_{}", parentGroup_Order, chunkNum);
+if not IsBound(GRPS1024_LOADED_CHUNKS.(chunkKey)) then
+	toRead := StringFormatted("lib/Desc_{}/chunk_{}.g", parentGroup_Order, chunkNum);
+	GRPS1024_LOADED_CHUNKS.(chunkKey) := ReadPackage("GRPS1024", toRead);
+fi;
+varName := StringFormatted("desc_{}_{}", parentGroup_Order, parentGroup_ID);
+if IsBoundGlobal(varName) then
+	toReturn := ValueGlobal(varName);
 	return toReturn{[2..Length(toReturn)]};
 else
 	Info(InfoDebug,1,StringFormatted("The presentations of the immediate descendants of {}#{} are not available",parentGroup_Order,parentGroup_ID));
