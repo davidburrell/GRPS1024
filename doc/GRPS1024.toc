@@ -1,7 +1,0 @@
-\contentsline {chapter}{\numberline {1}\textcolor {Chapter }{Groups of Order 1024}}{3}{chapter.1}%
-\contentsline {section}{\numberline {1.1}\textcolor {Chapter }{Overview}}{3}{section.1.1}%
-\contentsline {chapter}{\numberline {2}\textcolor {Chapter }{Functionality}}{5}{chapter.2}%
-\contentsline {section}{\numberline {2.1}\textcolor {Chapter }{Methods}}{5}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}\textcolor {Chapter }{Groups1024Information}}{6}{subsection.2.1.1}%
-\contentsline {chapter}{References}{7}{chapter*.2}%
-\contentsline {chapter}{Index}{8}{section*.3}%
