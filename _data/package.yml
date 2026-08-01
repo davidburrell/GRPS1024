@@ -1,7 +1,7 @@
 name: GRPS1024
 version: "0.0.6"
 license: "Artistic-2.0"
-date: 2026-07-05
+date: 2026-07-31
 description: |
     Library of the groups of order 1024.
 
@@ -45,12 +45,14 @@ citeas: |
 bibtex: |
     @misc{ GRPS1024,
       author =           {Burrell, D.},
-      title =            {{GRPS1024}, {Library of the groups of order 1024.}, {V}ersion 0.0.6},
+      title =            {{GRPS1024},  {Library  of  the groups of order 1024.},
+                          {V}ersion 0.0.6},
       month =            {Jul},
       year =             {2026},
       note =             {GAP package},
-      howpublished =     {\href                                             {https://davidburrell.github.io/GRPS1024/}
-                          {\texttt{https://davidburrell.github.io/}\discretionary {}{}{}\texttt{GRPS1024/}}},
+      howpublished =     {\href       {https://davidburrell.github.io/GRPS1024/}
+                          {\texttt{https://davidburrell.github.io/}\discretionary
+                          {}{}{}\texttt{GRPS1024/}}},
       printedkey =       {Bur26}
     }
 
