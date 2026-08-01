@@ -16,7 +16,7 @@ For further information see:
 
 1. Clone the repo or download a version via releases and unpack to the "pkg" subdirectory of your GAP installation (i.e. ~/gap/pkg)
 2. Setup the lib directory:
-	1. Download descendants-lib.tar.gz from [here](https://www.dropbox.com/scl/fi/rdkog7pms0ujrzwdz2bud/descendants-lib.tar.gz?rlkey=513fdhagjy0rlv5lyd652peuv&st=faivkyfy&dl=0)
+	1. Download descendants-lib.tar.gz from Zenodo: [doi:10.5281/zenodo.21730555](https://doi.org/10.5281/zenodo.21730555)
 	2. Unpack archive into package folder via:
 	 `tar -xvf descendants-lib.tar.gz -C ~/gap/pkg/GRPS1024` 
 	 (change to match your gap installation if necessary)
@@ -51,6 +51,10 @@ For further information see:
 │   ├── Enum_512
 └── tst
 ```
+## Citing
+If you use the descendants/enumeration data, please cite the Zenodo dataset:
+David Burrell, *GRPS1024 descendant and enumeration library for the groups of 1024*, Zenodo, 2026, [doi:10.5281/zenodo.21730555](https://doi.org/10.5281/zenodo.21730555).
+
 ## Contact
 For questions, comments and or issues contact [David Burrell](mailto:davidburrell@me.com)
 
