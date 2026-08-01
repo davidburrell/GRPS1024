@@ -1,6 +1,3 @@
-#
-# LinearCentralizers: Centralizers in Special and General Linear Groups over Finite Fields
-#
 # This file is a script which compiles the package manual.
 #
 if fail = LoadPackage("AutoDoc", "2018.02.14") then
