@@ -19,6 +19,7 @@ Persons := [
     FirstNames := "David",
     LastName := "Burrell",
     WWWHome := "https://davidburrell.github.io/",
+    GitHubUsername := "davidburrell",
     Email := "davidburrell@me.com",
     IsAuthor := true,
     IsMaintainer := true,
@@ -28,26 +29,21 @@ Persons := [
   ),
 ],
 
-#SourceRepository := rec( Type := "TODO", URL := "URL" ),
-#IssueTrackerURL := "TODO",
-# PackageWWWHome := "https://https://github.com/davidburrell/GRPS1024/",
-# PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
-# README_URL     := Concatenation( ~.PackageWWWHome, "README" ),
-# ArchiveURL     := Concatenation( ~.PackageWWWHome,
-#                                  "/", ~.PackageName, "-", ~.Version ),
 GithubUser := "davidburrell",
 GithubRepository := ~.PackageName,
-GithubWWW := Concatenation("https://github.com/", ~.GithubUser, "/", ~.GithubRepository),
 
+SourceRepository := rec(
+    Type := "git",
+    URL := Concatenation("https://github.com/", ~.GithubUser, "/", ~.GithubRepository),
+),
+IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
 PackageWWWHome := Concatenation("https://", ~.GithubUser, ".github.io/", ~.GithubRepository, "/"),
 README_URL     := Concatenation( ~.PackageWWWHome, "README.md" ),
 PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
-# The following assumes you are using the Github releases system. If not, adjust
-# it accordingly.
-ArchiveURL     := Concatenation(~.GithubWWW,
-                    "/archive/refs/tags/v.", ~.Version),
-#https://github.com/davidburrell/GRPS1024/archive/refs/tags/v.0.0.1.zip
-ArchiveFormats := ".tar.gz .zip",
+ArchiveURL     := Concatenation( ~.SourceRepository.URL,
+                                 "/releases/download/v", ~.Version,
+                                 "/", ~.PackageName, "-", ~.Version ),
+ArchiveFormats := ".tar.gz",
 
 ##  Status information. Currently the following cases are recognized:
 ##    "accepted"      for successfully refereed packages
